@@ -1,0 +1,23 @@
+<table cellspacing="0" cellpadding="0" summary="" border="0">
+	<tr>
+	  <td>&nbsp;
+	  
+	  </td>
+	  <td>
+		<table cellspacing="0" cellpadding="0" summary="" border="0">
+			<tr>
+			  <td nowrap>&nbsp;<a href="http://a2.cadenceinnovation.com/cgi-bin/ePOS.cgi?action=Request" class="off">New</a>&nbsp;</td>
+			  <td width="20" valign="middle" nowrap><div align="center"><img src="../images/dot.gif" width="10" height="10"></div></td>
+			  <td nowrap>&nbsp;<a href="http://a2.cadenceinnovation.com/cgi-bin/ePOS.cgi?action=List&status=N" class="off">List</a>&nbsp;</td>
+		  	  <td width="20" valign="middle" nowrap><div align="center"><img src="../images/dot.gif" width="10" height="10"></div></td>
+			  <td nowrap>&nbsp;<a href="http://a2.cadenceinnovation.com/cgi-bin/ePOS.cgi?action=Search" class="off">Search</a>&nbsp;</td>
+		  	  <td width="20" valign="middle" nowrap><div align="center"><img src="../images/dot.gif" width="10" height="10"></div></td>
+			  <td nowrap>&nbsp;<a href="http://192.168.71.14:8080/go/ePOS/contacts.jsp?sort=supName" class="off">Suppliers</a>&nbsp;</td>			  
+			</tr>
+		</table>
+	  </td>
+	  <td>&nbsp;
+	  
+	  </td>
+	</tr>
+</table>

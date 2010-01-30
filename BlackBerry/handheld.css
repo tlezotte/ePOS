@@ -1,0 +1,59 @@
+/* CSS Document */
+
+body {
+	BACKGROUND-COLOR: #ffffff;
+}
+A.dark, A.dark:link, A.dark:visited, A.dark:active {
+	color: #336699;
+}
+.dark {
+	color: #336699;
+}
+.ErrorNameText {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #cc0000;
+}
+.DarkHeaderSubSub {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #003366;
+}
+.DarkHeaderSub {
+	FONT-WEIGHT: bold; FONT-SIZE: 13pt; COLOR: #003366;
+}
+.BGAccentVeryDark {
+	BACKGROUND-COLOR: #999966;
+}
+.BGAccentVeryDarkBorder {
+	background-color: #EFEFCF;
+	border: thin solid #999966;
+	//padding: 5px;
+}
+.NavBarActiveLink {
+	FONT-SIZE: 10pt; COLOR: #663300; 
+}
+.ColorHeaderSubSub {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #ffffcc;
+}
+.accentVerydark {
+	background-color: 999966;
+}
+.BGAccentDark {
+	BACKGROUND-COLOR: #cccc99;
+}
+.center {
+	text-align: center;
+}
+INPUT.button {
+	font-weight: bold;
+	color: #000000;
+	background-color: #EFEFCF;
+	border: thin solid #999966;
+}
+.blueNoteArea {
+	color: #FFFFFF;
+	font-weight: bold;
+	background-color: #014B94;
+	text-align: center;
+	border: thin solid #003366;
+}
+.blueNoteAreaBorder {
+	border: thin solid #003366;	
+}

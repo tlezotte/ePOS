@@ -1,0 +1,37 @@
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+<?php if ($_SESSION['request_access'] == 3) { ?>
+<table width="190"  border="0" cellspacing="0" cellpadding="0">
+	<tr>
+	  <td height="10" class="accentVerydark"><table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
+		  <tr>
+			<td width="10" height="10" valign="top"><img src="../images/menu_top_left.gif" width="10" height="10"></td>
+			<td align="center"><span class="ColorHeaderSubSub">Administration</span> </td>
+			<td width="10" height="10" valign="top"><img src="../images/menu_top_right.gif" width="10" height="10"></td>
+		  </tr>
+	  </table></td>
+	</tr>
+	<tr>
+	  <td class="BGAccentVeryDarkBorder"><table width="100%"  border="0" cellpadding="0" cellspacing="0">
+		  <tr>
+			<td><a href="javascript:void(0);" class="dark" onClick="MM_openBrWindow('../Administration/history.php?page=<?= $_SERVER[PHP_SELF]; ?>','history','scrollbars=yes,resizable=yes,width=875,height=800')" <?php help('', 'Get the history of this page', 'default'); ?>><strong> History </strong></a></td>
+		  </tr>
+	  </table></td>
+	</tr>
+	<tr>
+	  <td height="10" class="accentVerydark"><table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
+		  <tr>
+			<td width="10" height="10" valign="bottom"><img src="../images/menu_bottom_left.gif" width="10" height="10"></td>
+			<td><img src="../images/spacer.gif" width="10" height="10"></td>
+			<td width="10" height="10" valign="bottom"><img src="../images/menu_bottom_right.gif" width="10" height="10"></td>
+		  </tr>
+	  </table></td>
+	</tr>
+</table>
+<?php } ?>

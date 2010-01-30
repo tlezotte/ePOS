@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+	<channel>
+		<title>Capital Exprense</title>
+		<link>http://www.yourdomain.com/go/Request</link>
+		<description>List of Capital Exprense transactions using the Purchase Request System</description>
+		<pubDate>Mon, 15 Nov 2004 15:55:11 -0500</pubDate>
+		<copyright>2004 Your Company</copyright>
+		<webMaster>you@domain.com</webMaster>
+		<category>Purchase Request System</category>
+		<image>
+			<title>Your Company</title>
+			<url>http://intranet.yourdomain.com/Common/images/ventureRSS.gif</url>
+			<width>150</width>
+			<height>50</height>
+			<link>http://intranet.yourdomain.com/</link>
+		</image>
+		<item>
+			<title>test 2</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=42</link>
+			<author>Your Name</author>
+			<description>test another</description>
+			<category>Submitted</category>
+			<category>Your Domain</category>
+			<pubDate>2004-11-15</pubDate>
+		</item>
+		<item>
+			<title>debug RSS</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=43</link>
+			<author>Your Name</author>
+			<description>ok</description>
+			<category>Submitted</category>
+			<category>Your Company</category>
+			<pubDate>2004-11-15</pubDate>
+		</item>
+		<item>
+			<title>another RSS test</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=44</link>
+			<author>Your Name</author>
+			<description>lets work now</description>
+			<category>Submitted</category>
+			<category>Your Company</category>
+			<pubDate>2004-11-15</pubDate>
+		</item>
+		<item>
+			<title>attachment test</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=45</link>
+			<author>Your Name</author>
+			<description>summary of project</description>
+			<category>Submitted</category>
+			<category>Your Domain</category>
+			<pubDate>2004-11-15</pubDate>
+		</item>
+		<item>
+			<title>relabeled the CER database</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=46</link>
+			<author>Your Name</author>
+			<description> Summary of Project Description and Justifications  Summary of Project Description and Justifications</description>
+			<category>Submitted</category>
+			<category>Your Domain</category>
+			<pubDate>2004-11-15</pubDate>
+		</item>
+		<item>
+			<title>a new cer to test rss readers</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=47</link>
+			<author>Your Name</author>
+			<description>ummary of Project Description and Justifications</description>
+			<category>Submitted</category>
+			<category>Your Domain</category>
+			<pubDate>2004-11-15</pubDate>
+		</item>
+		<item>
+			<title>rss without preload</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=40</link>
+			<author>Your Name</author>
+			<description>rss summary</description>
+			<category>Submitted</category>
+			<category>Your Domain</category>
+			<pubDate>2004-11-14</pubDate>
+		</item>
+		<item>
+			<title>try it again</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=41</link>
+			<author>Your Name</author>
+			<description>test</description>
+			<category>Submitted</category>
+			<category>Your Company</category>
+			<pubDate>2004-11-14</pubDate>
+		</item>
+		<item>
+			<title>A RSS progress bar test</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=38</link>
+			<author>Your Name</author>
+			<description>Really Simple Syndication (RSS) can be understood as a web syndication protocol that is primarily used by news websites and weblogs. RSS allows a web developer to publish content on their website in a format that a computer program can easily understand and digest. This allows users to easily repackage the content on their own websites or blogs, or privately on their own computers.</description>
+			<category>Submitted</category>
+			<category>Your Company</category>
+			<pubDate>2004-11-13</pubDate>
+		</item>
+		<item>
+			<title>A RSS progress bar test</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=39</link>
+			<author>Your Name</author>
+			<description>test</description>
+			<category>Submitted</category>
+			<category>Your Company</category>
+			<pubDate>2004-11-13</pubDate>
+		</item>
+		<item>
+			<title>another RSS test</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=44</link>
+			<author>Your Name</author>
+			<description>lets work now</description>
+			<category>Approved</category>
+			<category>Your Company</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>debug RSS</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=43</link>
+			<author>Your Name</author>
+			<description>ok</description>
+			<category>Approved</category>
+			<category>Your Company</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>test 2</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=42</link>
+			<author>Your Name</author>
+			<description>test another</description>
+			<category>Approved</category>
+			<category>Your Domain</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>try it again</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=41</link>
+			<author>Your Name</author>
+			<description>test</description>
+			<category>Approved</category>
+			<category>Your Company</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>Let try a RSS feed test again</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=37</link>
+			<author>Your Name</author>
+			<description>RSS test</description>
+			<category>Approved</category>
+			<category>Your Domain</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>Hi Tim, this is just a &quot;test&#039; ok2</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=29</link>
+			<author></author>
+			<description>This is a summary &quot;test&quot; with a couple special chars !@#$%^&amp;*()-_=+`~[]{};:&#039;&quot;|</description>
+			<category>Approved</category>
+			<category>Your Company</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>Fix the Picture Tel system over at Doreka</title>
+			<link>http://www.yourdomain.com/go/Request/CER/detail.php?id=28</link>
+			<author>Your Name</author>
+			<description>This is a over all test. this test runs through all systems.  After this test we should just need some tweaks.</description>
+			<category>Approved</category>
+			<category>Your Domain</category>
+			<pubDate></pubDate>
+		</item>
+	</channel>
+</rss>

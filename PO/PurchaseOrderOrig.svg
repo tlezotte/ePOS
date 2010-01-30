@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: PDFTron PDF2SVG Converter (DEMO VERSION) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svgRoot"
+   viewBox="0 0 612 792"
+   xml:space="preserve"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   width="765"
+   height="990"
+   sodipodi:docname="PurchaseOrderOrig.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   sodipodi:docbase="C:\Documents and Settings\tlezotte\Desktop"
+   version="1.0"><metadata
+   id="metadata24"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
+   inkscape:window-height="1147"
+   inkscape:window-width="1600"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0.0"
+   guidetolerance="10.0"
+   gridtolerance="10.0"
+   objecttolerance="10.0"
+   borderopacity="1.0"
+   bordercolor="#666666"
+   pagecolor="#ffffff"
+   id="base"
+   width="765px"
+   height="990px"
+   showguides="false"
+   showgrid="true"
+   inkscape:zoom="0.95555556"
+   inkscape:cx="382.5"
+   inkscape:cy="495"
+   inkscape:window-x="-4"
+   inkscape:window-y="-4"
+   inkscape:current-layer="layer3" />
+<clipPath
+   id="clp1"
+   clip-rule="nonzero">
+<rect
+   x="0"
+   y="0"
+   width="612"
+   height="792"
+   id="rect4" />
+</clipPath>
+
+<defs
+   id="defs19">
+</defs>
+<style
+   type="text/css"
+   id="style21">
+
+.ps00 { stroke:#7F7FFF;fill:none; }
+.ps10 { stroke-width:0.000001; }
+.ps20 { 
+letter-spacing:0;word-spacing:0;font-family:Arial;font-size:11.461; }
+
+</style>
+<g
+   inkscape:groupmode="layer"
+   id="layer1"
+   inkscape:label="workarea"
+   style="display:inline"><rect
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+     id="rect7066"
+     width="569.36664"
+     height="52.833336"
+     x="28.5"
+     y="208.50002" /><rect
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+     id="rect13853"
+     width="568.29999"
+     height="13.6"
+     x="28.500002"
+     y="224" /><rect
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     id="rect2187"
+     width="138.43333"
+     height="96.533333"
+     x="452.49997"
+     y="24" /><rect
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+     id="rect3161"
+     width="137.89999"
+     height="11.9"
+     x="452.5"
+     y="52.5" /><rect
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+     id="rect5101"
+     width="139.2"
+     height="43.900002"
+     x="452"
+     y="76.5" /><rect
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+     id="rect15793"
+     width="554.40002"
+     height="52"
+     x="36"
+     y="624" /><rect
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+     id="rect15795"
+     width="554.79999"
+     height="42.299999"
+     x="36"
+     y="684.5" /><rect
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+     id="rect15797"
+     width="106.7"
+     height="52"
+     x="324.5"
+     y="624" /><rect
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.99999994;stroke-opacity:1"
+     id="rect15799"
+     width="106"
+     height="13.5"
+     x="484"
+     y="636.5" /><rect
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+     id="rect15801"
+     width="56.600006"
+     height="51.52"
+     x="430.89999"
+     y="624" /><rect
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+     id="rect16772"
+     width="50.540005"
+     height="41.580002"
+     x="324.5"
+     y="684.5" /><rect
+     style="fill:#ffffff;fill-opacity:1;stroke:#5b1a15;stroke-opacity:1"
+     id="rect16774"
+     width="215.42999"
+     height="23.700001"
+     x="56.25"
+     y="27.5" /><rect
+     style="fill:#5b1a15;fill-opacity:1;stroke:#5b1a15;stroke-opacity:1"
+     id="rect17745"
+     width="36"
+     height="22.933332"
+     x="236"
+     y="28" /><text
+     xml:space="preserve"
+     style="font-size:14.56982231px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="50.048565"
+     y="58.279289"
+     id="text18716"
+     transform="scale(1.2141518,0.8236202)"><tspan
+       sodipodi:role="line"
+       id="tspan18718"
+       x="50.048565"
+       y="58.279289"
+       style="font-size:28px">CADENCE</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:19.88331985px;font-style:normal;font-weight:normal;text-align:justify;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="31.100517"
+     y="111.24333"
+     id="text18720"
+     transform="scale(1.7751596,0.5633296)"><tspan
+       sodipodi:role="line"
+       id="tspan18722"
+       x="31.100517"
+       y="111.24333">INNOVATION</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:32px;font-style:normal;font-weight:bold;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Lucida Console"
+     x="246.65625"
+     y="48"
+     id="text18724"><tspan
+       sodipodi:role="line"
+       id="tspan18726"
+       x="246.65625"
+       y="48"
+       style="font-size:32px;font-weight:bold;fill:#ffffff;fill-opacity:1;font-family:Lucida Console">&gt;</tspan></text>
+<path
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 324,752 C 342.66667,752 361.33333,752 380,752 C 398.66667,752 417.33333,752 436,752 C 454.66667,752 473.33333,752 492,752 C 510.66667,752 529.33333,752 548,752 C 561.33333,752 574.66667,752 588,752"
+     id="path24698" /><path
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 484,740 C 484,741.26212 484,778.44402 484,764"
+     id="path24702" /><path
+     style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 180,208 C 180,213.33333 180,218.66667 180,224"
+     id="path24708" /><path
+     style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
+     d="M 64.3,236.5 C 64.3,244.97043 64.3,253.44085 64.3,261.91126"
+     id="path26650" /><g
+     id="g27625"><path
+       id="path24710"
+       d="M 180.5,236.51559 C 180.5,244.98602 180.5,253.45644 180.5,261.92685"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /><path
+       id="path26652"
+       d="M 180.3,207.53341 C 180.3,213.18157 180.3,218.82972 180.3,224.47786"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline" /><path
+       id="path26654"
+       d="M 180.5,224.42636 C 180.5,228.65091 180.5,232.87546 180.5,237.1"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline" /></g><g
+     style="display:inline"
+     id="g27630"
+     transform="translate(178.2,0.16659)"><path
+       id="path27632"
+       d="M 180.5,236.51559 C 180.5,244.98602 180.5,253.45644 180.5,261.92685"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /><path
+       id="path27634"
+       d="M 180.3,207.53341 C 180.3,213.18157 180.3,218.82972 180.3,224.47786"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline" /><path
+       id="path27636"
+       d="M 180.5,224.42636 C 180.5,228.65091 180.5,232.87546 180.5,237.1"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline" /></g><path
+     style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 421.1,236.68218 C 421.1,245.15261 421.1,253.62303 421.1,262.09344"
+     id="path27640" /><g
+     style="display:inline"
+     id="g27649"
+     transform="translate(294.6,-2.685e-2)"><path
+       id="path27651"
+       d="M 180.5,236.51559 C 180.5,244.98602 180.5,253.45644 180.5,261.92685"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /><path
+       id="path27653"
+       d="M 180.3,207.53341 C 180.3,213.18157 180.3,218.82972 180.3,224.47786"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline" /><path
+       id="path27655"
+       d="M 180.5,224.42636 C 180.5,228.65091 180.5,232.87546 180.5,237.1"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000012px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline" /></g><path
+     style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
+     d="M 509.9,236.5 C 509.9,244.97043 509.9,253.44085 509.9,261.91126"
+     id="path27657" /></g><g
+   inkscape:groupmode="layer"
+   id="layer3"
+   inkscape:label="workarea_text"
+   style="display:inline"><text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="34.198437"
+     y="112.01719"
+     id="text5104"><tspan
+       sodipodi:role="line"
+       id="tspan5106"
+       x="34.198437"
+       y="112.01719">Date:</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:10.80747318px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+     x="38.615597"
+     y="131.85117"
+     id="text5108"
+     transform="scale(0.9006228,1.1103428)"><tspan
+       sodipodi:role="line"
+       id="tspan5110"
+       x="38.615597"
+       y="131.85117"
+       style="font-family:Arial">To:</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.88390255px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+     x="33.139042"
+     y="195.29214"
+     id="text5112"
+     transform="scale(0.9903252,1.0097693)"><tspan
+       sodipodi:role="line"
+       id="tspan5114"
+       x="33.139042"
+       y="195.29214"
+       style="font-family:Arial">Attn:</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.49640274px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+     x="354.15176"
+     y="141.02254"
+     id="text5116"
+     transform="scale(0.9580336,1.0438047)"><tspan
+       sodipodi:role="line"
+       id="tspan5118"
+       x="354.15176"
+       y="141.02254"
+       style="text-align:justify;text-anchor:start;font-family:Arial">Ship-To:</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:12px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="523.51563"
+     y="90.316406"
+     id="text5120"><tspan
+       sodipodi:role="line"
+       id="tspan5122"
+       x="523.51563"
+       y="90.316406"
+       style="font-size:8px;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1">Our P.O. &amp; Part Number Must</tspan><tspan
+       sodipodi:role="line"
+       x="523.51563"
+       y="100.31641"
+       id="tspan5124"
+       style="font-size:8px;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1">Appear on all Packages, Invoices,</tspan><tspan
+       sodipodi:role="line"
+       x="523.51563"
+       y="110.31641"
+       id="tspan5126"
+       style="font-size:8px;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1">Shipping Papers &amp; Correspondence</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:8px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="41.007813"
+     y="633.82422"
+     id="text19697"><tspan
+       sodipodi:role="line"
+       id="tspan19699"
+       x="41.007813"
+       y="633.82422"
+       style="font-size:8px"><tspan
+   style="font-weight:bold"
+   id="tspan19715">Conditions of Purchase:</tspan> Except as noted above, this entire order is</tspan><tspan
+       sodipodi:role="line"
+       x="41.007813"
+       y="643.82422"
+       id="tspan19701"
+       style="font-size:8px">governed by the Cadence Innovation LLC Terms and Conditions, typically</tspan><tspan
+       sodipodi:role="line"
+       x="41.007813"
+       y="653.82422"
+       id="tspan19703"
+       style="font-size:8px">affixed hereto as attachment &quot;A&quot;.  If there is not an attachment please refer to:</tspan><tspan
+       sodipodi:role="line"
+       x="41.007813"
+       y="663.82422"
+       id="tspan19705"
+       style="font-size:8px">http://www.cadenceinnovation.com</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:8px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="330.56"
+     y="632.32001"
+     id="text19723"><tspan
+       sodipodi:role="line"
+       id="tspan19725"
+       x="330.56"
+       y="632.32001">Bill To:</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="329.28"
+     y="763.52002"
+     id="text19727"><tspan
+       sodipodi:role="line"
+       id="tspan19729"
+       x="329.28"
+       y="763.52002">Authorized Signature               Date</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="330.23999"
+     y="697.28003"
+     id="text19731"><tspan
+       sodipodi:role="line"
+       id="tspan19733"
+       x="330.23999"
+       y="697.28003"
+       style="fill:#ffffff;fill-opacity:1">Buyer</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="435.46094"
+     y="635.85352"
+     id="text20704"><tspan
+       sodipodi:role="line"
+       id="tspan20706"
+       x="435.46094"
+       y="635.85352">Subtotal:</tspan><tspan
+       sodipodi:role="line"
+       x="435.46094"
+       y="649.85352"
+       id="tspan20712" /></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="436.48001"
+     y="648.96002"
+     id="text21687"><tspan
+       sodipodi:role="line"
+       id="tspan21689"
+       x="436.48001"
+       y="648.96002"><tspan
+   style="font-size:11.19999981px;fill:#ffffff;fill-opacity:1"
+   id="tspan21691">Tax:</tspan>:</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="437.12"
+     y="672.64001"
+     id="text22678"><tspan
+       sodipodi:role="line"
+       id="tspan22680"
+       x="437.12"
+       y="672.64001">Total:</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="381.76001"
+     y="696.96002"
+     id="text23651"><tspan
+       sodipodi:role="line"
+       id="tspan23653"
+       x="381.76001"
+       y="696.96002">Name:</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="381.76001"
+     y="709.76001"
+     id="text23655"><tspan
+       sodipodi:role="line"
+       id="tspan23657"
+       x="381.76001"
+       y="709.76001">Phone:</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="382.07999"
+     y="723.20001"
+     id="text23659"><tspan
+       sodipodi:role="line"
+       id="tspan23661"
+       x="382.07999"
+       y="723.20001">Fax:</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:17.60000038px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="202.60464"
+     y="103.81395"
+     id="text23663"><tspan
+       sodipodi:role="line"
+       id="tspan23665"
+       x="202.60464"
+       y="103.81395">Purchase Order</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="33.600002"
+     y="220.8"
+     id="text23667"><tspan
+       sodipodi:role="line"
+       id="tspan23669"
+       x="33.600002"
+       y="220.8">Due Date</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="32.533333"
+     y="252.53333"
+     id="text24640"><tspan
+       sodipodi:role="line"
+       id="tspan24642"
+       x="32.533333"
+       y="252.53333">ITEM</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="186.93333"
+     y="221.06667"
+     id="text24644"><tspan
+       sodipodi:role="line"
+       id="tspan24646"
+       x="186.93333"
+       y="221.06667">Ship Via</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:10.39999962px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="75.9543"
+     y="246.87813"
+     id="text24648"><tspan
+       sodipodi:role="line"
+       id="tspan24650"
+       x="75.9543"
+       y="246.87813">Our Part Number/</tspan><tspan
+       sodipodi:role="line"
+       x="75.9543"
+       y="259.87813"
+       id="tspan24652">Vendor Part Number</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Arial"
+     x="241.33333"
+     y="252"
+     id="text24654"><tspan
+       sodipodi:role="line"
+       id="tspan24656"
+       x="241.33333"
+       y="252">Description</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Arial"
+     x="366.39999"
+     y="252.26666"
+     id="text24658"><tspan
+       sodipodi:role="line"
+       id="tspan24660"
+       x="366.39999"
+       y="252.26666">Unit Price</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Arial"
+     x="427.46667"
+     y="251.73332"
+     id="text24662"><tspan
+       sodipodi:role="line"
+       id="tspan24664"
+       x="427.46667"
+       y="251.73332">Quantity</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Arial"
+     x="479.46667"
+     y="252"
+     id="text24666"><tspan
+       sodipodi:role="line"
+       id="tspan24668"
+       x="479.46667"
+       y="252">UOM</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Arial"
+     x="516.80005"
+     y="252.53334"
+     id="text24670"><tspan
+       sodipodi:role="line"
+       id="tspan24672"
+       x="516.80005"
+       y="252.53334">Total Extension</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Arial"
+     x="364.79999"
+     y="221.06667"
+     id="text24674"><tspan
+       sodipodi:role="line"
+       id="tspan24676"
+       x="364.79999"
+       y="221.06667">F.O.B. Point</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Arial"
+     x="480.53333"
+     y="221.60001"
+     id="text24678"><tspan
+       sodipodi:role="line"
+       id="tspan24680"
+       x="480.53333"
+       y="221.60001">Payment Terms</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:6.4;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="34.97163"
+     y="770.73346"
+     id="text24704"><tspan
+       sodipodi:role="line"
+       id="tspan24706"
+       x="34.97163"
+       y="770.73346">REV 4/07 MIS</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:11.19999981px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="457.18185"
+     y="61.249027"
+     id="text27659"><tspan
+       sodipodi:role="line"
+       id="tspan27661"
+       x="457.18185"
+       y="61.249027">Rel#/Amd#</tspan></text>
+<text
+     xml:space="preserve"
+     style="font-size:19.2;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     x="456.82422"
+     y="43.630463"
+     id="text27663"><tspan
+       sodipodi:role="line"
+       id="tspan27665"
+       x="456.82422"
+       y="43.630463">PO#</tspan></text>
+</g><g
+   inkscape:groupmode="layer"
+   id="layer2"
+   inkscape:label="template"
+   style="opacity:0.30061346;display:none"
+   sodipodi:insensitive="true"><g
+     clip-path="url(#clp1)"
+     transform="matrix(1,0,0,-1,1.2558139,791.93422)"
+     id="g6">
+<g
+   id="q1"
+   class="">
+<g
+   id="xfrm2"
+   transform="scale(612,792)">
+<image
+   id="img1"
+   width="1"
+   height="1"
+   transform="matrix(1,0,0,-1,0,1)"
+   preserveAspectRatio="none"
+   image-rendering="optimizeSpeed"
+   xlink:href="Purchase Order_img1.png" />
+</g>
+</g>
+<g
+   id="xfrm3"
+   transform="scale(612,792)">
+<g
+   id="frm4"
+   transform="scale(1e-2,1e-2)">
+<text
+   transform="matrix(1,0,0,-1,0,44.2693)"
+   id="text13"><tspan
+     x="0 3.1861999 6.3724999 14.017 22.292 29.295 35.667999 43.312 50.957001 59.874001 63.060001 71.334999 77.708 87.254997 93.626999 96.814003"
+     y="0"
+     class="ps00 ps10 ps20"
+     id="tspan15"
+     style="font-size:11.46100044px;letter-spacing:0;word-spacing:0;fill:none;stroke:#7f7fff;stroke-width:0.000001;font-family:Arial">  PDF2SVG Demo  </tspan><tspan
+     x="0 8.2750998 16.549999 24.825001 28.011 34.383999 40.756001 43.943001 47.129002 50.945 57.318001 63.689999 66.876999 72.607002 78.980003"
+     y="11.461"
+     class="ps00 ps10 ps20"
+     id="tspan17"
+     style="font-size:11.46100044px;letter-spacing:0;word-spacing:0;fill:none;stroke:#7f7fff;stroke-width:0.000001;font-family:Arial">www.pdftron.c m</tspan></text>
+
+</g>
+</g>
+</g></g></svg>

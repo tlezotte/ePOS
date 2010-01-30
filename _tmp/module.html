@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link rel="stylesheet" href="/Common/js/reset-fonts-grids/css/reset-fonts-grids.css" type="text/css" media="screen" charset="utf-8" />
+
+<!-- Dependencies --> 
+<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
+
+<!-- Source file --> 
+<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/container/container-min.js"></script> 
+
+<!-- If not using Tooltip, Panel, Dialog, or SimpleDialog: --> 
+<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/container/container_core-min.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.1/build/container/assets/skins/sam/container.css" />
+<style type="text/css">
+
+.minimantle li, #minimantle li {
+  background-image:url(/Common/images/icons_1.5.gif);
+  background-repeat:no-repeat;
+}
+.btn-more-2, .hd li.on em, div.hd li.sparkle a, .hd, #mastheadbd .top, #mastheadbd, #doors li a, #today .ft li.on a{
+  background-image:url(/Common/images/grd-1px_1.1.gif);
+  background-repeat:repeat-x;
+}
+div.minimantle, #minimantle {
+  background-image:url(/Common/images/grd-4px_1.1.gif);
+  background-repeat:repeat-x;
+}
+.md{
+  background:#fff;
+  border:1px solid #b0bec7;
+}
+#left .md{
+  border:1px solid #91a7b4;
+  border-color:#b0bdc6 #91a7b4 #91a7b4 #b0bdc6;
+}
+.hd{
+  color:#18397c;
+  background-color:#fff;
+  background-position:bottom left;
+  border:1px solid #C6C58D;
+  /*border-bottom:1px solid #C6C58D;*/
+  text-align:left;
+}
+.hd li a{
+  color:#18397c;
+}
+.hd li .pipe{
+  background:#788a98;
+ /* border-right:1px solid #fff;*/
+}
+.hd li.on em{
+  border:1px solid #91a7b4;
+  border-top-color:#778a98;
+  /*border-bottom:1px solid #fff;*/
+  background-color:#fff;
+  background-position:0 -178px;
+}
+.hd li.first em{
+  border-left:none;
+}
+.hd li.on a{
+  color:#c63;
+}
+.minimantle,#sizetoggle{
+  border:1px solid #9CAEBA;
+  border-width:0 1px 1px 0;
+  background-color:#91A7B4;
+  background-position:0 -2041px;
+}
+.minimantle .md-sub, #sizetoggle .bd{
+  border:1px solid #B0BEC7;
+}
+.minimantle .md-sub2, #sizetoggle .bd{
+  border:1px solid #C6C58D;
+  margin:5px; 
+  background-color:#FFFFFF;
+}  
+#sizetoggle .bd{
+  border:1px solid #dde4ea;
+  border-color:#afbdc6 #556b78 #556b78 #afbdc6;
+}
+.minimantle h2 a, #minimantle h2 a{
+  color:#333;
+}
+.minimantle li, #minimantle li{
+  background-position:-8px 1px;
+  *background-position:-8px 2px;
+}
+/*body,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,p,form,fieldset,legend,input,img{margin:0;padding:0;}*/
+a:link,a:visited{text-decoration:none;}
+#today .bd a:visited,#news .bd a:visited{color:#69789C;}
+a:hover{text-decoration:underline;}
+ol:after, ul:after,
+.md:after, .md-sub:after, .hd:after, .bd:after, .ft:after {
+content:".";
+display:block;
+font-size:0px;
+line-height:0px;
+height:0;
+clear:both;
+visibility:hidden;
+}
+ol, ul, dl, .md, .md-sub, .hd, .bd, .ft {zoom:1;_height:1px;}
+.minimantle li {
+font:normal 77% verdana;
+padding:2px 0 2px 18px;
+}
+.bd span,.ft span{display:none;}
+.bd .current,.ft .current,.current span{display:block;}
+.md{
+position:relative;
+margin:0 0 10px;
+}
+.hd{
+position:relative;
+/*margin:-1px -1px 0;*/
+}
+.hd h2{
+position:relative;
+font:bold 100% arial;
+padding:1px 11px;
+/*border-bottom:1px solid #fff;*/
+}
+.bd{
+padding:5px 10px 10px;
+}
+.hide .bd,.hide .ft{display:none;}
+.hd ul{
+position:relative;
+width:100%;
+border-bottom:1px solid #fff;
+}
+.hd ul li{
+position:relative;
+float:left;
+}
+.hd li.last{
+float:right;
+_margin-right:-2px;
+}
+.hd li em{
+position:relative;
+display:block;
+width:99%;
+_width:99.5%;
+min-height:14px;
+_height:14px;
+padding:2px 0 0px;
+margin-right:-1px;
+border-right:0;
+}
+.hd li a{
+display:block;
+font:normal 92% arial;
+outline:none;
+text-align:left;
+white-space:nowrap;
+z-index:50;
+padding:1px;
+margin-top:-1px;
+}
+.hd li.on{
+z-index:60;
+margin-bottom:-1px;
+}
+.hd li.on em{
+padding-bottom:1px;
+_padding-bottom:2px;
+margin:-1px 0 -1px;
+*margin-bottom:-2px;
+}
+.hd li.on a{
+font-weight:bold;
+z-index:60;
+border:0;
+padding:1px;
+}
+.hd li.off .pipe,.hd li.on .pipe,.hd li.last .pipe,.hd li.sparkle .pipe{visibility:hidden;}
+.md-sub h3{
+font-size:100%;
+}
+.minimantle{
+position:relative;
+margin:10px 0;
+}
+#maincontent.md-sub{
+border-bottom:1px solid #fff;
+}
+.minimantle h2{
+font:bold 100% arial;
+margin-bottom:4px;
+}
+.minimantle ul{
+padding:5px 0 5px 10px;
+}
+.minimantle li{
+font:bold 85% verdana;
+padding:1px 0 1px 8px;
+*padding:0 0 0 8px;
+voice-family:"\"}\"";
+voice-family:inherit;
+property:value;
+*padding:0 0 0 8px;
+}
+.minimantle li a{
+margin-left:-15px;
+voice-family:"\"}\"";
+voice-family:inherit;
+property:value;
+margin-left:0;
+}
+.minimantle .hd {margin:-2px;}
+.minimantle .hd h2{margin:0;}
+.minimantle .hd a{color:#16387C !important;}
+.minimantle .hd a:hover{text-decoration: none;}
+</style>
+</head>
+
+<body class="yui-skin-sam">
+<center>
+    <div id="minimantle" class="md minimantle" style="width:800px">
+    <div id="maincontent" class="md-sub">
+    <div class="hd"><h2><a href="#">Purchase Order Requisition...</a></h2></div>
+        <!-- Start Panel One -->
+        <div id="information" class="md-sub2" style="margin-top:7px">
+            <div class="hd"><h2><a href="#">Information</a></h2></div>
+            data1
+        </div>
+        <!-- End Panel One -->
+        <!-- Start Panel Two -->
+        <div id="itemInformation" class="md-sub2">
+            <div class="hd"><h2><a href="#">Item Information</a></h2></div>
+            data2
+        </div>
+        <!-- End Panel Two -->
+        <!-- Start Panel Three -->
+        <div id="attachments" class="md-sub2">
+            <div class="hd"><h2><a href="#">Attachments</a></h2></div>
+            data2
+        </div>
+        <!-- End Panel Three -->
+        <!-- Start Panel Four -->
+        <div id="comments" class="md-sub2">
+            <div class="hd"><h2><a href="#">Comments</a></h2></div>
+            data2
+        </div>
+        <!-- End Panel Four -->
+        <!-- Start Panel Five -->
+        <div id="financeDepartment" class="md-sub2">
+            <div class="hd"><h2><a href="#">Finance Department</a></h2></div>
+            data2
+        </div>
+        <!-- End Panel Five -->
+        <!-- Start Panel Six -->
+        <div id="approvals" class="md-sub2">
+            <div class="hd"><h2><a href="#">Approvals</a></h2></div>
+            data2
+        </div>
+        <!-- End Panel Six --> 
+        <!-- Start Panel Seven -->
+        <div id="purchasingDepartment" class="md-sub2">
+            <div class="hd"><h2><a href="#" id="show" style="display: none;"><img src="../images/1rightarrow.gif" border="0" /> Purchasing Department</a><a href="#" id="hide"><img src="../images/1downarrow.gif" border="0" /> Purchasing Department</a></h2></div>
+            	<div id="purchasingDepartment_content">data2</div>
+        </div>
+        <!-- End Panel Seven -->                                         
+    </div>
+    </div>
+
+   <div class="container">
+        <h3>
+            <a href="#" id="show_pd" style="display: none;">Show</a>
+            <a href="#" id="hide_pd">Hide</a>
+            Header
+        </h3>
+        <div id="purchasingDepartment2" class="md-sub2">
+            <div class="bd">
+                <ul>
+                    <li><input type="checkbox" name="some_name" value="" id="some_name" /> &nbsp;Lorem ipsum dolor sit amet</li>
+                    <li><input type="checkbox" name="some_name" value="" id="some_name" /> &nbsp;Lorem ipsum dolor sit amet</li>
+                    <li><input type="checkbox" name="some_name" value="" id="some_name" /> &nbsp;Lorem ipsum dolor sit amet</li>
+                    <li><input type="checkbox" name="some_name" value="" id="some_name" /> &nbsp;Lorem ipsum dolor sit amet</li>
+                    <li><input type="checkbox" name="some_name" value="" id="some_name" /> &nbsp;Lorem ipsum dolor sit amet</li>
+                </ul>
+            </div> <!-- end .bd -->
+        </div> <!-- end .module -->
+    </div>    <!-- end .container -->    
+</center>
+
+<script type="text/javascript" charset="utf-8">
+    YAHOO.namespace("main");
+
+    function init() {
+        YAHOO.main.module = new YAHOO.widget.Module("purchasingDepartment_content");
+        YAHOO.main.show = new YAHOO.widget.Module("show_pd");
+        YAHOO.main.hide = new YAHOO.widget.Module("hide_pd");
+        YAHOO.main.module.render();
+
+        YAHOO.util.Event.addListener("show_pd", "click", YAHOO.main.module.show, YAHOO.main.module, true);
+        YAHOO.util.Event.addListener("show_pd", "click", YAHOO.main.hide.show, YAHOO.main.hide, true);
+        YAHOO.util.Event.addListener("show_pd", "click", YAHOO.main.show.hide, YAHOO.main.show, true);   
+        YAHOO.util.Event.addListener("hide_pd", "click", YAHOO.main.module.hide, YAHOO.main.module, true);
+        YAHOO.util.Event.addListener("hide_pd", "click", YAHOO.main.show.show, YAHOO.main.show, true);
+        YAHOO.util.Event.addListener("hide_pd", "click", YAHOO.main.hide.hide, YAHOO.main.hide, true);
+    }
+
+    YAHOO.util.Event.addListener(window, "load", init);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<requisitions>
+    <requisition id="61" po="82030">
+		<id>61</id>
+		<po>82030</po>
+        <requester eid="08745" date="October 24, 2001">Thomas Lezotte</requester>
+        <incareof eid=""></incareof>
+        <billtoplant id=""></billtoplant>
+        <shiptoplant id="3">Almont</shiptoplant>
+        <department id="57">Information Systems</department>
+        <vendor id="22"><![CDATA[]]></vendor>
+
+        <vendor2 id=""><![CDATA[]]></vendor2>
+        <fob><![CDATA[]]></fob>
+        <terms><![CDATA[Net 45 Prox]]></terms>
+        <job><![CDATA[]]></job>
+        <via><![CDATA[]]></via>
+        <duedate></duedate>
+        <purpose><![CDATA[Internet Training for Tom and Aldo]]></purpose>
+        <total>3,600.00</total>
+
+        <cer id=""></cer>
+        <creditcard>no</creditcard>
+        <private>no</private>
+        <hot>no</hot>
+        <level></level>
+        <status>Received</status>
+    </requisition>
+</requisitions>
+
+

@@ -1,0 +1,42 @@
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<table  border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>
+	<?php if ($_SESSION['request_access'] >= 1) { ?>
+	<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="../images/rM1on.gif" width="12" height="17"></td>
+        <td class="rightMenuON"><a href="../Administration/index.php" class="on">Administration</a> </td>
+        <td><img src="../images/rM2on.gif" width="12" height="17"></td>
+      </tr>
+    </table>
+	<?php } else { ?>
+	<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="../images/rM1on.gif" width="12" height="17"></td>
+        <td class="rightMenuON"><a href="../Administration/index.php" class="on">My Account</a> </td>
+        <td><img src="../images/rM2on.gif" width="12" height="17"></td>
+      </tr>
+    </table>
+	<?php } ?>	
+	</td>
+	<td><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="../images/rM1off.gif" width="12" height="17"></td>
+        <td class="rightMenuOFF"><a href="../CER/index.php" class="off">Capital Acquisition</a> </td>
+        <td><img src="../images/rM2off.gif" width="12" height="17"></td>
+      </tr>
+    </table></td>
+    <td><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="../images/rM1off.gif" width="12" height="17"></td>
+        <td class="rightMenuOFF"><a href="../PO/index.php" class="off">Requisition Request </a> </td>
+        <td><img src="../images/rM2off.gif" width="12" height="17"></td>
+      </tr>
+    </table></td>
+	<td width="5"><img src="../images/spacer.gif" width="5" height="10"></td>
+  </tr>
+</table>

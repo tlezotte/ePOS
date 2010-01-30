@@ -1,0 +1,1308 @@
+<?php
+/**
+ * Request System
+ *
+ * detail.php displays detailed information on PO.
+ *
+ * @version 1.5
+ * @link http://www.yourdomain.com/go/Request/
+ * @author	Thomas LeZotte (tom@lezotte.net)
+ *
+ * @package PO
+ * @filesource
+ *
+ * PHP Debug
+ * @link http://phpdebug.sourceforge.net/
+ * PDF Toolkit
+ * @link http://www.accesspdf.com/
+ */
+
+
+/**
+ * - Forward BlackBerry users to BlackBerry version
+ */
+require_once('../include/BlackBerry.php');
+ 
+/**
+ * - Start Page Loading Timer
+ */
+include_once('../include/Timer.php');
+$starttime = StartLoadTimer();
+/**
+ * - Set debug mode
+ */
+$debug_page = false;
+include_once('debug/header.php');
+$Dbg->DatabaseName = "Request";
+
+/**
+ * - Database Connection
+ */
+require_once('../Connections/connDB.php');
+/**
+ * - Config Information
+ */
+require_once('../include/config2.php'); 
+/**
+ * - Check User Access
+ */
+require_once('../security/check_user.php');
+/**
+ * - Form Validation
+ */
+//include('vdaemon/vdaemon.php');
+
+ 
+ 
+/* -------------------------------------------------------------				
+ * ------------- START FINANCE PROCESSING -------------------
+ * -------------------------------------------------------------
+ */
+if ($_POST['action'] == 'finance_update') {
+	$changePlant = false;
+	$changeDepartment = false;
+	
+	/* ----- Controller changes Plant ----- */
+	if ($_POST['currentPlant'] != $_POST['plant']) {
+		$plant_sql = "UPDATE PO SET plant='" . $_POST['plant'] . "' WHERE id=" . $_POST['type_id'];					// Update Bill to Plant
+		$dbh->query($plant_sql);
+		
+		// Record transaction for history
+		debug_capture($_SESSION['eid'], $_POST['id'], $default['debug_capture'], $_SERVER['PHP_SELF'], addslashes(htmlentities($plant_sql)));
+		
+		$changePlant = true;
+	}
+	
+	/* ----- Controller changes Department ----- */
+	if ($_POST['currentDepartment'] != $_POST['department']) {
+		$dept_sql = "UPDATE PO SET department='" . $_POST['department'] . "' WHERE id=" . $_POST['type_id'];			// Update Department
+		$dbh->query($dept_sql);
+		
+		// Record transaction for history
+		debug_capture($_SESSION['eid'], $_POST['id'], $default['debug_capture'], $_SERVER['PHP_SELF'], addslashes(htmlentities($dept_sql)));		
+		
+		$changeDepartment = false;	// Turned off because we are not checking for departments now (HQ)
+	}														
+
+	/* ----- Forward to new Controller ----- */	
+	if ($changePlant OR $changeDepartment) {
+		$forward = "router.php?type_id=" . $_POST['type_id'] . "&approval=controller&plant=" . $_POST['plant'] . "&department=" . $_POST['department'];		// Check Controler
+		header("Location: ".$forward);
+		exit();
+	}
+	
+	/* ----- Cycle through items ----- */
+	for ($x=1; $x <= $_POST['items_count']; $x++) {
+		$item = "item" . $x;					// Item ID
+		$item_COA = $item . "_newCOA";			// COA value 
+		$item_COAid = $item_COA . "id";			// COA value ID
+		
+		if (strlen($_POST[$item_COAid]) > 0) {
+			$item_sql = "UPDATE Items SET cat='" . $_POST[$item_COAid] . "' WHERE id=" . $_POST[$item];
+			$dbh->query($item_sql);
+			
+			// Record transaction for history
+			debug_capture($_SESSION['eid'], $_POST['id'], $default['debug_capture'], $_SERVER['PHP_SELF'], addslashes(htmlentities($item_sql)));			
+		}
+	}
+	
+	/* ----- Update CER numbers and Credit Card ----- */
+	$po_sql = "UPDATE PO SET cer='" . $_POST['cer'] . "', 
+							 creditcard='" . $_POST['creditcard'] . "' 
+				 WHERE id=" . $_POST['type_id'];
+	$dbh->query($po_sql);					 
+				 
+	// Record transaction for history
+	debug_capture($_SESSION['eid'], $_POST['id'], $default['debug_capture'], $_SERVER['PHP_SELF'], addslashes(htmlentities($po_sql)));		 	
+}
+/* -------------------------------------------------------------				
+ * ------------- END FINANCE PROCESSING -------------------
+ * -------------------------------------------------------------
+ */
+ 
+ 
+ 
+/* -------------------------------------------------------------
+ * ---------- START DENIAL PROCESSING -------------------------- 
+ * -------------------------------------------------------------
+ */
+if (substr($_POST['auth'],0,3) == 'app' OR $_POST['auth'] == 'controller') {
+	if (array_key_exists('yes_x', $_POST)) { $yn = "yes"; }					// Set approval button pressed
+	if (array_key_exists('no_x', $_POST)) { $yn = "no"; }					// Set approval button pressed
+
+	/* ---------------- Check to see if a Comment was provided ---------------- */
+	if (empty($_POST['Com']) AND $yn == 'no') {
+		$_SESSION['error'] = "A denied Requisition requires you to enter a Comment.";
+		$_SESSION['redirect'] = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+		
+		header("location: ../error.php");
+		exit();		
+	}
+		
+	/* ---------------- Change status for non approved request ---------------- */
+	if ($yn == 'no') {
+	  setRequestStatus($_POST['type_id'], 'X');		// Update PO status
+	}
+
+	/* ---------------- Update the approvals for the PO ---------------- */
+	$auth_sql = "UPDATE Authorization 
+				 SET ".$_POST['auth']."yn='" . $yn . "', 
+					 ".$_POST['auth']."Date=NOW(), 
+					 ".$_POST['auth']."Com='" . htmlentities($_POST['Com'], ENT_QUOTES, 'UTF-8') . "'
+				 WHERE id = ".$_POST['auth_id'];
+	$dbh->query($auth_sql);
+				 
+	// Record transaction for history
+	debug_capture($_SESSION['eid'], $_POST['id'], $default['debug_capture'], $_SERVER['PHP_SELF'], addslashes(htmlentities($auth_sql)));
+
+	if ($_POST['auth'] == 'controller') {
+		$forward = "router.php?type_id=" . $_POST['type_id'] . "&approval=app0";									// Forward to Approver 1
+	} else {
+		$forward = "router.php?type_id=" . $_POST['type_id'] . "&approval=" . $_POST['auth'] . "&yn=" . $yn;		// Record Controllers Approval
+	}
+	
+	header("Location: ".$forward);
+	exit();
+}
+/* -------------------------------------------------------------
+ * ---------- END DENIAL PROCESSING ----------------------------
+ * -------------------------------------------------------------
+ */
+
+ 
+
+/* -------------------------------------------------------------				
+ * ------------- START UPDATE PROCESSING -----------------------
+ * -------------------------------------------------------------
+ */
+if ($_POST['stage'] == "update") {
+	/* -------------------------------------------------------------
+	 * ---------- START REQUESTER PROCESSING ----------------------- 
+	 * -------------------------------------------------------------
+	 */
+	if ($_POST['auth'] == "req") {
+		/* ---------------- START CANCEL PURCHASE ORDER -------------- */ 
+		if ($_POST['cancel'] == 'yes') {
+			setRequestStatus($_POST['type_id'], 'C');		// Update PO status
+			
+			header("location: list.php?action=my&access=0");
+			exit();
+		}
+		/* ---------------- END CANCEL PURCHASE ORDER -------------- */
+
+
+		/* ------------- Adding tracking information ------------- */
+		if (array_key_exists('addTracking_x',$_POST)) {									   
+			$tracking=new Tracking();
+			$tracking->add();
+		}
+		
+		/* ------------- Update tracking information ------------- */
+		if (array_key_exists('updateTracking_x',$_POST)) {
+			$tracking=new Tracking();
+			$tracking->update(); 
+		}
+
+		
+		/* ---------------- START RESEND PURCHASE ORDER ---------------- */ 		
+		if (array_key_exists('restorerequest_x',$_POST)) {
+			setRequestStatus($_POST['type_id'], 'N');											// Update PO status
+					
+			header("location: router.php?type_id=" . $_POST['type_id'] . "&approval=app0");		// Forward to router as new Request
+			exit();	
+		}
+		/* --------- END RESEND PURCHASE ORDER ----------------------- */		
+	}
+    /* -------------------------------------------------------------
+	 * ---------- END REQUESTER PROCESSING ----------------------- 
+	 * -------------------------------------------------------------
+	 */
+}
+/* -------------------------------------------------------------				
+ * ------------- END UPDATE PROCESSING -----------------------
+ * -------------------------------------------------------------
+ */
+
+
+
+/* -------------------------------------------------------------				
+ * ------------- START PURCHASING PROCESSING -------------------
+ * -------------------------------------------------------------
+ */
+if ($_POST['action'] == 'purchasing_update') {
+	/* ------------- Adding supplier contact information ------------- */
+	if (array_key_exists('sendPO_x',$_POST)) {
+		print_r($_POST);
+		exit();	
+	}
+	
+	/* ------------- Adding supplier contact information ------------- */
+	if (array_key_exists('addContact_x',$_POST)) {
+		$purchasing=new Purchasing();
+		$purchasing->addContact();
+	}
+
+	/* ================== PAYMENTS =========================== */	
+	/* ------------- Adding payment information ------------- */
+	if (array_key_exists('addPayment_x',$_POST)) {									   
+		$payment=new Payment();
+		$payment->add();
+		$sql="select";
+		$mysql=new Mysql();
+		$mysql->capture($sql);		
+	}
+
+	/* ------------- Update payment information ------------- */
+	if (array_key_exists('updatePayments_x',$_POST)) {
+		$payment=new Payment();
+		$payment->update();
+	}	
+	/* ================== PAYMENTS =========================== */
+	
+		
+	/* ------------- Purchaser marks Request as Complete ------------- */
+	if (array_key_exists('completed_x',$_POST)) {
+		$purchasing=new Purchasing();
+		$purchasing->vendorKickoff();
+	}
+	
+	/* ------------- Add Vendor and change Terms when Purchasing changes Vendor ------------- */
+	$purchasing=new Purchasing();
+	if (strlen($_POST['vendSearch']) > 0) {
+		$purchasing->update(true);
+	} else {
+		$purchasing->update();
+	}
+}
+/* -------------------------------------------------------------				
+ * ------------- END PURCHASING PROCESSING -------------------
+ * -------------------------------------------------------------
+ */
+
+
+/* -------------------------------------------------------------				
+ * ------------- START DATABASE CONNECTIONS -------------------
+ * -------------------------------------------------------------
+ */
+/* ------------- Getting PO information ------------- */
+$PO = $dbh->getRow("SELECT *, DATE_FORMAT(reqDate,'%M %d, %Y') AS _reqDate
+				    FROM PO
+				    WHERE id = ?",array($_GET['id']));
+/* ------------- Getting Authoriztions for above PO ------------- */
+$AUTH = $dbh->getRow("SELECT * FROM Authorization WHERE type_id = ? and type = 'PO'",array($PO['id']));
+/* ------------- Get Employee names from Standards database ------------- */
+$EMPLOYEES = $dbh->getAssoc("SELECT eid, CONCAT(fst,' ',lst) AS name
+							 FROM Standards.Employees");
+/* ------------- Getting Vendor information from Standards ------------- */							  
+$VENDOR = $dbh->getAssoc("SELECT BTVEND, BTNAME FROM Standards.Vendor");
+/* ------------- Getting Plant information from Standards ------------- */	
+$plant_sql = "SELECT id, name FROM Standards.Plants WHERE status = '0'";
+$PLANTS = $dbh->getAssoc($plant_sql);
+$plant_query = $dbh->prepare($plant_sql);
+$PLANT = $dbh->getRow("SELECT * FROM Standards.Plants WHERE id=" . $PO['plant']);
+/* ------------- Getting Department information from Standards ------------- */	
+$dept_sql = "SELECT id, CONCAT('(',id,') ',name) AS fullname FROM Standards.Department WHERE status='0' ORDER BY name";
+$DEPARTMENT = $dbh->getAssoc($dept_sql);
+$dept_query = $dbh->prepare($dept_sql);	
+/* ------------- Getting Category information from Standards ------------- */	
+$COA = $dbh->getAssoc("SELECT CONCAT(coa_account,'-',coa_suffix) AS id, coa_description AS name 
+					   FROM Standards.COA 
+					   WHERE coa_plant=" . $PLANT['conbr']);
+/* ------------- Getting CER numbers from CER ------------- */							 						 
+$cer_sql = "SELECT id, cer FROM CER WHERE cer IS NOT NULL ORDER BY cer+0";	
+$CER = $dbh->getAssoc($cer_sql);	
+$cer_query = $dbh->prepare($cer_sql);
+/* ------------- Getting Vendor terms from Standards ------------- */
+$terms_sql = "SELECT terms_id AS id, terms_name AS name FROM Standards.VendorTerms ORDER BY name";
+$TERMS = $dbh->getAssoc($terms_sql);
+$terms_query = $dbh->prepare($terms_sql);	
+/* ------------- Get Purchase Request users ------------- */
+$purchaser_sql  = $dbh->prepare("SELECT U.eid, E.fst, E.lst, E.email 
+								 FROM Users U
+								   INNER JOIN Standards.Employees E ON U.eid = E.eid
+								 WHERE  U.role = 'purchasing' 
+								   AND E.status = '0'
+								   AND U.eid <> '08745'
+								 ORDER BY E.lst ASC");
+/* ------------- Get Purchase Request users ------------- */
+$financer_sql  = $dbh->prepare("SELECT U.eid, E.fst, E.lst, E.email 
+								 FROM Users U
+								   INNER JOIN Standards.Employees E ON U.eid = E.eid
+								 WHERE  U.role = 'financing' 
+								   AND E.status = '0'
+								   AND U.eid <> '08745'
+								 ORDER BY E.lst ASC");								 
+/* ------------- Get Vendor Payments ------------- */
+$payments = $dbh->query("SELECT * FROM Payments WHERE request_id=" . $PO['id'] . " AND pay_status='0' ORDER BY pay_date ASC");
+$payments_count = $payments->numRows();
+/* ------------- Get Tracking Information ------------- */
+$TRACKING = getTrackingInformation($PO['id']);
+/* ------------- Getting Comments Information ------------- */
+$post_sql = "SELECT * FROM Postings 
+			 WHERE request_id = ".$_GET['id']." 
+			   AND type = 'global'
+			 ORDER BY posted DESC";
+$LAST_POST = $dbh->getRow($post_sql);		// Get the last posted comment
+$post_query = $dbh->prepare($post_sql);						   
+$post_sth = $dbh->execute($post_query);
+$post_count = $post_sth->numRows();							 																	 				  	
+/* -------------------------------------------------------------				
+ * ------------- END DATABASE CONNECTIONS -------------------
+ * -------------------------------------------------------------
+ */
+
+
+/* -------------------------------------------------------------				
+ * ------------- START VARIABLES -------------------------------
+ * -------------------------------------------------------------
+ */
+/* ------------- Check current level and current user ------------- */
+if (array_key_exists('approval', $_GET)) {
+	if ($AUTH[$AUTH['level']] != $_SESSION['eid']) {
+		$message="<img src=\"/Common/images/nochange.gif\" align=\"absmiddle\" /> You are not authorized to approve this requisition.";
+		unset($_GET['approval']);
+	} elseif ($_GET['approval'] != $AUTH['level']) {
+		$message="<img src=\"/Common/images/nochange.gif\" align=\"absmiddle\" /> This Requisition is currently not at your approval level.";
+		unset($_GET['approval']);
+	}
+} elseif ($PO['status'] == 'N') {
+	$message="<div class=\"appJump\"<img src=\"/Common/images/action.gif\" align=\"absmiddle\" /> This requisition is waiting for action from " . caps($EMPLOYEES[$AUTH[$AUTH['level']]] . "</div>");
+}
+
+/* ------------- Get who denied the Requisition ------------- */
+if ($PO['status'] == 'X') {
+	$who = array_search('no', $AUTH);
+	$canceled = '#' . substr($who,0,4) . 'Status';
+}
+
+$disableSendPO = (!empty($PO['po']) AND $PO['reqType'] == 'blanket') ? '' : ' class="disabled"';	
+$phone_char=array('(', ')', ' ', '-', '.');
+$format_phone="(000)000-0000";
+/* -------------------------------------------------------------				
+ * ------------- END VARIABLES -------------------------------
+ * -------------------------------------------------------------
+ */
+?>
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title><?= $default['title1']; ?></title>
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta name="copyright" content="2004 Your Company" />
+    <meta name="author" content="Thomas LeZotte" />
+    
+    <link type="text/css" rel="stylesheet" href="/Common/js/yahoo/reset-fonts-grids/reset-fonts-grids.css" />   	<!-- CSS Grid -->
+    <link type="text/css" rel="stylesheet" href="/Common/js/yahoo/fonts/fonts-min.css" />							<!-- Datatable, TabView -->
+    <link type="text/css" rel="stylesheet" href="/Common/js/yahoo/assets/skins/sam/datatable.css" />				<!-- Datatable -->
+	<link type="text/css" rel="stylesheet" href="/Common/js/yahoo/assets/skins/sam/tabview.css" /> 					<!-- TabView -->
+    <link type="text/css" rel="stylesheet" href="/Common/js/yahoo/assets/skins/custom/menu.css">  					<!-- Menu -->  
+    
+    <link type="text/css" rel="stylesheet" href="/Common/Print.css" media="print" />
+    <link type="text/css" rel="stylesheet" href="../default_yui.css" />
+    <link type="text/css" rel="alternate stylesheet" title="seasonal" href="/Common/themes/christmas/default.css" />
+    <link type="text/css" rel="alternate stylesheet" title="night" href="/Common/themes/night/default.css" />
+
+    <?php if ($default['rss'] == 'on') { ?>
+    <link rel="alternate" type="application/rss+xml" title="<?= $default['title1']; ?> Announcements" href="<?= $default['URL_HOME']; ?>/data/<?= $default['rss_file']; ?>">
+    <link rel="alternate" type="application/rss+xml" title="Capital Acquisition Announcements" href="<?= $default['URL_HOME']; ?>/data/<?= $default['rss_file']; ?>">
+    <?php } ?>
+
+	<script type="text/javascript" src="/Common/js/styleswitcher.js"></script>
+    
+    <script type="text/javascript" src="/Common/js/jquery/jquery-min.js"></script>
+    <script type="text/javascript" src="/Common/js/jquery/ui/ui.datepicker-min.js"></script>
+</head>
+<body class="yui-skin-sam">
+  <div id="doc3" class="yui-t7">
+    <div id="hd">
+      <div class="yui-gb">
+          <div class="yui-u first">
+            <img src="/Common/images/CompanyPrint.gif" name="Print" width="437" height="61" id="Print" />
+            <a href="../home.php" title="<?= $default['title1']; ?>|Home Page"><img src="/Common/images/Company.gif" width="300" height="50" border="0" id="CompanyLogo"></a> 
+          </div>
+          <div class="yui-u" id="centerTitle"><!-- Center Title Area -->&nbsp;<?php if ($_SESSION['request_access'] >= 2) { ?><span style="text-align:center"><a href="<?= $default['URL_HOME']; ?>/PO/detail.php?<?= $_SERVER['QUERY_STRING']; ?>" class="DarkHeaderSubSub">Switch to original</a></span><?php } ?></div>
+<div class="yui-u">
+              <div id="applicationTitle" style="font-weight:bold;font-size:115%;text-align:right"><?= $language['label']['title1']; ?>&nbsp;</div>
+              <div id="loggedInUser" class="loggedInUser" style="text-align:right"><strong><a href="../Administration/user_information.php" class="loggedInUser" title="User Task|Edit your user information"><?= caps($_SESSION['fullname']); ?></a></strong>&nbsp;<a href="../logout.php" class="loggedInUser" title="User Task|Selecting [logout] will Log you out of the <?= $default[title1]; ?> and stop automatic cookie login">[logout]</a>&nbsp;</div>
+              <div id="styleSwitcher" style="text-align:right">Themes: <span id="defaultStyle" class="style" title="Theme Selector|Default Theme"><a href="#" onclick="setActiveStyleSheet('default'); return false;"><img src="/Common/images/spacer.gif" width="14" height="10" border="0" /></a></span><span id="seasonalStyle" class="style" title="Theme Selector|Seasonal Theme - Christmas Season"><a href="#" onclick="setActiveStyleSheet('seasonal'); return false;"><img src="/Common/images/spacer.gif" width="14" height="10" border="0" /></a></span><span id="nightStyle" class="style" title="Theme Selector|Night Scape Theme"><a href="#" onclick="setActiveStyleSheet('night'); return false;"><img src="/Common/images/spacer.gif" width="14" height="10" border="0" /></a></span>&nbsp;</div>
+          </div>
+      </div>		      
+    </div>
+   <div id="bd">
+	<div class="yui-g" id="mm"><?php include('../include/main_menu.php'); ?></div>
+	<div class="yui-g">
+        <form action="<?= $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data" name="Form" id="Form" style="padding-top:10px" runat="vdaemon">
+          <div id="requestStatusContainer" style="width:800px;margin-left: auto;margin-right:auto;">
+            <div id="requestStatusTitle">Status Indicator</div>
+            <div id="requestStatus" title="User Task|Click the Requisition Status window to jump to approvals panel"><?= reqStatus($PO['status']); ?><input type="hidden" name="status" value="<?= $PO['status']; ?>" /></div>
+          </div>             
+          <div id="minimantle" class="md minimantle" style="width:800px;margin-left: auto;margin-right:auto;">
+            <div id="maincontent" class="md-sub">
+              <div class="hd" style="height:25px"><h2>Purchase Order Requisition...</h2></div>
+              <!-- Start Panel One -->
+              <div id="information_panel" class="md-sub2">
+                <p id="information_title">Information</p>
+                <div id="information_content" style="margin:10px">
+                  <table width="100%" align="center" border="0">
+                    <tr>
+                      <td nowrap="nowrap">Requisition Number:</td>
+                      <td class="label"><?= $_GET['id']; ?></td>
+                      <td nowrap="nowrap"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td nowrap="nowrap">Blanket Order:</td>
+                          <td width="35" align="right"><a href="blanket_list.php" rel="gb_page_center[700, 600]" title="Blanket Order List|Click here to get a list of approved Blanket Orders"><img src="../images/detail.gif" width="18" height="20" border="0" align="absmiddle" /></a></td>
+                        </tr>
+                      </table></td>
+                      <td class="label"><table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td class="label"><a href="../CER/detail.php?id=<?= $PO['cer']; ?>" class="dark" rel="gb_page_fs[]">
+                            <?= $CER[$PO['cer']]; ?>
+                          </a></td>
+                          <td><?php if (!empty($PO['cer'])) { ?>
+                              <a href="<?= $default['URL_HOME']; ?>/CER/print.php?id=<?= $PO['cer']; ?>" title="Print Center|Click here to print this Capital Acquisition Request"><img src="../images/printer.gif" border="0" align="absmiddle" /></a>
+                              <?php } ?></td>
+                        </tr>
+                      </table></td>
+                    </tr>
+                    <tr>
+                      <td width="12%" nowrap="nowrap">Purchase Order  Number:</td>
+                      <td width="45%" class="label"><?= ($PO['creditcard'] == 'yes') ? "Credit Card" : $PO['po']; ?></td>
+                      <td width="13%" nowrap="nowrap"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td nowrap="nowrap">CER Number:</td>
+                            <td width="35" align="right"><a href="cer_list.php" rel="gb_page_center[700, 600]" title="Capital Acquistion List|Click here to get a list of approved Capital Acquisition Requests"><img src="../images/detail.gif" width="18" height="20" border="0" align="absmiddle" /></a></td>
+                          </tr>
+                      </table></td>
+                      <td width="26%" class="label"><table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td class="label"><a href="../CER/detail.php?id=<?= $PO['cer']; ?>" class="dark" rel="gb_page_fs[]">
+                              <?= $CER[$PO['cer']]; ?>
+                            </a></td>
+                            <td><?php if (!empty($PO['cer'])) { ?>
+                                <a href="<?= $default['URL_HOME']; ?>/CER/print.php?id=<?= $PO['cer']; ?>" title="Print Center|Click here to print this Capital Acquisition Request"><img src="../images/printer.gif" border="0" align="absmiddle" /></a>
+                                <?php } ?></td>
+                          </tr>
+                      </table></td>
+                    </tr>
+                    <tr>
+                      <td>Requisitioner:</td>
+                      <td class="label"><?= caps($EMPLOYEES[$PO['req']]); ?></td>
+                      <td nowrap="nowrap">Requisition Date:</td>
+                      <td class="label"><?= $PO['_reqDate']; ?></td>
+                    </tr>
+                    <?php if (!empty($PO['incareof']) AND $PO['req'] != $PO['incareof']) { ?>
+                    <tr>
+                      <td><img src="/Common/images/menupointer2.gif" width="4" height="7" align="absmiddle" /> In Care Of:</td>
+                      <td class="label"><?= caps($EMPLOYEES[$PO['incareof']]); ?></td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <?php } ?>
+                    <tr>
+                      <td height="5" colspan="4"><img src="../images/spacer.gif" width="5" height="5" /></td>
+                    </tr>
+                    <?php if (strlen($PO['sup2']) == 6) { ?>
+                    <tr>
+                      <td nowrap="nowrap">Final Vendor: </td>
+                      <td nowrap="nowrap" class="label"><?= caps($VENDOR[$PO['sup2']]) . " (" . strtoupper($PO['sup2']) . ")"; ?>
+                      <?php
+					  /* Getting suppliers from Suppliers */						 
+					  $SUPPLIER = $dbh->getRow("SELECT BTVEND AS id, BTNAME AS name, BTADR1 AS address, BTADR3 AS city, BTPRCD AS state, BTPOST AS zip5, BTWPAG AS web
+												FROM Standards.Vendor
+												WHERE BTVEND = '".$PO['sup2']."'");		
+					  ?>                      <span class="padding"><a href="../Common/vendor_map.php?id=<?= strtoupper($SUPPLIER['id']); ?>&amp;name=<?= caps($SUPPLIER['name']); ?>&amp;address=<?= $SUPPLIER['address']; ?> <?= $SUPPLIER['city']; ?>, <?= $SUPPLIER['state']; ?> <?= $SUPPLIER['zip5']; ?>" title="Information Center|<?= caps($SUPPLIER['name']); ?>'s Location" rel="gb_page_center[602, 602]"><img src="/Common/images/map.gif" width="20" height="20" border="0" align="absmiddle" /></a>
+                      <?php if (!empty($SUPPLIER['web'])) { ?>
+                      &nbsp;<a href="http://<?= $SUPPLIER['web']; ?>" title="Information Center|<?= caps($SUPPLIER['name']); ?>'s website." rel="gb_page_fs[]"><img src="/Common/images/globe.gif" width="18" height="18" border="0" align="absmiddle" /></a>
+                      <?php } ?>
+                      <a href="../Administration/vendor_details.php?id=<?= $SUPPLIER[id]; ?>" title="Information Center|<?= caps($SUPPLIER['name']); ?> information" rel="gb_page[400, 511]"><img src="../images/detail.gif" width="18" height="20" border="0" align="absmiddle" /></a>&nbsp;<a href="fax.php?id=<?= $PO['sup']; ?>&amp;company=<?= $PO['company']; ?>" title="Fax Center|Generate a fax cover sheet" target="_blank"><img src="../images/printer.gif" border="0" align="absmiddle" /></a></span></td>
+                      <td>Kickoff Date:</td>
+                      <td class="label"><?= ($AUTH['issuerDate'] == '0000-00-00 00:00:00' OR is_null($AUTH['issuerDate'])) ? $blank : date("F j, Y", strtotime($AUTH['issuerDate'])); ?></td>
+                    </tr>
+                    <?php } ?>
+                    <tr>
+                      <td nowrap="nowrap"><?= (empty($PO['po'])) ? Recommended : Final; ?>
+                        Vendor:</td>
+                      <td nowrap="nowrap" class="label"><?= caps($VENDOR[$PO['sup']]) . " (" . strtoupper($PO['sup']) . ")"; ?>
+                          <?php
+					  /* Getting suppliers from Suppliers */						 
+					  $SUPPLIER = $dbh->getRow("SELECT BTVEND AS id, BTNAME AS name, BTADR1 AS address, BTADR3 AS city, BTPRCD AS state, BTPOST AS zip5, BTWPAG AS web
+												FROM Standards.Vendor
+												WHERE BTVEND = '".$PO['sup']."'");		
+					  ?><span class="padding"><a href="../Common/vendor_map.php?id=<?= strtoupper($SUPPLIER['id']); ?>&amp;name=<?= caps($SUPPLIER['name']); ?>&amp;address=<?= $SUPPLIER['address']; ?> <?= $SUPPLIER['city']; ?>, <?= $SUPPLIER['state']; ?> <?= $SUPPLIER['zip5']; ?>" title="Information Center|<?= caps($SUPPLIER['name']); ?>'s Location" rel="gb_page_center[602, 602]"><img src="/Common/images/map.gif" width="20" height="20" border="0" align="absmiddle" /></a>
+                          <?php if (!empty($SUPPLIER['web'])) { ?>
+                            &nbsp;<a href="http://<?= $SUPPLIER['web']; ?>" title="Information Center|<?= caps($SUPPLIER['name']); ?>'s website." rel="gb_page_fs[]"><img src="/Common/images/globe.gif" width="18" height="18" border="0" align="absmiddle" /></a>
+                            <?php } ?>
+                            <a href="../Administration/vendor_details.php?id=<?= $SUPPLIER[id]; ?>" title="Information Center|<?= caps($SUPPLIER['name']); ?> information" rel="gb_page[400, 511]"><img src="../images/detail.gif" width="18" height="20" border="0" align="absmiddle" /></a>&nbsp;<a href="fax.php?id=<?= $PO['sup']; ?>&amp;company=<?= $PO['company']; ?>" title="Fax Center|Generate a fax cover sheet" target="_blank"><img src="../images/printer.gif" border="0" align="absmiddle" /></a></span></td>
+                      <?php if (strlen($PO['sup2']) != 6 AND !empty($PO['po'])) { ?>
+                      <td>Kickoff Date:</td>
+                      <td class="label"><?= ($AUTH['issuerDate'] == '0000-00-00 00:00:00' OR is_null($AUTH['issuerDate'])) ? $blank : date("F j, Y", strtotime($AUTH['issuerDate'])); ?></td>
+                      <?php } else { ?>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <?php } ?>
+                    </tr>
+                    <!--          <tr>
+                <td>Company:</td>
+                <td class="label"><?= caps($COMPANY[$PO[company]]); ?></td>
+                <td nowrap>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>-->
+                    <tr>
+                      <td>Bill to Plant: </td>
+                      <td class="label"><?= caps($PLANTS[$PO['plant']]); ?>
+                          <input type="hidden" name="currentPlant" id="currentPlant" value="<?= $PO['plant']; ?>" /></td>
+                      <td>Deliver to Plant: </td>
+                      <td class="label"><?= caps($PLANTS[$PO['ship']]); ?></td>
+                    </tr>
+                    <tr>
+                      <td>Department:</td>
+                      <td class="label"><?= caps($DEPARTMENT[$PO['department']]); ?>
+                          <input type="hidden" name="currentDepartment" id="currentDepartment" value="<?= $PO['department']; ?>" /></td>
+                      <td>Job Number: </td>
+                      <td class="label"><?= $PO['job']; ?></td>
+                    </tr>
+                    <tr>
+                      <td height="5" colspan="4"><img src="../images/spacer.gif" width="5" height="5" /></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" nowrap="nowrap">Purpose / Usage:</td>
+                      <td colspan="3" class="label"><?= caps(stripslashes($PO['purpose'])); ?></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <!-- End Panel One -->
+              <!-- Start Panel Two -->
+              <div id="itemInformation" class="md-sub2">
+                <p id="itemInformation_title">Item Information</p>
+                <div id="itemInformation_content" style="margin:10px">
+                <div id="taskBar"><a href="comments.php?request_id=<?= $_GET['id']; ?>&eid=<?= $_SESSION['eid']; ?>" title="Actions Menu|View All Details" rel="gb_page_center[675,325]"><img src="/Common/images/menu-collapsed.gif" border="0" align="absmiddle">&nbsp;View All Details&nbsp;</a></div>
+                  <div id="itemsTable"></div>
+                </div>
+              </div>
+              <!-- End Panel Two -->
+              <!-- Start Panel Three -->
+              <div id="track_panel" class="md-sub2">
+                <p id="track_title">Track Shipments</p>
+                <div id="track_content" style="margin:10px">
+                  <div id="taskBar"><div id="addTracking" style="display:none; text-align:left;">Tracking number: <input name="track_number" type="text" id="track_number" size="30" maxlength="30" /> <input name="addTracking" type="image" src="../images/button.php?i=w90.png&l=Add" alt="Add Tracking Number" border="0"><hr color="#FFFFFF" size="1px" noshade></div><div id="addTrackingToggle"><img src="../images/add.gif" width="12" height="12" border="0" align="absmiddle">&nbsp;Tracking Number&nbsp;</div>
+                  </div>
+                  <div id="track_tabs">
+                    <ul class="ui-tabs-nav">
+                      <li><a href="#track_tabs-main"><span>List</span></a></li>
+                      <?php for ($t=0; $t < count($TRACKING); $t++) { ?>
+                      <li><a href="#track_tabs-<?= $t; ?>"><span><?= $TRACKING[$t][track_number]; ?></span></a></li>
+                      <?php } ?>
+                    </ul>
+                    <div id="track_tabs-main" class="ui-tabs-panel">
+                    	<div id="shipmentListTable"></div>
+                    </div>
+                    <?php for ($t=0; $t < count($TRACKING); $t++) { ?>
+                    <div id="track_tabs-<?= $t; ?>" class="ui-tabs-panel" >
+                      <div id="<?= $TRACKING[$t][track_number]; ?>Table"></div>
+                    </div>
+                    <?php } ?>
+                  </div>
+                </div>
+              </div>              
+              <!-- End Panel Three -->
+              <!-- Start Panel Four -->
+              <div id="attachments_panel" class="md-sub2">
+                <p id="attachments_title">Attachments</p>
+                <div id="attachments_content" style="margin:10px">
+                  <div id="taskBar"><div id="uploadFile" style="display:none; text-align:left">Choose a file to upload: <input name="file" type="file" size="38"> <input name="submitUpload" type="image" src="../images/button.php?i=w90.png&l=Upload" alt="Upload File" border="0"><hr color="#FFFFFF" size="1px" noshade></div><div id="uploadToggle"><img src="/Common/images/upload.gif" width="16" height="16" border="0" align="absmiddle">&nbsp;Upload File&nbsp;</div>
+                  </div>
+                  <div id="attachmentsTable"></div>
+                </div>
+              </div>
+              <!-- End Panel Four -->
+              <!-- Start Panel Five -->
+              <div id="comments_panel" class="md-sub2">
+                <p id="comments_title">Comments</p>
+                <div id="comments_content" style="margin:10px">
+                  <div id="taskBar"><a href="comments.php?request_id=<?= $_GET['id']; ?>&eid=<?= $_SESSION['eid']; ?>" title="Actions Menu|Post a new comment" rel="gb_page_center[675,325]"><img src="../images/add.gif" width="12" height="12" border="0" align="absmiddle">&nbsp;New Comment&nbsp;</a></div>
+                <?php if ($post_count > 0) { ?>  
+                  <div id="commentsCounter">
+                    There <?= ($post_count > 1) ? are : is; ?> currently <strong><?= $post_count; ?></strong> comment<?= ($post_count > 1) ? s : ''; ?>. 
+                      The last comment was posted on <strong><?= date('F d, Y \a\t H:i A', strtotime($LAST_POST['posted'])); ?></strong>.
+                      <br>
+                      <br>
+                      <div class="clickToView">Click to view all Comments.</div>
+                  </div>
+                  <?php } else { ?>
+                  <div id="commentsCounter">There are currently <strong>NO</strong> comments.</div>
+                  <?php } ?>
+                  <div width="95%" border="0" align="center" id="commentsArea" style="display:none"> <br>
+                  <?php
+					$count=0;
+					while($post_sth->fetchInto($POST)) {
+						$count++;
+				  ?>
+                      <div class="comment">
+                        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td width="55" rowspan="3" valign="top" class="comment_datenum"><div class="comment_month">
+                                <?= date("M", strtotime($POST['posted'])); ?>
+                              </div>
+                                <div class="comment_day">
+                                  <?= date("d", strtotime($POST['posted'])); ?>
+                                </div>
+                              <div class="comment_year">
+                                  <?= date("y", strtotime($POST['posted'])); ?>
+                              </div></td>
+                            <td class="comment_wrote"><?= caps($EMPLOYEES[$POST[eid]]); ?> wrote... </td>
+                          </tr>
+                          <tr>
+                            <td class="commentbody"><?= caps(stripslashes($POST['comment'])); ?></td>
+                          </tr>
+                          <tr>
+                            <td class="comment_date"><?= date("h:i A", strtotime($POST['posted'])); ?></td>
+                          </tr>
+                        </table>
+                      </div>
+                    <br>
+                    <?php } ?>
+                  </div>
+                </div>
+              </div>
+              <!-- End Panel Five -->
+              <!-- Start Panel Six -->
+              <?php if ($_SESSION['request_role'] == 'controller' OR $_SESSION['request_role'] == 'executive') { ?>
+              <div id="financeDepartment_panel" class="md-sub2">
+                <p id="financeDepartment_title">Finance Department</p>
+                <div id="financeDepartment_content" style="margin:10px">
+                    <!-- ===================== START BILLING TAB ===================== -->
+                    <table width="100%" border="0" cellspacing="5" cellpadding="0" id="financeInfo">
+                      <tr>
+                        <td width="194" nowrap>CER Number:</td>
+                    <td width="150" class="label"><a href="../CER/detail.php?id=<?= $PO['cer']; ?>" class="dark" rel="gb_page_fs[]">
+                      <?= $CER[$PO['cer']]; ?>
+                      </a></td>
+                    <td nowrap><!--Credit Card Purchase:--></td>
+                    <td width="187"><!--<select name="creditcard" id="creditcard" >
+                                        <option value="no" <?= ($PO['creditcard'] == 'no') ? selected : $blank; ?>>No</option>
+                                        <option value="yes" <?= ($PO['creditcard'] == 'yes') ? selected : $blank; ?>>Yes</option>
+                                      </select>--></td>
+                  </tr>
+                  <tr>
+                    <td nowrap><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td nowrap>Change CER Number:</td>
+                          <td width="35" align="right"><a href="cer_list.php" rel="gb_page_center[700, 600]" title="Capital Acquision List|Click here to get a list of approved Capital Acquisition Requests"><img src="../images/detail.gif" width="18" height="20" border="0" align="absmiddle"></a></td>
+                        </tr>
+                        </table></td>
+                    <td><select name="cer" id="cer">
+                      <option value="0">Select One</option>
+                      <?php
+                        $cer_sth = $dbh->execute($cer_query);	
+                        while($cer_sth->fetchInto($DATA)) {
+                            echo "  <option value=\"".$DATA['id']."\">".caps($DATA['cer'])."</option>\n";
+                        }
+                        ?>
+                      </select></td>
+                    <td nowrap><!--In Budget:--></td>
+                    <td><!--<select name="inBudget" id="inBudget">
+                                        <option value="no" <?= ($PO['inBudget'] == 'no') ? selected : $blank; ?>>No</option>
+                                        <option value="yes" <?= ($PO['inBudget'] == 'yes') ? selected : $blank; ?>>Yes</option>
+                                      </select>--></td>
+                  </tr>
+                  <tr>
+                    <td height="5" colspan="4" nowrap><img src="../images/spacer.gif" width="5" height="5"></td>
+                  </tr>
+                  <tr>
+                    <td nowrap>Bill to Plant: </td>
+                    <td class="label"><?= caps($PLANTS[$PO['plant']]); ?></td>
+                    <td nowrap>Department:</td>
+                    <td nowrap class="label"><?= caps($DEPARTMENT[$PO['department']]); ?></td>
+                  </tr>
+                  <tr>
+                    <td nowrap>Change Bill to Plant: </td>
+                    <td><select name="plant" id="plant">
+                      <option value="0">Select One</option>
+                      <?php
+                        $plant_sth = $dbh->execute($plant_query);	
+                        while($plant_sth->fetchInto($DATA)) {
+                            $selected = ($PO['plant'] == $DATA['id']) ? selected : $blank;
+                            echo "  <option value=\"".$DATA['id']."\" ".$selected.">".caps($DATA['name'])."</option>\n";
+                        }
+                        ?>
+                      </select></td>
+                    <td nowrap>Change Department:</td>
+                    <td><select name="department" id="department">
+                      <option value="0">Select One</option>
+                      <?php
+                        $dept_sth = $dbh->execute($dept_query);	
+                        while($dept_sth->fetchInto($DEPT)) {
+                            $selected = ($PO['department'] == $DEPT['id']) ? selected : $blank;
+                            echo "  <option value=\"".$DEPT['id']."\" ".$selected.">".caps($DEPT['fullname'])."</option>\n";
+                        }
+                        ?>
+                      </select></td>
+                  </tr>
+                  <tr>
+                    <td height="5" colspan="4" nowrap><img src="../images/spacer.gif" width="5" height="5"></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td><!--<input name="updaterequest" type="image" src="../images/button.php?i=w130.png&l=Update Request" alt="Update Request" border="0">-->
+                      <input name="action" type="hidden" id="action" value="finance_update">
+                      &nbsp;</td>
+                  </tr>
+                 </table>
+                 <!-- ===================== END BILLING TAB ===================== -->
+                </div>
+              </div>
+              <?php } ?>
+              <!-- End Panel Six -->
+              <!-- Start Panel Seven -->
+              <div id="approvals_panel" class="md-sub2">
+                <p id="approvals_title">Approvals</p>
+                <div id="approvals_content" style="margin:10px">
+                  <table border="0">
+                    <tr class="hd">
+                      <td height="25" nowrap>&nbsp;</td>
+                      <td width="30" nowrap>&nbsp;</td>
+                      <td nowrap><h2>Name</h2></td>
+                      <td nowrap><h2>Date</h2></td>
+                      <td width="30" align="center" nowrap><a href="javascript:void(0);" title="Requestion Metrics|Days between Approvals"><img src="/Common/images/clock.gif" width="16" height="16" border="0"></a></td>
+                      <td width="30" align="center" nowrap><a href="javascript:void(0);" title="Message Center|Number of comments submitted by each Approver"><img src="../images/comments.gif" width="19" height="16" border="0"></a></td>
+                      <td width="400" ><h2>Comments</h2></td>
+                      <td>
+                        <?= (array_key_exists('approval', $_GET)) ? '<h2>Approval</h2>' : $blank; ?></td>
+                    </tr>
+                    <tr id="reqStatus">
+                      <td nowrap><img src="/Common/images/spacer.gif" width="22" height="20" align="absmiddle">Requester:</td>
+                      <td align="center" nowrap><a href="comments.php?eid=<?= $PO['req']; ?>&request_id=<?= $PO['id']; ?>&type=private" title="Message Center|Send a private message to <?= caps($EMPLOYEES[$PO['req']]); ?>" rel="gb_page_center[675,325]"><img src="../images/comments.gif" border="0"></a></td>
+                      <td nowrap class="label"><?= caps($EMPLOYEES[$PO['req']]); ?></td>
+                      <td nowrap class="label"><?= $PO['_reqDate']; ?></td>
+                      <td align="center" nowrap class="TrainActive">-</td>
+                      <td align="center" nowrap class="TrainActive"><a href="javascript:void(0);" class="checkComments"><?= checkComments($_GET['id'], $PO['req']); ?></a></td>
+                      <td nowrap>&nbsp;</td>
+                      <td nowrap>&nbsp;</td>
+                    </tr>
+                    <!-- END REQUESTER -->
+                    <?php if (strlen($AUTH['controller']) == 5) { ?>
+                    <!-- START CONTROLLER -->
+                    <tr id="controllerStatus">
+                      <td nowrap><img src="/Common/images/spacer.gif" width="22" height="20" align="absmiddle">Controller:</td>
+                      <td align="center" nowrap><?php if ($AUTH['level'] == 'controller') { ?>
+                          <img src="../images/resend_email.gif" title="Message Center|Email approvel request to <?= caps($EMPLOYEES[$AUTH['controller']]); ?>">
+                          <?php } else { ?>
+                          <a href="comments.php?eid=<?= $AUTH['controller']; ?>&request_id=<?= $PO['id']; ?>&type=private" title="Message Center|Send a private message to <?= caps($EMPLOYEES[$AUTH['controller']]); ?>" rel="gb_page_center[675,325]"><img src="../images/comments.gif" border="0"></a>
+                          <?php } ?>                      </td>
+                      <td nowrap class="label"><?= caps($EMPLOYEES[$AUTH['controller']]); ?></td>
+                      <td nowrap class="label"><?php if (isset($AUTH['controllerDate'])) { echo date("F d, Y", strtotime($AUTH['controllerDate'])); } ?></td>
+                      <td align="center" nowrap class="TrainActive"><?php if (isset($AUTH['controllerDate'])) { echo abs(ceil((strtotime($PO['reqDate']) - strtotime($AUTH['controllerDate'])) / (60 * 60 * 24))); } ?></td>
+                      <td align="center" nowrap class="TrainActive"><a href="javascript:void(0);" class="checkComments">
+                        <?= checkComments($_GET['id'], $AUTH['controller']); ?>
+                      </a></td>
+                      <td nowrap class="label"><?= displayAppComment('controller', $_GET['approval'], $AUTH['controller'], $AUTH['controllerCom'], $AUTH['controllerDate']); ?></td>
+                      <td nowrap><?= displayAppButtons($_GET['id'], $_GET['approval'], 'controller', $AUTH['controller'], $AUTH['controllerDate']); ?></td>
+                    </tr>
+                    <?php } ?>
+                    <!-- END CONTROLLER -->
+                    
+                    <!-- START APPROVER 1 -->
+                    <tr id="app1Status">
+                      <td nowrap><img src="/Common/images/spacer.gif" width="22" height="20" align="absmiddle"><?= $language['label']['app1']; ?>:</td>
+           	    	  <td align="center" nowrap><?php if ($AUTH['level'] == 'app1') { ?>
+                          <img src="../images/resend_email.gif" title="Email approvel request to <?= caps($EMPLOYEES[$AUTH['app1']]); ?>">
+                          <?php } else { ?>
+                          <a href="comments.php?eid=<?= $AUTH['app1']; ?>&request_id=<?= $PO['id']; ?>&type=private" title="Message Center|Send a private message to <?= caps($EMPLOYEES[$AUTH['app1']]); ?>" rel="gb_page_center[675,325]"><img src="../images/comments.gif" border="0"></a>
+                          <?php } ?>                      </td>
+                      <td nowrap class="label"><?= displayApprover($_GET['id'], 'app1', $AUTH['app1'], $AUTH['app1Date']); ?></td>
+                      <td nowrap class="label"><?php if (isset($AUTH['app1Date'])) { echo date("F d, Y", strtotime($AUTH['app1Date'])); } ?></td>
+                      <td align="center" nowrap class="TrainActive"><?php if (isset($AUTH['app1Date'])) { echo abs(ceil((strtotime($PO['reqDate']) - strtotime($AUTH['app1Date'])) / (60 * 60 * 24))); } ?></td>
+                      <td align="center" nowrap class="TrainActive"><a href="javascript:void(0);" class="checkComments">
+                        <?= checkComments($_GET['id'], $AUTH['app1']); ?>
+                      </a></td>
+                      <td nowrap class="label"><?= displayAppComment('app1', $_GET['approval'], $AUTH['app1'], $AUTH['app1Com'], $AUTH['app1Date']); ?></td>
+                      <td nowrap><?= displayAppButtons($_GET['id'], $_GET['approval'], 'app1', $AUTH['app1'], $AUTH['app1Date']); ?></td>
+                    </tr>
+                    <!-- END APPROVER 1 -->
+                    
+                    <?php if (strlen($AUTH['app2']) == 5 OR $PO['status'] == 'N') { ?>
+                    <!-- START APPROVER 2 -->
+                    <tr id="app2Status">
+                      <td nowrap><img src="/Common/images/spacer.gif" width="22" height="20" align="absmiddle"><?= $language['label']['app2']; ?>:</td>
+    <td align="center" nowrap><?php if ($AUTH['level'] == 'app2') { ?>
+                          <img src="../images/resend_email.gif" title="Email approvel request to <?= caps($EMPLOYEES[$AUTH['app2']]); ?>">
+                          <?php } else { ?>
+                          <a href="comments.php?eid=<?= $AUTH['app2']; ?>&request_id=<?= $PO['id']; ?>&type=private" title="Message Center|Send a private message to <?= caps($EMPLOYEES[$AUTH['app2']]); ?>" rel="gb_page_center[675,325]"><img src="../images/comments.gif" border="0"></a>
+                          <?php } ?>                      </td>
+                      <td nowrap class="label"><?= displayApprover($_GET['id'], 'app2', $AUTH['app2'], $AUTH['app2Date']); ?></td>
+                      <td nowrap class="label"><?php if (isset($AUTH['app2Date'])) { echo date("F d, Y", strtotime($AUTH['app2Date'])); } ?></td>
+                      <td align="center" nowrap class="TrainActive"><?php if (isset($AUTH['app2Date'])) { echo abs(ceil((strtotime($AUTH['app1Date']) - strtotime($AUTH['app2Date'])) / (60 * 60 * 24))); } ?></td>
+                      <td align="center" nowrap class="TrainActive"><a href="javascript:void(0);" class="checkComments">
+                        <?= checkComments($_GET['id'], $AUTH['app2']); ?>
+                      </a></td>
+                      <td nowrap class="label"><?= displayAppComment('app2', $_GET['approval'], $AUTH['app2'], $AUTH['app2Com'], $AUTH['app2Date']); ?></td>
+                      <td nowrap><?= displayAppButtons($_GET['id'], $_GET['approval'], 'app2', $AUTH['app2'], $AUTH['app2Date']); ?></td>
+                    </tr>
+                    <!-- END APPROVER 2 -->
+                    <?php } ?>
+                    
+                    <?php if (strlen($AUTH['app3']) == 5 OR $PO['status'] == 'N') { ?>
+                    <!-- END APPROVER 3 -->
+                    <tr id="app3Status">
+                      <td nowrap><img src="/Common/images/spacer.gif" width="22" height="20" align="absmiddle"><?= $language['label']['app3']; ?>:</td>
+            <td align="center" nowrap><?php if ($AUTH['level'] == 'app3') { ?>
+                          <img src="../images/resend_email.gif" title="Email approvel request to <?= caps($EMPLOYEES[$AUTH['app3']]); ?>">
+                          <?php } else { ?>
+                          <a href="comments.php?eid=<?= $AUTH['app3']; ?>&request_id=<?= $PO['id']; ?>&type=private" title="Message Center|Send a private message to <?= caps($EMPLOYEES[$AUTH['app3']]); ?>" rel="gb_page_center[675,325]"><img src="../images/comments.gif" border="0"></a>
+                          <?php } ?>                      </td>
+                      <td nowrap class="label"><?= displayApprover($_GET['id'], 'app3', $AUTH['app3'], $AUTH['app3Date']); ?></td>
+                      <td nowrap class="label"><?php if (isset($AUTH['app3Date'])) { echo date("F d, Y", strtotime($AUTH['app3Date'])); } ?></td>
+                      <td align="center" nowrap class="TrainActive"><?php if (isset($AUTH['app3Date'])) { echo abs(ceil((strtotime($AUTH['app2Date']) - strtotime($AUTH['app3Date'])) / (60 * 60 * 24))); } ?></td>
+                      <td align="center" nowrap class="TrainActive"><a href="javascript:void(0);" class="checkComments">
+                        <?= checkComments($_GET['id'], $AUTH['app3']); ?>
+                      </a></td>
+                      <td nowrap class="label"><?= displayAppComment('app3', $_GET['approval'], $AUTH['app3'], $AUTH['app3Com'], $AUTH['app3Date']); ?></td>
+                      <td nowrap><?= displayAppButtons($_GET['id'], $_GET['approval'], 'app3', $AUTH['app3'], $AUTH['app3Date']); ?></td>
+                    </tr>
+                    <!-- END APPROVER 3 -->
+                    <?php } ?>
+                    
+                    <?php if (strlen($AUTH['app4']) == 5 OR $PO['status'] == 'N') { ?>
+                    <!-- START APPROVER 4 -->
+                    <tr id="app4Status">
+                      <td nowrap><img src="/Common/images/spacer.gif" width="22" height="20" align="absmiddle"><?= $language['label']['app4']; ?>:</td>
+            <td align="center" nowrap><?php if ($AUTH['level'] == 'app4') { ?>
+                          <img src="../images/resend_email.gif" title="Email approvel request to <?= caps($EMPLOYEES[$AUTH['app4']]); ?>">
+                          <?php } else { ?>
+                          <a href="comments.php?eid=<?= $AUTH['app4']; ?>&request_id=<?= $PO['id']; ?>&type=private" title="Message Center|Send a private message to <?= caps($EMPLOYEES[$AUTH['app4']]); ?>" rel="gb_page_center[675,325]"><img src="../images/comments.gif" border="0"></a>
+                          <?php } ?>                      </td>
+                      <td nowrap class="label"><?= displayApprover($_GET['id'], 'app4', $AUTH['app4'], $AUTH['app4Date']); ?></td>
+                      <td nowrap class="label"><?php if (isset($AUTH['app4Date'])) { echo date("F d, Y", strtotime($AUTH['app4Date'])); } ?></td>
+                      <td align="center" nowrap class="TrainActive"><?php if (isset($AUTH['app4Date'])) { echo abs(ceil((strtotime($AUTH['app3Date']) - strtotime($AUTH['app4Date'])) / (60 * 60 * 24))); } ?></td>
+                      <td align="center" nowrap class="TrainActive"><a href="javascript:void(0);" class="checkComments">
+                        <?= checkComments($_GET['id'], $AUTH['app4']); ?>
+                      </a></td>
+                      <td nowrap class="label"><?= displayAppComment('app4', $_GET['approval'], $AUTH['app4'], $AUTH['app4Com'], $AUTH['app4Date']); ?></td>
+                      <td nowrap><?= displayAppButtons($_GET['id'], $_GET['approval'], 'app4', $AUTH['app4'], $AUTH['app4Date']); ?></td>
+                    </tr>
+                    <!-- END APPROVER 4 -->
+                    <?php } ?>
+                    
+                    <?php if (!is_null($PO['po'])) { ?>
+                    <!-- START PURCHASER -->
+                    <tr id="issuerStatus">
+                      <td nowrap><img src="/Common/images/spacer.gif" width="22" height="20" align="absmiddle">Purchaser: </td>
+                      <td align="center" nowrap><a href="comments.php?eid=<?= $AUTH['issuer']; ?>&request_id=<?= $PO['id']; ?>&type=private" title="Message Center|Send a private message to <?= caps($EMPLOYEES[$AUTH['issuer']]); ?>" rel="gb_page_center[675,325]"><img src="../images/comments.gif" border="0"></a></td>
+                      <td nowrap class="label"><?= caps($EMPLOYEES[$AUTH['issuer']]); ?></td>
+                      <td nowrap class="label"><?= date("F j, Y", strtotime($AUTH['issuerDate'])); ?></td>
+                      <td align="center" nowrap class="TrainActive"><?php if (isset($AUTH['issuerDate'])) { echo abs(ceil((strtotime($PO['reqDate']) - strtotime($AUTH['issuerDate'])) / (60 * 60 * 24))); } ?></td>
+                      <td align="center" nowrap class="TrainActive"><a href="javascript:void(0);" class="checkComments">
+                        <?= checkComments($_GET['id'], $AUTH['issuer']); ?>
+                      </a></td>
+                      <td nowrap>&nbsp;</td>
+                      <td nowrap>&nbsp;</td>
+                    </tr>
+                    <!-- END PURCHASER -->
+                    <?php } ?>
+                    
+                    <!-- START TOTAL -->
+                    <tr class="xpHeaderTotal">
+                      <td height="25" nowrap>Totals:</td>
+                      <td nowrap>&nbsp;</td>
+                      <td nowrap>&nbsp;</td>
+                      <td nowrap>&nbsp;</td>
+                      <td align="center" nowrap><?= abs(ceil((strtotime($REQUEST['reqDate']) - strtotime($AUTH['issuerDate'])) / (60 * 60 * 24))); ?></td>
+                      <td nowrap>&nbsp;</td>
+                      <td nowrap class="TipLabel">Days</td>
+                      <td nowrap>&nbsp;</td>
+                    </tr>
+                    <!-- END TOTAL -->
+                  </table>
+                </div>
+              </div>
+              <!-- End Panel Seven -->
+              <!-- Start Panel Eight -->
+              <?php if ($_SESSION['request_role'] == 'purchasing' OR $_SESSION['request_role'] == 'executive') { ?>
+              <div id="purchasingDepartment_panel" class="md-sub2">
+                <p id="purchasingDepartment_title">Purchasing Department</p>
+                <div id="purchasingDepartment_content" style="margin:10px; text-align:left">
+				  <?php if (is_null($PO['po']) AND $PO['status'] == 'A') { ?>
+                  <div id="approvalTime"> Time elapsed since Requisition approval: <strong>
+                  <?= elapsedApprovalTime($_GET['id']); ?>
+                  hours</strong> </div>
+                      <?php } ?>
+                  <div id="purchasing_tabs">
+                        <ul class="ui-tabs-nav">
+                            <li><a href="#purchasing_tabs-1"><span>Information</span></a></li>
+                            <li><a href="#purchasing_tabs-2"><span>Vendor Payments</span></a></li>
+                            <li><a href="#purchasing_tabs-3"><span>Contacts Information</span></a></li>
+                            <li><a href="#purchasing_tabs-4"><span>Send Purchase Order</span></a></li>
+                        </ul>
+                        <div id="purchasing_tabs-1" class="ui-tabs-panel">
+                           <!-- ===================== START INFORMATION TAB ===================== -->
+                            <table width="100%" border="0" cellspacing="5" cellpadding="0" id="purchasingInfo">
+                              <tr>
+                                <td colspan="4" class="blueNoteArea"> Purchase Order Number:
+                                  <input name="po" type="text" id="po" value="<?= $PO['po']; ?>" size="10" maxlength="7">
+                                    <?php if (empty($PO['po'])) { ?>
+                                  &nbsp;
+                                  <input name="completed" type="image" src="../images/button.php?i=w130.png&l=Vendor Kickoff" alt="Supplier Kickoff" border="0">
+                                  <?php } ?></td>
+                              </tr>
+                              <tr>
+                                <td nowrap="nowrap">Purchaser:</td>
+                                <td class="label"><?= caps($EMPLOYEES[$AUTH['issuer']]); ?></td>
+                                <td nowrap="nowrap">Vendor Kickoff:</td>
+                                <td class="label"><?= ($AUTH['issuerDate'] == '0000-00-00 00:00:00' OR is_null($AUTH['issuerDate'])) ? $blank : date("F j, Y h:iA", strtotime($AUTH['issuerDate'])); ?></td>
+                              </tr>
+                              <tr>
+                                <td colspan="4" nowrap="nowrap">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td nowrap="nowrap">Private Requisition:</td>
+                                <td><select name="private" id="private" disabled="disabled">
+                                    <option value="no" <?= ($PO['private'] == 'no') ? selected : $blank; ?>>No</option>
+                                    <option value="yes" <?= ($PO['private'] == 'yes') ? selected : $blank; ?>>Yes</option>
+                                </select></td>
+                                <td nowrap="nowrap">HOT Requisition:</td>
+                                <td><select name="hot" id="hot">
+                                    <option value="no" <?= ($PO['hot'] == 'no') ? selected : $blank; ?>>No</option>
+                                    <option value="yes" <?= ($PO['hot'] == 'yes') ? selected : $blank; ?>>Yes</option>
+                                </select></td>
+                              </tr>
+                              <tr>
+                                <td nowrap="nowrap">FOB:</td>
+                                <td><input name="fob" type="text" id="fob" value="<?= $PO['fob']; ?>" size="15" maxlength="15" /></td>
+                                <td nowrap="nowrap">Requisition Type: </td>
+                                <td><select name="reqType" id="reqType">
+                                    <option value="0">Select One</option>
+                                    <option value="blanket" <?= ($PO['reqType'] == 'blanket') ? selected : $blank; ?>>Blanket Order</option>
+                                    <option value="capex" <?= ($PO['reqType'] == 'capex') ? selected : $blank; ?>>Capital Expense</option>
+                                    <option value="mro" <?= ($PO['reqType'] == 'mro') ? selected : $blank; ?>>MRO</option>
+                                    <option value="tooling" <?= ($PO['reqType'] == 'tooling') ? selected : $blank; ?>>Tooling</option>
+                                </select></td>
+                              </tr>
+                              <tr>
+                                <td>Ship Via:</td>
+                                <td><input name="via" type="text" id="via" value="<?= $PO['via']; ?>" size="15" maxlength="15" /></td>
+                                <td>Final Terms:</td>
+                                <td><select name="terms" id="terms">
+                                    <option value="0">Select One</option>
+                                    <?php
+                                      $terms_sth = $dbh->execute($terms_query);
+                                      while($terms_sth->fetchInto($TERMS2)) {
+                                        $selected = ($PO['terms'] == $TERMS2['id']) ? selected : $blank;
+                                        print "<option value=\"".$TERMS2['id']."\" ".$selected.">".$TERMS2['name']."</option>";
+                                      }
+                                      ?>
+                                </select></td>
+                              </tr>
+                              <tr>
+                                <td colspan="4">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>&nbsp;</td>
+                                <td colspan="2" class="dHeader">Name</td>
+                                <td class="dHeader">Terms</td>
+                              </tr>
+                              <tr>
+                                <td nowrap>Recommended Vendor:</td>
+                                <td colspan="2" nowrap="nowrap" class="label"><?= caps($VENDOR[$PO['sup']]) . " (" . strtoupper($PO['sup']) . ")"; ?>
+                                    <?php
+                                      /* Getting suppliers from Suppliers */						 
+                                      $SUPPLIER = $dbh->getRow("SELECT BTVEND AS id, BTNAME AS name, BTADR1 AS address, BTADR3 AS city, BTPRCD AS state, BTPOST AS zip5, BTWPAG AS web, BTTRMC AS terms
+                                                        FROM Standards.Vendor
+                                                        WHERE BTVEND = '" . $PO['sup'] . "'");		
+                                      ?>
+                                    <span class="padding"><a href="../Common/vendor_map.php?id=<?= strtoupper($SUPPLIER['id']); ?>&amp;name=<?= caps($SUPPLIER['name']); ?>&amp;address=<?= $SUPPLIER['address']; ?> <?= $SUPPLIER['city']; ?>, <?= $SUPPLIER['state']; ?> <?= $SUPPLIER['zip5']; ?>" title="Information Center|<?= caps($SUPPLIER['name']); ?>'s Location" rel="gb_page_center[602, 602]"><img src="/Common/images/map.gif" width="20" height="20" border="0" align="absmiddle" /></a>
+                                    <?php if (!empty($SUPPLIER['web'])) { ?>
+                                      &nbsp;<a href="http://<?= $SUPPLIER['web']; ?>" title="Information Center|<?= caps($SUPPLIER['name']); ?>'s website." rel="gb_page_fs[]"><img src="/Common/images/globe.gif" width="18" height="18" border="0" align="absmiddle" /></a>
+                                      <?php } ?>
+                                      <a href="../Administration/vendor_details.php?id=<?= $SUPPLIER[id]; ?>" title="Information Center|<?= caps($SUPPLIER['name']); ?> information" rel="gb_page[400, 511]"><img src="../images/detail.gif" width="18" height="20" border="0" align="absmiddle" /></a>&nbsp;<a href="fax.php?id=<?= $PO['sup']; ?>&amp;company=<?= $PO['company']; ?>" title="Fax Center|Generate a fax cover sheet" target="_blank"><img src="../images/printer.gif" border="0" align="absmiddle" />&nbsp;&nbsp;</a></span></td>
+                                <td class="label"><?= $TERMS[$SUPPLIER['terms']]; ?></td>
+                              </tr>
+                              <?php if (strlen($PO['sup2'])== 6) { ?>
+                              <tr>
+                                <td>Final Vendor:</td>
+                                <td colspan="2" nowrap="nowrap" class="label"><?= caps($VENDOR[$PO['sup2']]) . " (" . strtoupper($PO['sup2']) . ")"; ?>
+                                    <?php
+                                      /* Getting suppliers from Suppliers */						 
+                                      $SUPPLIER = $dbh->getRow("SELECT BTVEND AS id, BTNAME AS name, BTADR1 AS address, BTADR3 AS city, BTPRCD AS state, BTPOST AS zip5, BTWPAG AS web, BTTRMC AS terms
+                                                        FROM Standards.Vendor
+                                                        WHERE BTVEND = '" . $PO['sup2'] . "'");		
+                                    ?>
+                                    <span class="padding"><a href="../Common/vendor_map.php?id=<?= strtoupper($SUPPLIER['id']); ?>&amp;name=<?= caps($SUPPLIER['name']); ?>&amp;address=<?= $SUPPLIER['address']; ?> <?= $SUPPLIER['city']; ?>, <?= $SUPPLIER['state']; ?> <?= $SUPPLIER['zip5']; ?>" title="Information Center|<?= caps($SUPPLIER['name']); ?>'s Location" rel="gb_page_center[602, 602]"><img src="/Common/images/map.gif" width="20" height="20" border="0" align="absmiddle" /></a>
+                                    <?php if (!empty($SUPPLIER['web'])) { ?>
+                                      &nbsp;<a href="http://<?= $SUPPLIER['web']; ?>" title="Information Center|<?= caps($SUPPLIER['name']); ?>'s website." rel="gb_page_fs[]"><img src="/Common/images/globe.gif" width="18" height="18" border="0" align="absmiddle" /></a>
+                                      <?php } ?>
+                                      <a href="../Administration/vendor_details.php?id=<?= $SUPPLIER[id]; ?>" title="Information Center|<?= caps($SUPPLIER['name']); ?> information" rel="gb_page[400, 511]"><img src="../images/detail.gif" width="18" height="20" border="0" align="absmiddle" /></a>&nbsp;<a href="fax.php?id=<?= $PO['sup']; ?>&amp;company=<?= $PO['company']; ?>" title="Fax Center|Generate a fax cover sheet" target="_blank"><img src="../images/printer.gif" border="0" align="absmiddle" />&nbsp;&nbsp;</a></span></td>
+                                <td class="label"><?= $TERMS[$SUPPLIER['terms']]; ?></td>
+                              </tr>
+                              <?php } ?>
+                              <tr>
+                                <td>Change Vendor:</td>
+                                <td colspan="3" class="label"><input id="vendSearch" name="vendSearch" type="text" size="50" />
+                                    <script type="text/javascript">
+/*                                        Event.observe(window, "load", function() {
+                                            var aa = new AutoAssist("vendSearch", function() {
+                                                return "../Common/vendor.php?q=" + this.txtBox.value;
+                                            });
+                                        });*/
+                                    </script>
+                                    <input name="supplierNew" type="hidden" id="supplierNew" />
+                                    <input name="supplierNewTerms" type="hidden" id="supplierNewTerms" /></td>
+                              </tr>
+                              <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td><input name="updaterequest" type="image" src="../images/button.php?i=w130.png&amp;l=Update Request" alt="Update Request" border="0" />
+                                    <input name="action" type="hidden" id="action" value="purchasing_update" />
+                                  &nbsp;</td>
+                              </tr>
+                            </table>
+                            <!-- ===================== END INFORMATION TAB ===================== -->
+                        </div>
+                        <div id="purchasing_tabs-2" class="ui-tabs-panel" >
+                            <!-- ===================== START VENDOR PAYMENTS TAB ===================== -->
+                            <div class="blueNoteArea" style="text-align:right" id="outstanding"></div>
+                            <br>
+                            <table border="0" align="center" cellpadding="0" cellspacing="5" id="vendorPayments">
+                              <tr>
+                                <td valign="top"><table border="0" align="center" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                      <td class="blueNoteAreaBorder"><table border="0">
+                                          <tr class="blueNoteArea">
+                                            <td class="label">Amount</td>
+                                            <td class="label">Date</td>
+                                            <td class="label">&nbsp;</td>
+                                          </tr>
+                                          <tr>
+                                            <td class="label">$<input name="pay_amount" type="text" id="pay_amount" size="15" /></td>
+                                            <td class="label"><input name="paymentDate" type="text" id="paymentDate" size="10" maxlength="10" class="popupcalendar" value="<?= $PAYMENTS['0']['pay_date']; ?>" /></td>
+                                            <td class="label"><input name="addPayment" type="image" id="addPayment" src="../images/add.gif" /></td>
+                                          </tr>
+                                      </table></td>
+                                    </tr>
+                                </table></td>
+                                <td rowspan="2" align="right" valign="top"><img src="../images/spacer.gif" width="50" height="10" /></td>
+                                <td align="right" valign="top"><table border="0" align="center" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                      <td class="blueNoteAreaBorder"><?php if ($payments_count > 0) { ?>
+                                        <table border="0">
+                                            <tr class="blueNoteArea">
+                                              <td class="label">&nbsp;</td>
+                                              <td class="label">Amount</td>
+                                              <td class="label">Date</td>
+                                              <td class="label">Delete</td>
+                                            </tr>
+                                            <?php
+                                            $count=0;
+                                            $total=$PO['total'];
+                                            
+                                            while ($payments->fetchInto($PAYMENTS)) {
+                                                $count++;
+                                                $total -= $PAYMENTS['pay_amount'];
+                                            ?>
+                                            <tr>
+                                              <td class="label"><?= $count; ?><input type="hidden" name="pay_id<?= $count; ?>" id="pay_id<?= $count; ?>" value="<?= $PAYMENTS['pay_id']; ?>" /></td>
+                                              <td class="label">$<input name="pay_amount<?= $count; ?>" type="text" id="pay_amount<?= $count; ?>" value="<?= number_format($PAYMENTS['pay_amount'],2); ?>" size="15" /></td>
+                                              <td class="label"><input name="pay_date<?= $count; ?>" type="text" id="pay_date<?= $count; ?>" class="popupcalendar" size="10" maxlength="10" value="<?= $PAYMENTS['pay_date']; ?>" /></td>
+                                              <td align="center" class="label"><input type="checkbox" name="pay_remove<?= $count; ?>" id="pay_remove<?= $count; ?>" value="yes" /></td>
+                                            </tr>
+                                            <?php } ?>
+                                        </table>
+                                          <input name="payments_count" id="payments_count" type="hidden" value="<?= $payments_count; ?>" />
+                                          <script>
+                                          $(document).ready(function(){
+                                              $('#outstanding').append('Oustanding: $<?= number_format($total,2); ?>');
+                                          });    
+                                          </script>
+                                          <?php } else { ?>
+                                        <script>
+                                          $(document).ready(function(){
+                                              $('#outstanding').append('Oustanding: $<?= number_format($PO['total'],2); ?>');
+                                          });    
+                                          </script>
+                                          <?php } ?></td>
+                                    </tr>
+                                </table></td>
+                              </tr>
+                              <tr>
+                                <td>&nbsp;</td>
+                                <td align="right" height="30"><input name="updatePayments" id="updatePayments" type="image" src="../images/button.php?i=w70.png&amp;l=Update" alt="Update Payments" border="0" /></td>
+                              </tr>
+                            </table>
+                            <!-- ===================== END VENDOR PAYMENTS TAB ===================== -->
+                        </div>
+                        <div id="purchasing_tabs-3" class="ui-tabs-panel">
+                            <!-- ===================== START CONTACTS TAB ===================== -->
+                            <center>
+                              <div id="contactsXML"></div>
+                            </center>
+                            <!-- ===================== END CONTACTS TAB ===================== -->                        
+                        </div>
+                        <div id="purchasing_tabs-4" class="ui-tabs-panel">
+                            <!-- ===================== START SEND PURCHASE ORDER TAB ===================== -->
+                            <center>
+                              <div id="sendPoXML"></div>
+                            </center>
+                            <!-- ===================== END SEND PURCHASE ORDER TAB ===================== -->                       
+                    </div>                        
+                    </div>
+                </div>
+              </div>
+              <?php } ?>
+              <!-- End Panel Eight -->
+              <!-- Start Controls Panel -->
+              <div id="controls">
+                <div id="controls_content" style="margin:10px">
+                  <table width="100%"  border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td width="50%"><?php if ($_SESSION['eid'] == $PO['req'] AND $PO['status'] != 'X' AND $PO['status'] != 'C' AND empty($_GET['approval'])) { ?>
+                          <table  border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="20" valign="middle"><input name="cancel" type="checkbox" id="cancel" value="yes"></td>
+                              <td><input name="cancelrequest" type="image" src="../images/button.php?i=w130.png&l=Cancel Request" alt="Cancel Request" border="0"></td>
+                              <!--<td>&nbsp;</td>
+                                           <td><input name="copyrequest" type="image" src="../images/button.php?i=w130.png&l=Copy Request" alt="Copy Request" border="0"></td>-->
+                            </tr>
+                          </table>
+                        <?php } ?>
+                          <?php if ($_SESSION['eid'] == $PO['req'] AND ($PO['status'] == 'X' OR $PO['status'] == 'C')) { ?>
+                          <table  border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="20" valign="middle"><input name="restore" type="checkbox" id="restore" value="yes"></td>
+                              <td><input name="restorerequest" type="image" src="../images/button.php?i=w130.png&l=Restore Request" alt="Restore Request"></td>
+                            </tr>
+                          </table>
+                        <?php } ?>
+                        &nbsp;</td>
+                      <td width="50%" align="right"><input name="id" type="hidden" id="id" value="<?= $PO['id']; ?>">
+                          <input name="type_id" type="hidden" id="type_id" value="<?= $PO['id']; ?>">
+                          <input name="req" type="hidden" id="req" value="<?= $PO['req']; ?>">
+                          <input name="purpose" type="hidden" id="purpose" value="<?= $PO['purpose']; ?>">
+                          <input name="auth_id" type="hidden" id="auth_id" value="<?= $AUTH['id']; ?>">
+                          <?php 
+							if (($_SESSION['eid'] == $AUTH[$_GET['approval']] OR
+														   $_SESSION['eid'] == $PO['req'] OR
+														   $_SESSION['eid'] == $AUTH['issuer'])) { ?>
+                          <?php
+							 if (isset($_GET['approval'])) {
+								/* Set auth level to GET[approval] */
+								$auth_value = $_GET['approval'];
+							 } elseif ($_SESSION['eid'] == $PO['req']) {
+								/* Allow update if GET[approval] was sent and Requester is viewing */
+								$auth_value = "req";
+							 } elseif ($_SESSION['eid'] == $AUTH['issuer']) {
+								/* Allow update if GET[approval] was sent and Requester is viewing */
+								$auth_value = "issuer";
+							 }
+						   ?>
+                          <input name="auth" type="hidden" id="auth" value="<?= $auth_value; ?>">
+                          <input name="stage" type="hidden" id="stage" value="update">
+                          <!--<input name="imageField" type="image" src="../images/button.php?i=b150.png&l=Update Request" alt="Update Request">-->
+                          <?php } ?></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <!-- End Controls Panel -->
+            </div>
+          </div>
+          <div id="backToTopContainer" style="width:800px;margin-left: auto;margin-right:auto;">
+            <div id="backToTop">BACK TO TOP <img src="/Common/images/upload.gif" width="16" height="16" align="absmiddle"></div>
+          </div>          
+      </form>
+	  <!-- YOUR DATA GOES HERE -->
+    </div>
+   </div>
+   <div id="ft" style="padding-top:50px">
+	 <div class="yui-gb">
+        <div class="yui-u first"><?php include('../include/copyright.php'); ?></div>
+        <div class="yui-u"><!-- FOOTER CENTER AREA -->&nbsp;</div>
+        <div class="yui-u" style="text-align:right"><!-- FOOTER RIGHT AREA -->&nbsp;</div>
+	    </div>
+     </div>  
+   </div>
+</div>
+
+<script>
+	var request_id='<?= $_GET['id']; ?>';
+	var approval='<?= $_GET['approval']; ?>';
+	var level='<?= $AUTH['level']; ?>';
+	var status='<?= $PO['status']; ?>';
+	var canceled='<?= $canceled; ?>';
+	var message='<?= $message; ?>';
+	var msgClass='<?= $msgClass; ?>';
+	var request_role='<?= $_SESSION['request_role']; ?>';
+	var trackingLength='<?= count($TRACKING); ?>';
+	var tracking = {"list": [
+	   <?php for ($t=0; $t < count($TRACKING); $t++) { ?>
+	   {track_id:"<?= $TRACKING[$t][track_id]; ?>",track_number:"<?= $TRACKING[$t][track_number]; ?>",track_date:"<?= $TRACKING[$t][track_date]; ?>",track_latest:"<?= $TRACKING[$t][track_latest]; ?>",track_url:"<?= $TRACKING[$t][track_url]; ?>"},
+	   <?php } ?>
+	]};
+</script>
+
+<script type="text/javascript" src="/Common/js/yahoo/yahoo-dom-event/yahoo-dom-event.js" ></script>		<!-- Menu, TabView, Datatable -->
+<script type="text/javascript" src="/Common/js/yahoo/container/container-min.js"></script> 				<!-- Menu -->
+<script type="text/javascript" src="/Common/js/yahoo/menu/menu-min.js"></script> 						<!-- Menu -->
+<script type="text/javascript" src="/Common/js/yahoo/utilities/utilities.js"></script>					<!-- Datatable -->
+<script type="text/javascript" src="/Common/js/yahoo/datasource/datasource-beta-min.js"></script>		<!-- Datatable -->
+<script type="text/javascript" src="/Common/js/yahoo/datatable/datatable-beta-min.js"></script>			<!-- Datatable -->
+<script type="text/javascript" src="/Common/js/yahoo/connection/connection-min.js" ></script>			<!-- Datatable -->
+<script type="text/javascript" src="/Common/js/yahoo/element/element-beta-min.js"></script>				<!-- TabView, Datatable -->
+
+<script type="text/javascript" src="../js/YUIdetail-min.js"></script>									<!-- Requires - Datatable -->
+<script type="text/javascript" src="../js/jQdefault.js"></script>
+<script type="text/javascript" src="../js/jQdetail.js"></script>
+
+<?php if ($_SESSION['request_access'] == '3') { ?>
+<!--<script type="text/javascript" src="../js/adminDepartment.js"></script>-->									<!-- Requires - Datatable -->
+<?php } ?>
+
+<script type="text/javascript" src="/Common/js/greybox5/options1.js"></script>
+<script type="text/javascript" src="/Common/js/greybox5/AJS.js"></script>
+<script type="text/javascript" src="/Common/js/greybox5/AJS_fx.js"></script>
+<script type="text/javascript" src="/Common/js/greybox5/gb_scripts.js"></script>
+
+<script type="text/javascript" src="/Common/js/jquery/ui/ui.tabs-min.js"></script>
+<script type="text/javascript" src="/Common/js/jquery/jQpanels/jquery.slidepanel.js"></script>
+<script type="text/javascript" src="/Common/js/jquery/scrollTo/jquery.scrollTo-min.js"></script>
+<script type="text/javascript" src="/Common/js/jquery/cluetip/jquery.dimensions-min.js"></script>
+<script type="text/javascript" src="/Common/js/jquery/cluetip/jquery.cluetip-min.js"></script>
+
+<script type="text/javascript">
+	/* ========== YUI Main Menu ========== */
+	YAHOO.util.Event.onContentReady("productsandservices", function () {
+		var oMenuBar = new YAHOO.widget.MenuBar("productsandservices", { autosubmenudisplay: true, hidedelay: 750, lazyload: true });
+		oMenuBar.render();
+	});
+</script>
+<?php if (!$debug_page) { ?>
+<!--<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "<?= $default['google_analytics']; ?>";
+urchinTracker();
+</script>-->
+<?php } ?>
+</body>
+</html>
+
+
+
+<?php
+//getProxyDATA("http://isnoop.net/tracking/index.php?t=1Z1812690306250111&rss=1", "1Z1812690306250111.rss");
+
+
+/**
+ * - Display Debug Information
+ */
+include_once('debug/footer.php');
+/**
+ * - Disconnect from database
+ */
+$dbh->disconnect();
+?>

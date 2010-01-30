@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+ <link rel="stylesheet" href="/Common/js/yahoo/reset-fonts-grids/reset-fonts-grids.css" type="text/css" media="screen" charset="utf-8" />
+    <script src="/Common/js/yahoo/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/Common/js/yahoo/container/container-min.js" type="text/javascript" charset="utf-8"></script>
+    
+<style type="text/css" media="screen">
+        .container {
+            width: 300px;
+        }
+
+            .container h3 {
+                font-size: 136%;
+                font-weight: bold;
+            }
+
+                .container h3 a {
+                    display: block;
+                    float: right;
+                    font-size: 77%;
+                    font-weight: normal;
+                    text-decoration: none;
+                }
+
+             .module {
+                padding: 5px;
+            }
+    </style>
+
+ <script type="text/javascript" charset="utf-8">
+    YAHOO.namespace("cats.container");
+
+    function init() {
+        YAHOO.cats.container.module = new YAHOO.widget.Module("module");
+        YAHOO.cats.container.show = new YAHOO.widget.Module("show");
+        YAHOO.cats.container.hide = new YAHOO.widget.Module("hide");
+        YAHOO.cats.container.module.render();
+
+        YAHOO.util.Event.addListener("show", "click", YAHOO.cats.container.module.show, YAHOO.cats.container.module, true);
+        YAHOO.util.Event.addListener("show", "click", YAHOO.cats.container.hide.show, YAHOO.cats.container.hide, true);
+        YAHOO.util.Event.addListener("show", "click", YAHOO.cats.container.show.hide, YAHOO.cats.container.show, true);   
+        YAHOO.util.Event.addListener("hide", "click", YAHOO.cats.container.module.hide, YAHOO.cats.container.module, true);
+        YAHOO.util.Event.addListener("hide", "click", YAHOO.cats.container.show.show, YAHOO.cats.container.show, true);
+        YAHOO.util.Event.addListener("hide", "click", YAHOO.cats.container.hide.hide, YAHOO.cats.container.hide, true);
+    }
+
+    YAHOO.util.Event.addListener(window, "load", init);
+    </script>
+    
+<div class="container">
+        <h3>
+            <a href="#" id="show" style="display: none;">Show</a>
+            <a href="#" id="hide">Hide</a>
+            Header
+        </h3>
+        <div id="module" class="module">
+            <div class="bd">
+                <ul>
+                    <li><input type="checkbox" name="some_name" value="" id="some_name" /> &nbsp;Lorem ipsum dolor sit amet</li>
+                    <li><input type="checkbox" name="some_name" value="" id="some_name" /> &nbsp;Lorem ipsum dolor sit amet</li>
+                    <li><input type="checkbox" name="some_name" value="" id="some_name" /> &nbsp;Lorem ipsum dolor sit amet</li>
+                    <li><input type="checkbox" name="some_name" value="" id="some_name" /> &nbsp;Lorem ipsum dolor sit amet</li>
+                    <li><input type="checkbox" name="some_name" value="" id="some_name" /> &nbsp;Lorem ipsum dolor sit amet</li>
+                </ul>
+            </div> <!-- end .bd -->
+        </div> <!-- end .module -->
+    </div>    <!-- end .container -->            
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="10"><img src="../images/spacer.gif" width="10" height="10"></td>
+  </tr>
+  <tr>
+    <td height="25"><img src="/Common/images/addition.gif" width="16" height="16" align="absmiddle">&nbsp;<a href="../PO/Reports/index.php" class="dark">Dashboard</a></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="25"><img src="../images/chart.png" width="18" height="20" align="absmiddle">&nbsp;<a href="../PO/Reports/department.php" class="dark">Department</a> </td>
+  </tr>
+  <tr>
+    <td height="25"><img src="../images/chart.png" width="18" height="20" align="absmiddle">&nbsp;<a href="../PO/Reports/plant.php" class="dark">Plant</a> </td>
+  </tr>   
+  <tr>
+    <td height="25"><img src="../images/chart.png" width="18" height="20" align="absmiddle">&nbsp;<a href="../PO/Reports/suppliers.php" class="dark">Supplier</a> </td>
+  </tr> 
+</table>
+

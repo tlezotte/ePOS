@@ -1,0 +1,61 @@
+<table cellspacing="0" cellpadding="0" width="200" align="left" summary="" border="0">
+    <tr>
+      <td valign="top" width="13" background="../images/asyltlb.gif"><img height="20" alt="" src="../images/t.gif" width="13" border="0"></td>
+      <td valign="top" width="165" bgcolor="#cccc99"><img height="1" alt="" src="../images/asybase.gif" width="145" border="0"> <br>
+          <table width="100%" border="0" cellspacing="0" cellpadding="1" rules="rows">
+            <tr>
+              <td class="mainsection"><a href="../Administration/notify.php" class="dark">Notify Users by Email</a></td>
+            </tr>
+          </table>
+          <table width="100%" border="0" cellspacing="0" cellpadding="1" rules="rows">
+            <tr>
+              <td class="mainsection"><a href="../Administration/notify_web.php" class="dark">Notify Users by Webs</a></td>
+            </tr>
+          </table>
+          <table width="100%" border="0" cellspacing="0" cellpadding="1" rules="rows">
+                      <tr>
+                        <td class="mainsection"><a href="../administration/testemail.php" class="dark">Send Test Email </a></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="1" rules="rows">
+                      <tr>
+                        <td class="mainsection"><a href="../Administration/summary.php" class="dark">Usage Summary</a></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="1" rules="rows">
+                      <tr>
+                        <td class="mainsection"><a href="../Administration/comments.php" class="dark">Comments</a></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="1" rules="rows">
+                      <tr>
+                        <td class="mainsection"><a href="../Administration/reminder_past.php" class="dark">Send Past Reminders </a></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="1" rules="rows">
+                      <tr>
+                        <td class="mainsection"><a href="../Administration/updateRSS.php" class="dark">Update  RSS </a></td>
+                      </tr>
+                    </table>
+					<!--
+                    <table width="100%" border="0" cellspacing="0" cellpadding="1" rules="rows">
+            <tr>
+              <td class="mainsection"><a href="javascript:void(0);" class="dark">ePOS</a></td>
+            </tr>
+          </table>
+          <table width="100%" border="0" cellspacing="0" cellpadding="1" rules="rows">
+            <tr>
+              <td class="mainsection">&nbsp;&nbsp;&nbsp;<a href="../Administration/migrate.php" class="dark">Migrate Data </a></td>
+            </tr>
+          </table>
+          <table width="100%" border="0" cellspacing="0" cellpadding="1" rules="rows">
+            <tr>
+              <td class="mainsection">&nbsp;&nbsp;&nbsp;<a href="../Administration/epos_status.php" class="dark">Status</a></td>
+            </tr>
+          </table>--></td>
+      <td valign="top" width="22" background="../images/asyltrb.gif"><img height="20" alt="" src="../images/t.gif" width="22" border="0"></td>
+    </tr>
+    <tr>
+      <td valign="top" width="22" colspan="3"><img height="37" alt="" src="../images/asyltb.gif" width="200" border="0"></td>
+    </tr>
+</table>

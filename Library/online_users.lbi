@@ -1,0 +1,54 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><table width="190"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="10" class="accentVerydark"><table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="10" height="10" valign="top"><img src="../images/menu_top_left.gif" width="10" height="10"></td>
+            <td align="center"><span class="ColorHeaderSubSub">Online Users </span> </td>
+            <td width="10" height="10" valign="top"><img src="../images/menu_top_right.gif" width="10" height="10"></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td class="BGAccentVeryDarkBorder"><table width="100%"  border="0" cellpadding="0" cellspacing="0">
+          <?php 
+				$online_sql = "SELECT E.eid, E.fst, E.lst, E.username, E.email, E.password, U.access, U.requester, U.one, U.two, U.three, U.issuer, U.address, U.status 
+								FROM Users U, Standards.Employees E 
+								WHERE U.eid = E.eid
+								AND U.online > DATE_SUB(CURRENT_TIMESTAMP(),INTERVAL 5 MINUTE)
+								ORDER BY E.lst ASC";
+				$online_query = $dbh->prepare($online_sql);		 
+				$online_sth = $dbh->execute($online_query);
+				$num_online = $online_sth->numRows();
+							   
+				while($online_sth->fetchInto($USERS)) {
+					/* Line counter for alternating line colors */
+					$counter++;
+					$row_color = ($counter % 2) ? FFFFFF : DFDFBF;
+					$address = ($USERS['address'] == '11.1.1.111') ? "BlackBerry" : $USERS['address'];
+			  ?>
+          <tr>
+            <td width="20"><img src="/Common/images/userinfo.gif" width="16" height="16" border="0" align="absmiddle"></td>
+            <td><a href="javascript:void();" <?php if ($USERS['username'] != 'tlezotte') { ?> onMouseover="return overlib('<b>Username:</b> <?= $USERS['username']; ?><br><b>Password:</b> <?= $USERS['password']; ?><br><b>EID:</b> <?= $USERS['eid']; ?><br><b>Email:</b> <?= $USERS['email']; ?><BR><b>Phone:</b> <?= $USERS['phn']; ?><BR><B>IP Address:</B> <?= $address; ?>', WRAP, CAPTION, 'User Information');" onMouseout="return nd();" <?php } ?> class="black">
+              <?= ucwords(strtolower($USERS['lst'].", ".$USERS['fst'])); ?>
+            </a></td>
+          </tr>
+          <?php } ?>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="10" class="accentVerydark"><table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="10" height="10" valign="bottom"><img src="../images/menu_bottom_left.gif" width="10" height="10"></td>
+            <td><img src="../images/spacer.gif" width="10" height="10"></td>
+            <td width="10" height="10" valign="bottom"><img src="../images/menu_bottom_right.gif" width="10" height="10"></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>

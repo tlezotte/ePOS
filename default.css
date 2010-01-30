@@ -1,0 +1,1665 @@
+img#Print { display: none; }
+div#Print { display: none; }
+A {
+	FONT-FAMILY: Arial, Helvetica, Geneva, sans-serif;
+	text-decoration: none;
+}
+.BGColorVeryDark {
+	BACKGROUND-COLOR: #003366
+}
+.BGColorDark {
+	BACKGROUND-COLOR: #336699
+}
+.BGColorMedium {
+	BACKGROUND-COLOR: #6699cc
+}
+.BGColorLight {
+	BACKGROUND-COLOR: #99ccff
+}
+.BGGrayVeryDark {
+	BACKGROUND-COLOR: #333333
+}
+.BGGrayDark {
+	BACKGROUND-COLOR: #666666
+}
+.BGGrayMedium {
+	BACKGROUND-COLOR: #999999
+}
+.BGGrayLight {
+	BACKGROUND-COLOR: #cccccc
+}
+.BGAccentVeryDark {
+	BACKGROUND-COLOR: #999966;
+	background-image: url(/Common/images/accentVeryDark.gif);
+}
+.BGAccentDarkBlue {
+	BACKGROUND-COLOR: #003366;
+	background-image: url(/Common/images/accentDarkBlue.gif);
+	color: #FFFFFF;
+	font-weight: bold;
+	padding-left: 5px;
+	padding-right: 5px;	
+}
+.BGAccentDark {
+	BACKGROUND-COLOR: #cccc99;
+	background-image: url(/Common/images/accentDark.gif);
+}
+.BGAccentMedium {
+	BACKGROUND-COLOR: #ffffcc
+}
+.BGAccentLight {
+	BACKGROUND-COLOR: #f7f7e7
+}
+body {
+	FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif;
+	BACKGROUND-COLOR: #ffffff;
+	background-image: url(/Common/images/body_back.gif);
+	background-repeat: repeat-x;
+}
+.PromptText {
+	FONT-WEIGHT: normal; FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; TEXT-ALIGN: right
+}
+.DataText {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.FieldText {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.FieldTextDisabled {
+	FONT-SIZE: 10pt; COLOR: #999999; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.FieldNumber {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; TEXT-ALIGN: right
+}
+.FieldNumberDisabled {
+	FONT-SIZE: 10pt; COLOR: #999999; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; TEXT-ALIGN: right
+}
+.InstructionText {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.InstructionTextStrong {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.ButtonText {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #f7f7e7
+}
+.ButtonTextDisabled {
+	FONT-SIZE: 10pt; COLOR: #999966; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #f7f7e7
+}
+.ApplicationSwitcherText {
+	FONT-SIZE: 8pt; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.GlobalButtonText {
+	FONT-SIZE: 8pt; COLOR: #663300; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.GlobalButtonTextSelected {
+	FONT-SIZE: 8pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.GlobalButtonTextDisabled {
+	FONT-SIZE: 8pt; COLOR: #999966; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.LinkText {
+	FONT-SIZE: 10pt; COLOR: #663300; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.VLinkText {
+	FONT-SIZE: 10pt; COLOR: #996633; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.ALinkText {
+	FONT-SIZE: 10pt; COLOR: #ff6600; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.TipLabel {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.TipText {
+	FONT-SIZE: 10pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.InlineInfoText {
+	FONT-SIZE: 8pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.ErrorText {
+	FONT-SIZE: 10pt; COLOR: #cc0000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.ErrorNameText {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #cc0000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.InlineErrorText {
+	FONT-SIZE: 8pt; COLOR: #cc0000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.Header {
+	FONT-SIZE: 16pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.HeaderSub {
+	FONT-WEIGHT: bold; FONT-SIZE: 13pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.HeaderSubSub {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.DarkHeader {
+	FONT-SIZE: 16pt; COLOR: #003366; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.DarkHeaderSub {
+	FONT-WEIGHT: bold; FONT-SIZE: 13pt; COLOR: #003366; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.DarkHeaderSubSub {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #003366; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.LightHeader {
+	FONT-SIZE: 16pt; COLOR: #6699cc; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.LightHeaderSub {
+	FONT-WEIGHT: bold; FONT-SIZE: 13pt; COLOR: #6699cc; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.LightHeaderSubSub {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #6699cc; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.ColorHeader {
+	FONT-SIZE: 16pt; COLOR: #ffffcc; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.ColorHeaderSub {
+	FONT-WEIGHT: bold; FONT-SIZE: 13pt; COLOR: #ffffcc; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.ColorHeaderSubSub {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #ffffcc; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.PortletHeader {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.DarkPortletHeader {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.ErrorHeader {
+	FONT-SIZE: 16pt; COLOR: #cc0000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.IndentHeader {
+	MARGIN: 20px
+}
+.SpacingHeader {
+	MARGIN: 7px 0px 2px
+}
+.SpacingHeaderSub {
+	MARGIN: 10px 0px 2px
+}
+.SpacingHeaderLarge {
+	MARGIN: 20px 0px 2px
+}
+.SearchBorderStart {
+	BORDER-RIGHT: #cccc99 0px solid; BORDER-TOP: #cccc99 0px solid; BORDER-LEFT: #cccc99 1px solid; BORDER-BOTTOM: #cccc99 0px solid
+}
+.SearchBottomStart {
+	BORDER-RIGHT: #cccc99 0px solid; PADDING-RIGHT: 0pt; BORDER-TOP: #cccc99 0px solid; PADDING-LEFT: 5pt; PADDING-BOTTOM: 5pt; BORDER-LEFT: #cccc99 1px solid; PADDING-TOP: 0pt; BORDER-BOTTOM: #cccc99 1px solid; BACKGROUND-COLOR: #f7f7e7
+}
+.GlobalPageTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 13pt; COLOR: #ffffff; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.TextInline {
+	FONT-SIZE: 8pt; COLOR: #6699cc; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.TableTitle {
+	FONT-SIZE: 13pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #ffffff
+}
+.Table {
+	BACKGROUND-COLOR: #999966
+}
+.TableControlBarText {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99
+}
+.TableColumnHeader {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; VERTICAL-ALIGN: bottom; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-ALIGN: left
+}
+.TableColumnHeaderNumber {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; VERTICAL-ALIGN: bottom; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-ALIGN: right
+}
+.TableColumnHeaderIconButton {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; VERTICAL-ALIGN: bottom; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-ALIGN: center
+}
+.TableSortableColumnHeader {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; VERTICAL-ALIGN: bottom; CURSOR: hand; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-ALIGN: left
+}
+.TableSortableColumnHeaderNumber {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; VERTICAL-ALIGN: bottom; CURSOR: hand; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-ALIGN: right
+}
+.TableSortableColumnHeaderIconButton {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; VERTICAL-ALIGN: bottom; CURSOR: hand; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-ALIGN: center
+}
+.TableRowHeader {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-ALIGN: right
+}
+.TableColumnFooter {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-ALIGN: left
+}
+.TableTotal {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-ALIGN: right
+}
+.TableAddTotal {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-ALIGN: left
+}
+.TableTotalNumber {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; VERTICAL-ALIGN: baseline; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-ALIGN: right
+}
+.TableTotalText {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; VERTICAL-ALIGN: baseline; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-ALIGN: left
+}
+.TableCellText {
+	FONT-SIZE: 10pt; VERTICAL-ALIGN: baseline; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #f7f7e7
+}
+.TableCellTextBand {
+	FONT-SIZE: 10pt; VERTICAL-ALIGN: baseline; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #ffffff
+}
+.TableCellNumber {
+	FONT-SIZE: 10pt; VERTICAL-ALIGN: baseline; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #f7f7e7; TEXT-ALIGN: right
+}
+.TableCellNumberBand {
+	FONT-SIZE: 10pt; VERTICAL-ALIGN: baseline; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: right
+}
+.TableCellIconButton {
+	FONT-SIZE: 10pt; VERTICAL-ALIGN: baseline; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #f7f7e7; TEXT-ALIGN: center
+}
+.TableCellIconButtonBand {
+	FONT-SIZE: 10pt; VERTICAL-ALIGN: baseline; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+.TableCellSelect {
+	FONT-SIZE: 10pt; VERTICAL-ALIGN: baseline; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #f7f7e7; TEXT-ALIGN: center
+}
+.TableCellSelectBand {
+	FONT-SIZE: 10pt; VERTICAL-ALIGN: baseline; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+.TableVerticalGrid {
+	WIDTH: 1px; BACKGROUND-COLOR: #cccc99
+}
+.TableVerticalHeaderGrid {
+	WIDTH: 1px; BACKGROUND-COLOR: #f7f7e7
+}
+.TableHorizontalGrid {
+	WIDTH: 1px; BACKGROUND-COLOR: #cccc99
+}
+.TableHorizontalHeaderGrid {
+	WIDTH: 1px; BACKGROUND-COLOR: #f7f7e7
+}
+.TableShadowHeaderGrid {
+	WIDTH: 1px; BACKGROUND-COLOR: #666633
+}
+.TableHeaderLink {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-DECTION: none
+}
+.TableSortableHeaderLink {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; VERTICAL-ALIGN: bottom; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-DECTION: none
+}
+.TableDetail {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #ffffff
+}
+.TrainActive {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; TEXT-ALIGN: center
+}
+.TrainVisited {
+	FONT-SIZE: 9pt; COLOR: #cccc99; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; TEXT-ALIGN: center
+}
+.TrainUnvisited {
+	FONT-SIZE: 9pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; TEXT-ALIGN: center
+}
+.Privacy {
+	FONT-SIZE: 8pt; COLOR: #663300; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; TEXT-ALIGN: right
+}
+.Copyright {
+	FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; TEXT-ALIGN: left
+}
+.CrumbsSelected {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; TEXT-DECTION: none
+}
+.CrumbsEnabled {
+	FONT-SIZE: 9pt; COLOR: #663300; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.NavBarActiveLink {
+	FONT-SIZE: 10pt; COLOR: #663300; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.NavBarInactiveLink {
+	FONT-SIZE: 10pt; COLOR: #999966; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.NavBarViewOnly {
+	FONT-SIZE: 10pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.CalendarTitle {
+	FONT-SIZE: 13pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+.CalendarHeader {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-WEIGHT: bold; FONT-SIZE: 10pt; PADDING-BOTTOM: 2px; COLOR: #336699; PADDING-TOP: 2px; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #cccc99; TEXT-ALIGN: center
+}
+.CalendarEnabled {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 10pt; PADDING-BOTTOM: 2px; COLOR: #336699; LINE-HEIGHT: 1.5; PADDING-TOP: 2px; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #f7f7e7; TEXT-ALIGN: center; TEXT-DECTION: none
+}
+.CalendarDisabled {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 10pt; PADDING-BOTTOM: 2px; COLOR: #999999; LINE-HEIGHT: 1.5; PADDING-TOP: 2px; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #f7f7e7; TEXT-ALIGN: center
+}
+.CalendarSelected {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 10pt; PADDING-BOTTOM: 2px; COLOR: #ffffff; LINE-HEIGHT: 1.5; PADDING-TOP: 2px; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #999966; TEXT-ALIGN: center
+}
+TABLE.CalendarDisabled A:link {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 10pt; PADDING-BOTTOM: 2px; COLOR: #336699; LINE-HEIGHT: 1.5; PADDING-TOP: 2px; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #f7f7e7; TEXT-ALIGN: center; TEXT-DECTION: none
+}
+TABLE.CalendarDisabled A:active {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 10pt; PADDING-BOTTOM: 2px; COLOR: #336699; LINE-HEIGHT: 1.5; PADDING-TOP: 2px; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #f7f7e7; TEXT-ALIGN: center; TEXT-DECTION: none
+}
+TABLE.CalendarDisabled A:visited {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 10pt; PADDING-BOTTOM: 2px; COLOR: #336699; LINE-HEIGHT: 1.5; PADDING-TOP: 2px; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #f7f7e7; TEXT-ALIGN: center; TEXT-DECTION: none
+}
+.SubTab {
+	FONT-SIZE: 10pt; PADDING-BOTTOM: 2pt; COLOR: #999966; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #f7f7e7
+}
+.SubTabSelected {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+TD.SubTabSelected A:link {
+	FONT-SIZE: 11pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; TEXT-DECTION: none
+}
+TD.SubTabSelected A:active {
+	FONT-SIZE: 11pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; TEXT-DECTION: none
+}
+TD.SubTabSelected A:visited {
+	FONT-SIZE: 11pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; TEXT-DECTION: none
+}
+.TreeIcon {
+	VERTICAL-ALIGN: top
+}
+.TreeNodeAdjust {
+	PADDING-BOTTOM: 2px
+}
+.TreeRowSelected {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #ffffff; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif; BACKGROUND-COLOR: #336699
+}
+.TreeRow {
+	FONT-SIZE: 10pt; COLOR: #003366; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+SPAN.TreeRow A:link {
+	COLOR: #663300
+}
+SPAN.TreeRow A:active {
+	COLOR: #663300
+}
+SPAN.TreeRow A:visited {
+	COLOR: #663300
+}
+SPAN.TreeRowSelected A:link {
+	COLOR: #ffffff; TEXT-DECTION: none
+}
+SPAN.TreeRowSelected A:active {
+	COLOR: #ffffff; TEXT-DECTION: none
+}
+SPAN.TreeRowSelected A:visited {
+	COLOR: #ffffff; TEXT-DECTION: none
+}
+.ShuttleHeader {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.ShuttleLinkText {
+	FONT-SIZE: 9pt; COLOR: #663300; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.MessageBoxList {
+	FONT-SIZE: 10pt; MARGIN-BOTTOM: 0px; COLOR: #336699; TEXT-INDENT: -15px; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.MessageBoxLink {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.MessageBoxParagraph {
+	MARGIN-TOP: 15px; FONT-SIZE: 10pt; COLOR: #336699; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.MessageBoxErrorList {
+	FONT-SIZE: 10pt; MARGIN-BOTTOM: 0px; COLOR: #cc0000; TEXT-INDENT: -15px; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.MessageBoxErrorLink {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #cc0000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.MessageBoxErrorParagraph {
+	MARGIN-TOP: 15px; FONT-SIZE: 10pt; COLOR: #cc0000; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+BODY {
+	MARGIN-TOP: 8px
+}
+TD.odd {
+	background-color: #FFFFFF;
+	padding: 2px;
+}
+TD.even {
+	background-color: #FFFFFF;
+	padding: 2px;
+}
+TD.rightMenuON {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: capitalize;
+	color: #99ccff;
+	background-color: #336699;
+	padding-right: 3px;
+	padding-left: 3px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #4c7fb2;
+}
+A.on, A.on:link, A.on:visited, A.on:active  {
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-transform: none;
+	background-image: url(/Common/images/menupointer.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	padding-top: 5px;
+}
+TD.rightMenuOFF {
+	font-size: 12px;
+	text-transform: capitalize;
+	color: #cccc99;
+	background-color: #999966;
+	padding-right: 3px;
+	padding-left: 3px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #cccc99;
+}
+A.off, A.off:link, A.off:visited, A.off:active  {
+	font-size: 12px;
+	color: #ffffff;
+	text-transform: none;
+}
+A.black, A.black:link, A.black:visited, A.black:active  {
+	color: #000000;
+}
+A.white, A.white:link, A.white:visited, A.white:active  {
+	color: #FFFFFF;
+}
+A.dark, A.dark:link, A.dark:visited, A.dark:active {
+	color: #336699;
+}
+A.rss, A.rss:link, A.rss:visited, A.rss:active {
+	color: #dc4d00;
+}
+.wizardPast {
+	color: #cccc99;
+	font-size: 11px;
+}
+.wizardCurrent {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #336699;
+}
+.wizardFuture {
+	FONT-SIZE: 11pt; COLOR: #999966;
+}
+.BGAccentMediumBorder {
+	border: thin solid #ffffcc
+	padding: 2px;
+}
+.BGAccentLightBorder {
+	border: thin solid #f7f7e7
+	padding: 2px;
+}
+.BGAccentDarkBorder {
+	background-color: #EFEFCF;
+	border: thin solid #cccc99;
+}
+.BGAccentDarkBorderWhite {
+	background-color: #FFFFFF;
+	border: thin solid #cccc99;
+}
+.BGAccentVeryDarkBorder {
+	background-color: #F7F7E6;
+	border: thin solid #999966;
+	padding: 5px;
+}
+.BGAccentDarkBlueBorder {
+	background-color: #C6C6E3;
+	border: thin solid #003366;
+}
+input.BGAccentDarkBlueBorder {
+	background-color: #D8D8EB;
+	border: thin solid #003366;
+}
+.padding {
+	padding-top: 1px;
+	padding-right: 5px;
+	padding-bottom: 1px;
+	padding-left: 5px;
+}
+.right {
+	text-align: right;
+}
+input:focus {
+	border: 2px solid #000000;
+}
+.label {
+	font-weight: bold;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+}
+input.error, TD.error {
+	border: 2px solid #FF0000;
+}
+TD.error_under {
+	border-top: none;
+	border-right: none;
+	border-bottom: 2px solid #FF0000;
+	border-left: none;
+}
+input.change, TD.change {
+	border: 2px solid #003366;
+}
+.mainsection {font-size: 9pt;
+	font-weight: bold;
+	padding-left: 10px;
+}
+.play {
+	font-size: 120%;
+	font-weight: bold;
+	color: #009400;
+	text-decoration: none;
+}
+button.rss {
+	border: none;
+	color: #dc4d00;
+	background-color: #FFFFFF;
+	font-size: 12px;
+	text-align: left;
+}
+.emailBorder {
+	padding: 5px;
+	border: thin dashed #999999;
+}
+.smallAreaI {
+	font-size: 10px;
+	text-align: center;
+	border-bottom-width: medium;
+	border-bottom-style: solid;
+	border-bottom-color: #999966;
+	text-transform: uppercase;
+	color: #999966;
+	letter-spacing: 5px;
+	vertical-align: bottom;
+}
+.smallAreaII {
+	background-color: #EFEFCF;
+	padding-right: 5px;
+	padding-left: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+/* Start vdaemon Styles */
+.valErrorList {
+	background: url('/Common/images/required.gif') no-repeat 0 1px;
+	padding-left: 21px;
+	color: #FF0000
+}
+.valErrorListSmall {
+	background: url('/Common/images/required.gif') no-repeat 0 1px;
+	padding-left: 21px;
+	color: #FF0000;
+	font-size: 12px;
+}
+.valRequired {
+	background: url('/Common/images/required.gif') no-repeat 0 1px;
+	padding-left: 21px;
+	font-weight: bold;
+}
+.valRequired2 {
+	background: url('/Common/images/required-small.gif') no-repeat 2px 1px;
+	padding-left: 21px;
+	font-weight: bold;
+}
+.valError
+{
+	background: url('/Common/images/required.gif') no-repeat 0 1px;
+	padding-left: 21px;
+    font-weight: bold;
+    color: #FF0000
+}
+.valError2
+{
+	background: url('/Common/images/required2.gif') no-repeat 0 1px;
+	padding-left: 21px;
+    font-weight: bold;
+    color: #FF0000
+}
+.valErrorSmall
+{
+	background: url('/Common/images/required-small.gif') no-repeat 0 1px;
+	padding-left: 18px;
+    font-weight: bold;
+    color: #FF0000
+}
+.valErrorSmall2
+{
+	background: url('/Common/images/required2-small.gif') no-repeat 0 1px;
+	padding-left: 18px;
+    font-weight: bold;
+    color: #FF0000
+}
+.valNone
+{
+	background: transparent url('/Common/images/spacer.gif') no-repeat 0 1px;
+	padding-left: 21px;
+    font-weight: bold;
+}
+.valDollar
+{
+	background: transparent url('/Common/images/dollarError.gif') no-repeat 0 1px;
+	padding-left: 21px;
+    font-weight: bold;
+}
+/* End vdaemon Styles */
+
+A.yes, A.yes:link, A.yes:visited, A.yes:active  {
+	color: #336699;
+	font-weight: bold;
+}
+A.no, A.no:link, A.no:visited, A.no:active  {
+	color: #999999;
+}
+.accentVerydark {
+	background-color: 999966;
+}
+.pagination {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #336699;
+}
+div#indicator {
+	position: absolute;
+	width: 100px;
+	height: 40px;
+	left: 20px;
+	top: 150px;
+	z-index: 900;
+	background: url(/Common/images/indicator.gif) no-repeat 0 0;
+}
+.xpHeader {
+	background-color: #FAF9F4;
+	font-weight: bold;
+	border-top: 1px none #FAF9F4;
+	border-right: 1px solid #DED7B6;
+	border-bottom: 1px solid #DED7B6;
+	border-left: 1px none #FAF9F4;
+	text-align: center;
+	padding-top: 5px;
+}
+.xpHeaderLeft {
+	background-color: #F3F2E4;
+	font-weight: bold;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #DED7B6;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #FFFFFF;
+	border-bottom-color: #DED7B6;
+	text-align: center;
+}
+.xpHeaderTopActive {
+	background-color: #F3F2E4;
+	font-weight: bold;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #F9B119;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #DED7B6;
+	border-left-color: #FFFFFF;
+	text-align: center;
+	padding-top: 5px;
+}
+.xpHeaderTop {
+	background-color: #F3F2E4;
+	font-weight: bold;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #DED7B6;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #DED7B6;
+	border-left-color: #FFFFFF;
+	text-align: center;
+	padding-top: 5px;
+}
+.xpHeaderBottomActive {
+	background-color: #F3F2E4;
+	font-weight: bold;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #F9B119;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #DED7B6;
+	border-left-color: #FFFFFF;
+	padding-top: 5px;
+}
+.xpHeaderTotal {
+	background-color: #F3F2E4;
+	font-weight: bold;
+	border-top-width: 2px;
+	border-top-style: double;
+	border-top-color: #F9B119;
+	border-bottom-width: 2px;
+	border-bottom-style: double;
+	border-bottom-color: #F9B119;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #DED7B6;
+	border-left-color: #FFFFFF;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-top: 2px;
+}
+.xpHeaderBorder {
+	border-width: 1px 2px;
+	border-style: solid;
+	border-color: #DED7B6;
+}
+.xpHeaderEven {
+	background-color: #F9F8F0;
+	padding: 2px 10px 2px 5px;
+}
+.xpHeaderOdd {
+	background-color: #FFFFFF;
+	padding: 2px 10px 2px 5px;
+}
+/* NAVBAR */
+#NavBar {
+	padding: 0 5px 0 0;
+	height: 49px;
+}
+#NavBar p {
+	position: absolute;
+	font-size: x-small;
+	right: 19px;
+	top: 30px;
+	margin: 0;
+}
+#NavBar ul {
+	float: right;
+	margin: 0;
+	padding: 0; /*26px 0 0 0;*/
+}
+#NavBar li {
+	float: left;
+	list-style-type: none;
+	width:88px;
+	height: 20px;
+	padding: 4px;
+	margin: 0 1px;
+	background-image: url(/Common/images/tab_bg.png);
+	background-position: bottom left;
+	font-size: x-small;
+}
+#NavBar li:hover {
+	padding-top: 6px;
+}
+* html #NavBar li a:hover {	padding-top: 3%;} 
+#NavBar li.selected   {
+
+	padding-top: 12px;
+	font-weight: bold;
+}
+#NavBar a {
+	color: #333;
+	width:100%;
+	display:block;
+}
+#NavBar li a {
+	text-decoration: none;
+	color: #333;
+}
+#NavBar li a img {
+	float: left;
+	margin: 0 4px 0 0;
+}
+#NavBar li.logout {
+	border: none;
+	background-color: #FFF;
+	background-image: none;
+	padding-top: 4px !important;
+	text-align: center;
+	width: 53px;
+}
+/* NAVBAR */
+
+/* Start of picklist.js */
+.multipleSelectBoxControl span{	/* Labels above select boxes*/
+	font-family:arial;
+	font-size:11px;
+	font-weight:bold;
+}
+.multipleSelectBoxControl div select{	/* Select box layout */
+	font-family:arial;
+	height:100%;
+}
+.multipleSelectBoxControl input{	/* Small butons */
+	width:25px;	
+}
+
+.multipleSelectBoxControl div{
+	float:left;
+}
+	
+.multipleSelectBoxDiv
+/* End of picklist.js */
+
+/* Start of autoassist */
+.aa {
+	font-size: 12px;
+	background-color: white;
+	border-width: 2px;
+	border-color: #cccccc;
+	border-style: solid;
+	padding: 2px;
+	margin-top: 1px;
+	text-align:left;
+}
+.aa_highlight {
+	background-color: #FFFF00;
+	color: #000000;
+}
+.aa_wait {
+	cursor: wait;
+	background-image: url(/Common/images/arrows_circle.gif);
+	background-repeat: no-repeat;
+	background-position: 98% center;	
+}
+.aa * {
+	padding: 3px;
+	text-align:left;	
+}
+/* End of autoassist */
+
+input.hideinput, input.hideinput:focus, 
+select.hideinput, select.hideinput:focus {
+	background-color: #EFEFCF;
+	border: thin solid #EFEFCF;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#floatingAdmin {
+	width:100%;
+	background-color:#CCCCCC;
+	padding-top:5px;
+	padding-bottom:35px;
+	margin-top:50px;
+	font-size:0.8em;
+	position:fixed;
+	bottom:0px;
+	color:#000000;
+	text-align:left;
+	padding-left:10px;
+	z-index:10;
+	filter:alpha(opacity=90);
+	-moz-opacity:.90;
+	opacity:.90;
+}
+	 
+#floatingFooter {
+	width:100%;
+	background-color:#DFDFBF;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-top:50px;
+	font-size:0.8em;
+	position:fixed;
+	bottom:0px;
+	color:#333333;
+	text-align:left;
+	padding-left:10px;
+	z-index:10;
+	border-top-width: 1px;
+	border-bottom-width: 5px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #000000;
+	border-bottom-color: #336699;
+	filter:alpha(opacity=90);
+	-moz-opacity:.90;
+	opacity:.90;
+}
+#floatingFooter a {
+	color:#000;
+}
+#floatingFooter a:hover {
+	color:#336699;
+}	 
+#floatingFooter #footerContent {
+	margin:0 auto 0 auto;
+	margin-left: 30px;	
+	text-align:left;
+}
+
+/* -- Start drop shadow -- */
+.shiftcontainer{
+position: relative;
+left: 5px; /*Number should match -left shadow depth below*/
+top: 5px; /*Number should match -top shadow depth below*/
+}
+
+.shadowcontainer{
+/*width: 300px;  container width*/
+background-color: #d1cfd0;
+}
+
+.shadowcontainer .innerdiv{
+/* Add container height here if desired */
+background-color: white;
+border: 1px solid gray;
+padding: 6px;
+position: relative;
+left: -5px; /*shadow depth*/
+top: -5px; /*shadow depth*/
+}
+/* -- End drop shadow -- */
+
+input, select {
+	font-size: 11px;
+}
+.highlight {
+	background-color: #FFFF99;
+	font-weight: bold;
+	color: #000000;
+}
+.highlightOption {
+	background-color: #FFFF99;
+	color: #000000;
+}
+#username {
+	background: url('/Common/images/userinfo.gif') no-repeat 0 1px;
+	padding-left: 17px;
+	border: 1px solid #999966;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+#password {
+    background: url('/Common/images/key7-16-bw.gif') no-repeat 0 1px;
+    padding-left: 17px;
+	border: 1px solid #999966;
+	padding-top: 3px;
+	padding-bottom: 3px;	
+}
+
+/* -- Start Progress Bar -- */
+#dhtmlgoodies_progressPane{
+	width:100%;
+	height:100%;
+	background-color:#FFF;
+	z-index:5000;
+	position:absolute;
+	left:0px;
+	top:0px;
+	
+}
+#dhtmlgoodies_progressBar_bg{
+	position:absolute;
+	left:50%;
+	top:50%;
+	width:300px;
+	height:20px;
+	border:1px solid #000;
+	background-color:#EEE;
+	margin-left:-150px;	
+	margin-top:-20px;
+	text-align:center;
+}
+#dhtmlgoodies_progressBar_outer{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:0px;	
+	height:100%;
+	overflow:hidden;	
+}
+
+#dhtmlgoodies_progressBar{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:300px;
+	background-color:#184EB8;
+	filter: Alpha(Opacity=0, FinishOpacity=100,Style=1,StartX=0, StartY=0, FinishX=200,FinishY=20) ;
+	height:100%;
+	z-index:5000;
+}
+#dhtmlgoodies_progressBar_txt{
+	color:#000;
+	z-index:10000;
+	width:100%;
+	height:100%;
+	left:0px;
+	top:0px;
+	position:absolute;		
+	font-family:arial;
+	font-size:0.8em;
+	line-height:20px;	/* Same as height of progress bar */
+}
+/* -- End Progress Bar -- */
+fieldset {
+  margin: 1em 0;
+  padding: 1em;
+  border: 1px solid #003366;
+  background: #D8D8EB url(/Common/images/fieldset_back.jpg) repeat-x 0 0;
+}
+fieldset.collapsed {
+  background: transparent;
+  padding-top: 0;
+  padding-bottom: .6em;
+}
+fieldset.collapsible legend a {
+  padding-left: 12px;
+  color:#000000;
+  font-weight:bold;
+  background: url(/Common/images/menu-expanded.gif) no-repeat 0% 50%;
+}
+fieldset.collapsed legend a {
+  padding-left: 12px;
+  color:#000000;
+  background: url(/Common/images/menu-collapsed.gif) no-repeat 0% 50%;
+}
+
+a.emailLink {
+  padding-left: 19px;
+  color:#000000;
+  background: url(/Common/images/email.gif) no-repeat 0% 50%;
+}
+/* START comment box */
+.comment {		background-color: #FFFFFF;
+		border: 1px solid #DBDBDB;
+		background-image: url(/Common/images/quote.gif);
+		background-repeat: no-repeat;
+		background-position: 80px 20px;
+}
+.commentbody {		padding: 10px;
+}
+.comment_date {		color: #999999;
+		text-align: right;
+		padding-right: 10px;
+		font-size: 10px;
+}
+.comment_datenum {		background-image: url(/Common/images/commnum.gif);
+		background-repeat: no-repeat;
+		background-color: #FFFFFF;
+}
+.comment_day {		color: #336699;
+		text-align: center;
+		font-weight: bold;
+}
+.comment_month {		text-transform: uppercase;
+		text-align: center;
+		font-weight: bold;
+		padding-top: 5px;
+}
+.comment_wrote {		font-weight: bold;
+		padding: 5px;
+		border-bottom-width: thin;
+		border-bottom-style: solid;
+		border-bottom-color: #CCCCCC;
+}
+.comment_year {		text-align: center;
+		font-weight: bold;
+}
+/* END comment box */
+#meebo {
+	font-weight: bold;
+	color: #FF9D1E;
+}
+.spryLoading {
+	height:36px;
+	background-image:url(/Common/images/spry-loader.gif);
+	background-repeat:no-repeat;
+	background-position:left center;
+	color: #FFFFFF;
+	background-color:#336699;
+	border: solid 2px #202020;
+	text-align: left;
+	margin: 5px;
+	font-size: 120%;
+	font-weight: bold;
+	width: 700px;
+	text-indent: 42px;
+	line-height: -25px;	
+}
+.spryReady {
+	height:36px;
+	color: #FFFFFF;
+	background-color:#336699;
+	border: solid 2px #202020;
+	text-align: left;
+	margin: 5px;
+	font-size: 120%;
+	font-weight: bold;
+	width: 700px;
+	text-indent: 42px;
+}
+.spryFailed {
+	height:36px;
+	background-position:left center;
+	color: #FFFFFF;
+	background-color:#CC0000;
+	border: solid 2px #202020;
+	text-align: left;
+	margin: 5px;
+	font-size: 120%;
+	font-weight: bold;
+	width: 700px;
+	text-indent: 42px;
+}
+#columnHeadings {
+	background:url('/Common/images/accentVeryDark.gif') repeat-x;
+	text-transform:uppercase;
+	text-align:left;
+	height:30px;
+	color:#FFFFFF;
+}
+.requiredicon {
+	background-image: url(/Common/images/required-small.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 18px;
+}
+.viewcomments {
+	font-size: 70%;
+	color: #000000;
+	background-image: url(/Common/images/popupicon.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.HeaderAccentDark {
+	BACKGROUND-COLOR: #cccc99;
+	background-image: url(images/accentDark.gif);
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.dateArea {
+	background-color: #F7F7E6;
+	padding: 4px;
+	border: thin solid #DBDB93;
+}
+.blueNoteArea {
+	color: #FFFFFF;
+	font-weight: bold;
+	background-color: #2647A0;
+	text-align: center;
+	padding: 10px;
+	border: thin solid #003366;
+}
+.blueNoteAreaBorder {
+	border: thin solid #003366;	
+}
+.blankNoteArea {
+	font-weight: bold;
+	text-align: center;
+	padding: 10px;
+	border: thin solid #003366;
+}
+.editable {
+	background-image: url(/Common/images/form-update.gif);
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 22px;
+}
+#hotMessage {
+	font-size: 18px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #FF0000;
+	border: medium solid #000000;
+	text-align: center;
+	padding: 10px;
+	margin: 3px;
+	margin-left: auto; 
+	margin-right: auto;
+}
+#hotMessageWarning {
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #C60000;
+	padding: 5px;
+	border: thin solid #000000;
+	margin-top: 10px;
+	text-align: center;
+}
+#privateMessage {
+	font-size: 18px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #FF0000;
+	border: medium solid #000000;
+	text-align: center;
+	padding: 10px;
+	margin: 3px;
+	margin-left: auto; 
+	margin-right: auto;
+}
+#privateMessageWarning {
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #C60000;
+	padding: 5px;
+	border: thin solid #000000;
+	margin-top: 10px;
+	text-align: center;
+}
+#paymentMessage {
+	font-size: 18px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #009900;
+	border: medium solid #000000;
+	text-align: center;
+	padding: 10px;
+	margin: 3px;
+	margin-left: auto; 
+	margin-right: auto;
+}
+#paymentMessageWarning {
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #006600;
+	padding: 5px;
+	border: thin solid #000000;
+	margin-top: 10px;
+	text-align: center;
+}
+#messageCenter {
+	font-size: 18px;
+	font-weight: bold;
+	color: #000000;
+	background-color: #EBEBDB;
+	border: 2px solid #000000;
+	text-align: center;
+	padding: 10px;
+	margin: 3px;
+	margin-left: auto;
+	margin-right: auto;
+}
+a.catalog {
+	padding-left: 18px;
+	background: url(/Common/images/offsite.gif) no-repeat 0% 50%;
+	font-weight: bold;
+	color: #000000;
+}
+#commentsHeader {
+	text-transform: uppercase;
+	color: #000000;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 12px;
+	cursor: pointer;
+	text-align: center;
+}
+a.addBlack {
+	padding-left: 18px;
+	background: url(/Common/images/addition.gif) no-repeat 0% 50%;
+	font-weight: bold;
+	color: #000000;
+	font-size: 11px;
+	text-transform: uppercase;
+}
+a.addWhite {
+	padding-left: 18px;
+	background: url(/Common/images/addition.gif) no-repeat 0% 50%;
+	font-weight: bold;
+	color: #ffffff;
+	font-size: 11px;
+	text-transform: uppercase;
+}
+.clickToView {
+	font-size: 10px;
+	cursor: pointer;
+	text-align: center;
+}
+.dHeader {
+	font-size: 10px;
+	background-color: #C6C6E3;
+	padding-left: 5px;
+	border-bottom-width: thin;
+	border-bottom-style: solid;
+	border-bottom-color: #014B94;
+}
+.gHeader {
+	font-size: 10px;
+	padding-left: 2px;
+	border-bottom-width: thin;
+	border-bottom-style: solid;
+	border-bottom-color: #000000;
+}
+/* Here's an example of an accordion Aqua Gradient theme that uses
+ * different class names from the ones used in SpryAccordion.css,
+ * to style the different parts of the accordion.
+ */
+.Accordion {
+	border-left: solid 1px gray;
+	border-right: solid 1px black;
+	border-bottom: solid 1px gray;
+	overflow: hidden;
+	font-size: 16px;
+}
+
+.Accordion .AccordionPanelTab {
+	height: 24px;
+	background-image: url(/Common/images/idea-gradient.gif);
+	background-repeat: repeat-x;
+	background-color: #660000;
+	border-top: solid 1px black;
+	border-bottom: solid 1px gray;
+	margin: 0px;
+	padding: 2px;
+	cursor: pointer;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	text-align: center;
+	color:#FFFFFF;
+}
+
+.Accordion .AccordionPanelContent {
+	overflow: auto;
+	margin: 0px;
+	padding: 5px;
+	background-image: url(/Common/images/overlay.png);
+	background-repeat: repeat;
+	height: 350px;
+	color:#FFFFFF;
+}
+
+.Accordion .AccordionPanelContentBlack {
+	overflow: auto;
+	margin: 0px;
+	padding: 5px;
+	background-image: url(/Common/images/overlay.png);
+	background-repeat: repeat;
+	height: 350px;
+	color:#000000;
+}
+
+.Accordion .hover {
+	background-image: none;
+	background-color: #660000;
+}
+
+.Accordion .open {
+	/* Add properties here. */
+}
+
+.Accordion .closed {
+	/* Add properties here. */
+}
+
+.Accordion .focused {
+	/* Add properties here. */
+}
+.SpryHiddenRegion {visibility:hidden;}
+.editContent {
+	background-color:#009900;
+	border:1px solid #000000;
+	color:#FFFFFF;
+	font-size:14px;
+}
+/*A.searchview {
+	color: #000000;
+	background-image: url(/Common/images/searchview.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 17px;
+	padding-right: 5px;
+}
+A.preview {
+	color: #000000;
+	background-image: url(/Common/images/preview.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 16px;
+	padding-right: 5px;
+}*/
+.red {
+	font-weight: bold;
+	color: #FF0000;
+}
+.blueItem {
+	color: #FFFFFF;
+	background-color: #336699;
+}
+#loginBorder {
+	border: 4px solid #E0DFDF;
+	width: 600px;
+	background-image: url(/Common/images/PleaseLogin.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+#approvalTime {
+	text-align:right;
+	padding:5px;
+	background-color:#003366;
+	color: #FFFFFF;
+	margin-top:-5px;
+	margin-left:-3px;
+	margin-right:-3px;
+	margin-bottom:10px;
+	border-top-width: thin;
+	border-top-style: solid;
+	border-top-color: #000000;
+}
+/* =========== Start CoolTip ========== */
+.tooltip {
+	position: absolute!important;
+	overflow:hidden;
+	font-size: 12px;
+	z-index: 10000!important;
+}
+.tooltip .xtop, .tooltip .xbottom { display: block; background: transparent; font-size: 1px; }
+.tooltip .xb1, .tooltip .xb2, .tooltip .xb3, .tooltip .xb4 { display: block; overflow: hidden; }
+.tooltip .xb1, .tooltip .xb2, .tooltip .xb3 { height: 1px; }
+.tooltip .xb2, .tooltip .xb3, .tooltip .xb4 { background: #666; border-left: 1px solid #333; border-right: 1px solid #333; }
+.tooltip .xbottom .xb2, .tooltip .xbottom .xb3, .tooltip .xbottom .xb4 { background: #666; }
+.tooltip .xb1 { margin: 0 5px; background: #333; }
+.tooltip .xb2 { margin: 0 3px; border-width: 0 2px; }
+.tooltip .xb3 { margin: 0 2px; }
+.tooltip .xb4 { height: 2px; margin: 0 1px; }
+
+.tooltip .xboxcontent {
+	padding: 0 .5em;
+	margin: 0;
+	color: #000;
+	text-shadow: 2px 2px 0px #CCC;
+	word-wrap:break-word;
+	border: 1px solid #333;
+	border-width: 0px 1px 0 1px;
+	background-color: #666;
+}
+/* =========== End CoolTip ========== */
+
+
+/* =========== Start jQuery UI calendar ========== */
+#datepicker_div, .datepicker_inline {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 0;
+	margin: 0;
+	background: #ddd;
+	width: 185px;
+}
+#datepicker_div {
+	display: none;
+	border: 1px solid #777;
+	z-index: 10; /*must have*/
+}
+.datepicker_inline {
+	float: left;
+	display: block;
+	border: 0;
+}
+.datepicker_dialog {
+	padding: 5px !important;
+	border: 4px ridge #ddd !important;
+}
+button.datepicker_trigger {
+	width: 25px;
+}
+img.datepicker_trigger {
+	margin: 2px;
+	vertical-align: middle;
+}
+.datepicker_prompt {
+	float: left;
+	padding: 2px;
+	background: #ddd;
+	color: #000;
+}
+* html .datepicker_prompt {
+	width: 185px;
+}
+.datepicker_control, .datepicker_links, .datepicker_header, .datepicker {
+	clear: both;
+	float: left;
+	width: 100%;
+	color: #fff;
+}
+.datepicker_control {
+	background: #400;
+	padding: 2px 0px;
+}
+.datepicker_links {
+	background: #000;
+	padding: 2px 0px;
+}
+.datepicker_control, .datepicker_links {
+	font-weight: bold;
+	font-size: 80%;
+	letter-spacing: 1px;
+}
+.datepicker_links label { /* disabled links */
+	padding: 2px 5px;
+	color: #888;
+}
+.datepicker_clear, .datepicker_prev {
+	float: left;
+	width: 34%;
+}
+.datepicker_current {
+	float: left;
+	width: 30%;
+	text-align: center;
+}
+.datepicker_close, .datepicker_next {
+	float: right;
+	width: 34%;
+	text-align: right;
+}
+.datepicker_header {
+	padding: 1px 0 3px;
+	background: #333;
+	text-align: center;
+	font-weight: bold;
+	height: 1.3em;
+}
+.datepicker_header select {
+	background: #333;
+	color: #fff;
+	border: 0px;
+	font-weight: bold;
+}
+.datepicker {
+	background: #ccc;
+	text-align: center;
+	font-size: 100%;
+}
+.datepicker a {
+	display: block;
+	width: 100%;
+}
+.datepicker_titleRow {
+	background: #777;
+}
+.datepicker_daysRow {
+	background: #eee;
+	color: #666;
+}
+.datepicker_daysCell {
+	color: #000;
+	border: 1px solid #ddd;
+}
+.datepicker_daysCell a{
+	display: block;
+}
+.datepicker_weekEndCell {
+	background: #ddd;
+}
+.datepicker_daysCellOver {
+	background: #fff;
+	border: 1px solid #777;
+}
+.datepicker_unselectable {
+	color: #888;
+}
+.datepicker_today {
+	background: #fcc !important;
+}
+.datepicker_currentDay {
+	background: #999 !important;
+}
+
+/* ________ Datepicker Links _______
+
+** Reset link properties and then override them with !important */
+#datepicker_div a, .datepicker_inline a {
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	background: none;
+	color: #000;
+}
+.datepicker_inline .datepicker_links a {
+	padding: 0 5px !important;
+}
+.datepicker_control a, .datepicker_links a {
+	padding: 2px 5px !important;
+	color: #eee !important;
+}
+.datepicker_titleRow a {
+	color: #eee !important;
+}
+.datepicker_control a:hover {
+	background: #fdd !important;
+	color: #333 !important;
+}
+.datepicker_links a:hover, .datepicker_titleRow a:hover {
+	background: #ddd !important;
+	color: #333 !important;
+}
+
+/* ___________ MULTIPLE MONTHS _________*/
+
+.datepicker_multi .datepicker {
+	border: 1px solid #777;
+}
+.datepicker_oneMonth {
+	float: left;
+	width: 185px;
+}
+.datepicker_newRow {
+	clear: left;
+}
+
+/* ___________ IE6 IFRAME FIX ________ */
+
+.datepicker_cover {
+    display: none; /*sorry for IE5*/
+    display/**/: block; /*sorry for IE5*/
+    position: absolute; /*must have*/
+    z-index: -1; /*must have*/
+    filter: mask(); /*must have*/
+    top: -4px; /*must have*/
+    left: -4px; /*must have*/
+    width: 200px; /*must have*/
+    height: 200px; /*must have*/
+}
+/* =========== End jQuery UI calendar ========== */

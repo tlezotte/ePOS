@@ -1,0 +1,14 @@
+<script type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+
+<div id="NavBar">
+	<ul>    
+		<li><a href="javascript:void(0);" onClick="MM_openBrWindow('../Common/calculator.php','help','scrollbars=no,resizable=yes,width=281,height=270')"><img src="../images/xcalc.png" width="16" height="14" border="0" align="absmiddle">Calculator</a></li>
+		<li><a href="javascript:void(0);" onClick="MM_openBrWindow('../Help/index.php','help','scrollbars=yes,resizable=yes,width=800,height=800')"><img src="../images/help.gif" width="18" height="18" border="0" align="absmiddle">Help</a></li>
+	</ul>
+</div>

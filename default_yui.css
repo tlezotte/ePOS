@@ -1,0 +1,1309 @@
+img#Print { display: none; }
+div#Print { display: none; }
+A {
+	FONT-FAMILY: Arial, Helvetica, Geneva, sans-serif;
+	text-decoration: none;
+}
+body {
+	FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif;
+	BACKGROUND-COLOR: #ffffff;
+	background-image: url(/Common/images/body_back.gif);
+	background-repeat: repeat-x;
+	margin-left: -10px;
+	margin-top: 0px;
+	margin-right: -10px;
+	margin-bottom: 0px;	
+}
+TR.odd {
+	background-color: #F1F2F2;
+	padding: 2px;
+}
+TR.even {
+	background-color: #DFDFBF;
+	padding: 2px;
+}
+TD.rightMenuON {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: capitalize;
+	color: #99ccff;
+	background-color: #336699;
+	padding-right: 3px;
+	padding-left: 3px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #4c7fb2;
+}
+A.on, A.on:link, A.on:visited, A.on:active  {
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-transform: none;
+	background-image: url(/Common/images/menupointer.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	padding-top: 5px;
+}
+TD.rightMenuOFF {
+	font-size: 12px;
+	text-transform: capitalize;
+	color: #cccc99;
+	background-color: #999966;
+	padding-right: 3px;
+	padding-left: 3px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #cccc99;
+}
+A.off, A.off:link, A.off:visited, A.off:active  {
+	font-size: 12px;
+	color: #ffffff;
+	text-transform: none;
+}
+A.black, A.black:link, A.black:visited, A.black:active  {
+	color: #000000;
+}
+A.white, A.white:link, A.white:visited, A.white:active  {
+	color: #FFFFFF;
+}
+A.dark, A.dark:link, A.dark:visited, A.dark:active {
+	color: #336699;
+	text-decoration: none;
+}
+A.rss, A.rss:link, A.rss:visited, A.rss:active {
+	color: #dc4d00;
+}
+A.checkComments, A.checkComments:link, A.checkComments:visited, A.checkComments:active {
+	color:#000000;
+}
+.wizardPast {
+	color: #cccc99;
+	font-size: 11px;
+}
+.wizardCurrent {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #336699;
+}
+.wizardFuture {
+	FONT-SIZE: 11pt; COLOR: #999966;
+}
+input:focus {
+	border: 2px solid #000000;
+}
+.label {
+	font-weight: bold;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+}
+input.error, TD.error {
+	border: 2px solid #FF0000;
+}
+TD.error_under {
+	border-top: none;
+	border-right: none;
+	border-bottom: 2px solid #FF0000;
+	border-left: none;
+}
+input.change, TD.change {
+	border: 2px solid #003366;
+}
+A.yes, A.yes:link, A.yes:visited, A.yes:active  {
+	color: #336699;
+	font-weight: bold;
+}
+A.no, A.no:link, A.no:visited, A.no:active  {
+	color: #999999;
+}
+/* Start of autoassist */
+.aa {
+	font-size: 12px;
+	background-color: white;
+	border-width: 2px;
+	border-color: #cccccc;
+	border-style: solid;
+	padding: 2px;
+	margin-top: 1px;
+	text-align:left;
+}
+.aa_highlight {
+	background-color: #FFFF00;
+	color: #000000;
+}
+.aa_wait {
+	cursor: wait;
+	background-image: url(/Common/images/arrows_circle.gif);
+	background-repeat: no-repeat;
+	background-position: 98% center;	
+}
+.aa * {
+	padding: 3px;
+	text-align:left;	
+}
+/* End of autoassist */
+
+input.hideinput, input.hideinput:focus, 
+select.hideinput, select.hideinput:focus {
+	background-color: #EFEFCF;
+	border: thin solid #EFEFCF;
+	font-size: 14px;
+	font-weight: bold;
+}
+#username {
+	background: url('/Common/images/userinfo.gif') no-repeat 0 1px;
+	padding-left: 17px;
+	border: 1px solid #E0DFDF;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+#password {
+    background: url('/Common/images/key7-16-bw.gif') no-repeat 0 1px;
+    padding-left: 17px;
+	border: 1px solid #E0DFDF;
+	padding-top: 3px;
+	padding-bottom: 3px;	
+}
+.vLine {
+	background-image: url(/Common/images/vertLine.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.hLine {
+	background-image: url(/Common/images/hozLine.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+/* -- End Progress Bar -- */
+fieldset {
+  margin: 1em 0;
+  padding: 1em;
+  border: 1px solid #003366;
+  background: #D8D8EB url(/Common/images/fieldset_back.jpg) repeat-x 0 0;
+}
+fieldset.collapsed {
+  background: transparent;
+  padding-top: 0;
+  padding-bottom: .6em;
+}
+fieldset.collapsible legend a {
+  padding-left: 12px;
+  color:#000000;
+  font-weight:bold;
+  background: url(/Common/images/menu-expanded.gif) no-repeat 0% 50%;
+}
+fieldset.collapsed legend a {
+  padding-left: 12px;
+  color:#000000;
+  background: url(/Common/images/menu-collapsed.gif) no-repeat 0% 50%;
+}
+
+a.emailLink {
+  padding-left: 19px;
+  color:#000000;
+  background: url(/Common/images/email.gif) no-repeat 0% 50%;
+}
+/* START comment box */
+.comment {
+		background-color: #FFFFFF;
+		border: 1px solid #DBDBDB;
+		background-image: url(/Common/images/quote.gif);
+		background-repeat: no-repeat;
+		background-position: 80px 20px;
+		cursor: pointer;
+}
+#commentsCounter {
+		text-align:center;
+		cursor: pointer;
+}
+.commentbody {padding: 10px;}
+.comment_date {
+		color: #999999;
+		text-align: right;
+		padding-right: 10px;
+}
+.comment_datenum {
+		background-image: url(/Common/images/commnum.gif);
+		background-repeat: no-repeat;
+		background-color: #FFFFFF;
+}
+.comment_day {
+		color: #336699;
+		text-align: center;
+		font-weight: bold;
+}
+.comment_month {
+		text-transform: uppercase;
+		text-align: center;
+		font-weight: bold;
+		padding-top: 5px;
+}
+.comment_wrote {
+		font-weight: bold;
+		padding: 5px;
+		border-bottom-width: thin;
+		border-bottom-style: solid;
+		border-bottom-color: #CCCCCC;
+}
+.comment_year {
+		text-align: center;
+		font-weight: bold;
+}
+.clickToView {
+	font-size: 11px;
+	cursor: pointer;
+	text-align: center;
+}
+/* END comment box */
+
+#columnHeadings {
+	background:url('/Common/images/accentVeryDark.gif') repeat-x;
+	text-transform:uppercase;
+	text-align:left;
+	height:30px;
+	color:#FFFFFF;
+}
+.requiredicon {
+	background-image: url(/Common/images/required-small.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 18px;
+}
+.viewcomments {
+	font-size: 70%;
+	color: #000000;
+	background-image: url(/Common/images/popupicon.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+#messageCenter {
+	font-size: 18px;
+	font-weight: bold;
+	color: #000000;
+	background-color: #EBEBDB;
+	border: 2px solid #000000;
+	text-align: center;
+	padding: 10px;
+	margin-left:-10px;
+	margin-right:-10px;
+/*	margin: 3px;
+	margin-left: auto;
+	margin-right: auto;*/
+}
+.hotMessage {
+	color: #FFFFFF !important;
+	background-color: #FF0000 !important;
+}
+.blueNoteArea {
+	color: #FFFFFF;
+	font-weight: bold;
+	background-color: #2647A0;
+	text-align: center;
+	padding: 10px;
+	border: thin solid #003366;
+}
+.blueNoteAreaBorder {
+	border: thin solid #003366;	
+}
+.loggedInUser, #loggedInUser, #styleSwitcher {
+	FONT-SIZE: 10pt;
+	COLOR: #000000;
+	TEXT-ALIGN: right;
+}
+.Copyright {
+	FONT-SIZE: 8pt; 
+	COLOR: #000000; 
+	TEXT-ALIGN: left;
+	padding-left:10px;
+}
+.gHeader {
+	font-size: 10px;
+	padding-left: 2px;
+	border-bottom-width: thin;
+	border-bottom-style: solid;
+	border-bottom-color: #000000;
+}
+.xpHeader {
+	background-color: #FAF9F4;
+	font-weight: bold;
+	border-top: 1px none #FAF9F4;
+	border-right: 1px solid #DED7B6;
+	border-bottom: 1px solid #DED7B6;
+	border-left: 1px none #FAF9F4;
+	text-align: center;
+	padding-top: 5px;
+}
+.xpHeaderLeft {
+	background-color: #F3F2E4;
+	font-weight: bold;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #DED7B6;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #FFFFFF;
+	border-bottom-color: #DED7B6;
+	text-align: center;
+}
+.xpHeaderTopActive {
+	background-color: #F3F2E4;
+	font-weight: bold;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #F9B119;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #DED7B6;
+	border-left-color: #FFFFFF;
+	text-align: center;
+	padding-top: 5px;
+}
+.xpHeaderTop {
+	background-color: #F3F2E4;
+	font-weight: bold;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #DED7B6;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #DED7B6;
+	border-left-color: #FFFFFF;
+	text-align: center;
+	padding-top: 5px;
+}
+.xpHeaderBottomActive {
+	background-color: #F3F2E4;
+	font-weight: bold;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #F9B119;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #DED7B6;
+	border-left-color: #FFFFFF;
+	padding-top: 5px;
+}
+.xpHeaderTotal {
+	background-color: #F3F2E4;
+	font-weight: bold;
+	border-top-width: 2px;
+	border-top-style: double;
+	border-top-color: #F9B119;
+	border-bottom-width: 2px;
+	border-bottom-style: double;
+	border-bottom-color: #F9B119;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #DED7B6;
+	border-left-color: #FFFFFF;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-top: 2px;
+}
+.xpHeaderBorder {
+	border-width: 1px 2px;
+	border-style: solid;
+	border-color: #DED7B6;
+}
+.xpHeaderEven {
+	background-color: #F9F8F0;
+	padding: 2px 10px 2px 5px;
+}
+.xpHeaderOdd {
+	background-color: #FFFFFF;
+	padding: 2px 10px 2px 5px;
+}
+#taskBar {
+	text-align: right;
+	background-color:#DAD9B5;
+	padding:5px 0px 5px 0px;
+	margin:-10px -10px 10px -10px;
+	border-top:thin solid #C6C58D;
+	border-bottom:thin solid #C6C58D;
+}
+#taskBar a {
+	text-decoration: none;
+	text-transform: capitalize;
+	color: #000000;
+	font-weight: bold;
+}
+.DarkHeaderSubSub {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #003366; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+.DarkHeader {
+	FONT-SIZE: 16pt; COLOR: #003366; FONT-FAMILY: Arial,Helvetica,Geneva,sans-serif
+}
+#defaultStyle {
+	background-color:#D3D2A5;
+}
+#seasonalStyle {
+	background-color:#993300;
+}
+#nightStyle {
+	background-color:#000000;
+}
+.style {
+	margin:3px;
+}
+.styleSelect {
+	border: 2px solid #000000;
+}
+.dHeader {
+	font-size: 10px;
+	background-color: #2647A0;
+	color:#FFFFFF;
+	padding-left: 5px;
+	border-bottom-width: thin;
+	border-bottom-style: solid;
+	border-bottom-color: #ffffff;
+}
+.highlight {
+	background:#FFFF99 url(/Common/images/menu-collapsed.gif) no-repeat 8px 5px;
+	font-weight: bold;
+	color: #000000;
+}
+.infoPanel {
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.canceledHighlight, .canceledStatus {
+	font-weight: bold;
+	color: #000000;
+	background-color: #FFD2D2;
+	background-image: url(/Common/images/gtk-no.gif);
+	background-repeat: no-repeat;
+	background-position: 0px -2px;
+}
+.approvedStatus {
+	background-image: url(/Common/images/star_hover.gif);
+	background-repeat: no-repeat;
+}
+.kickoffStatus {
+	background-color: #CEEFBE;
+	background-image: url(/Common/images/gtk-yes.gif);
+	background-repeat: no-repeat;
+	font-weight: bold;
+}
+.newStatus {
+	background-image: url(/Common/images/star_empty.gif);
+	background-repeat: no-repeat;
+	background-position: 3px 3px;
+	background-color: #EBEBDB;
+}
+#scrollToApp, .appJump {
+	cursor: pointer;
+}
+#requestStatus {
+	width:125px;
+	margin-left:625px;
+	padding-left:25px;
+	padding-top:2px;
+	padding-bottom:2px;
+	cursor: pointer;
+	border: 2px solid #000000;
+}
+#requestStatusTitle {
+	font-size:10px;
+	width:125px;
+	margin-left:625px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+#backToTop {
+	margin-left:700px;
+	font-size: 10px;
+	text-transform: uppercase;
+	color: #000000;
+	cursor: pointer;
+}
+/* Here's an example of an accordion Aqua Gradient theme that uses
+ * different class names from the ones used in SpryAccordion.css,
+ * to style the different parts of the accordion.
+ */
+.Accordion {
+	border-left: solid 1px gray;
+	border-right: solid 1px black;
+	border-bottom: solid 1px gray;
+	overflow: hidden;
+	font-size: 16px;
+}
+
+.Accordion .AccordionPanelTab {
+	height: 24px;
+	background-image: url(/Common/images/idea-gradient.gif);
+	background-repeat: repeat-x;
+	background-color: #660000;
+	border-top: solid 1px black;
+	border-bottom: solid 1px gray;
+	margin: 0px;
+	padding: 2px;
+	cursor: pointer;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	text-align: center;
+	color:#FFFFFF;
+}
+
+.Accordion .AccordionPanelContent {
+	overflow: auto;
+	margin: 0px;
+	padding: 5px;
+	background-image: url(/Common/images/overlay.png);
+	background-repeat: repeat;
+	height: 350px;
+	color:#FFFFFF;
+}
+
+.Accordion .AccordionPanelContentBlack {
+	overflow: auto;
+	margin: 0px;
+	padding: 5px;
+	background-image: url(/Common/images/overlay.png);
+	background-repeat: repeat;
+	height: 350px;
+	color:#000000;
+}
+
+.Accordion .hover {
+	background-image: none;
+	background-color: #660000;
+}
+
+.Accordion .open {
+	/* Add properties here. */
+}
+
+.Accordion .closed {
+	/* Add properties here. */
+}
+
+.Accordion .focused {
+	/* Add properties here. */
+}
+.SpryHiddenRegion {visibility:hidden;}
+
+.spryLoading {
+	height:36px;
+	background-image:url(/Common/images/spry-loader.gif);
+	background-repeat:no-repeat;
+	background-position:left center;
+	color: #FFFFFF;
+	background-color:#336699;
+	border: solid 2px #202020;
+	text-align: left;
+	margin: 5px;
+	font-size: 120%;
+	font-weight: bold;
+	width: 700px;
+	text-indent: 42px;
+	line-height: -25px;	
+}
+.spryReady {
+	height:36px;
+	color: #FFFFFF;
+	background-color:#336699;
+	border: solid 2px #202020;
+	text-align: left;
+	margin: 5px;
+	font-size: 120%;
+	font-weight: bold;
+	width: 700px;
+	text-indent: 42px;
+}
+.spryFailed {
+	height:36px;
+	background-position:left center;
+	color: #FFFFFF;
+	background-color:#CC0000;
+	border: solid 2px #202020;
+	text-align: left;
+	margin: 5px;
+	font-size: 120%;
+	font-weight: bold;
+	width: 700px;
+	text-indent: 42px;
+}
+.red {
+	font-weight: bold;
+	color: #FF0000;
+}
+#loginBorder {
+	border: 4px solid #E0DFDF;
+	width: 600px;
+	background-image: url(/Common/images/PleaseLogin.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-color: #FFFFFF;
+	filter:alpha(opacity=85);
+	-moz-opacity:.85;
+	opacity:.85;
+}
+#approvalTime {
+	text-align:right;
+	padding:5px;
+	background-color:#003366;
+	color: #FFFFFF;
+	margin-top:-5px;
+	margin-left:-3px;
+	margin-right:-3px;
+	margin-bottom:10px;
+	border-top-width: thin;
+	border-top-style: solid;
+	border-top-color: #000000;
+}
+
+
+/* =========== Start YUI module ========== */
+.minimantle li, #minimantle li {
+  /*background-image:url(/Common/images/icons_1.5.gif);*/
+  background-repeat:no-repeat;
+}
+.btn-more-2, .hd li.on em, div.hd li.sparkle a, .hd, #mastheadbd .top, #mastheadbd, #doors li a, #today .ft li.on a{
+  background-image:url(/Common/images/grd-1px_1.1.gif);
+  background-repeat:repeat-x;
+}
+div.minimantle, #minimantle {
+	background-image:url(/Common/images/grd-4px.gif);
+	background-repeat: repeat;
+}
+.md{
+  background:#fff;
+  /*border:1px solid #b0bec7;*/
+}
+#left .md{
+  border:1px solid #91a7b4;
+  border-color:#b0bdc6 #91a7b4 #91a7b4 #b0bdc6;
+}
+.hd{
+  color:#18397c;
+  background-color:#fff;
+  background-position:bottom left;
+  border:1px solid #C6C58D;
+  /*border-bottom:1px solid #C6C58D;*/
+  text-align:left;
+  height:20px;
+}
+.minimantle {
+  /*border:1px solid #9CAEBA;*/
+  border-width:0 1px 1px 0;
+  background-color:#91A7B4;
+  background-position:0 -2041px;
+}
+.minimantle .md-sub {
+  border:1px solid #C6C58D;
+}
+.minimantle .md-sub2 {
+  border:1px solid #C6C58D;
+  margin:10px; 
+  background-color:#FFFFFF;
+  background-image:url(/Common/images/grd-4px-w.gif);
+  background-repeat: repeat;  
+}  
+.minimantle h2 a, #minimantle h2 a{
+  color:#333;
+}
+a:link,a:visited{text-decoration:none;}
+a:hover{text-decoration:underline;}
+.md{
+position:relative;
+margin:0 0 10px;
+}
+.hd{
+position:relative;
+/*margin:-1px -1px 0;*/
+}
+.hd h2{
+position:relative;
+font:bold 100% arial;
+padding:1px 11px;
+/*border-bottom:1px solid #fff;*/
+}
+.md-sub h3{
+font-size:100%;
+}
+.minimantle{
+position:relative;
+margin:10px 0;
+}
+#maincontent.md-sub{
+border-bottom:1px solid #C6C58D;
+}
+.minimantle h2{
+font:bold 100% arial;
+margin-bottom:4px;
+}
+.minimantle .hd {margin:-2px;}
+.minimantle .hd h2{margin:0;}
+.minimantle .hd a{color:#16387C !important;}
+.minimantle .hd a:hover{text-decoration: none;}
+/* =========== End YUI module ========== */
+
+/* =========== Start jQpanel ========== */
+.panel{
+	background-image:url(/Common/images/grd-hd.gif);
+	background-repeat:repeat-x;
+	background-color:#D3D2A5;
+	cursor:pointer;
+	color:#16387C;
+	font-weight:bold;
+	height:20px;		
+}
+.panel-up{
+	background:#D3D2A5 url(/Common/images/menu-collapsed.gif) no-repeat 10px 5px;
+	text-indent: 25px;
+	padding-top:2px;
+}
+.panel-down{
+	background:#D3D2A5 url(/Common/images/menu-expanded.gif) no-repeat 10px 5px;
+	text-indent: 25px;
+	padding-top:2px;
+}
+/* =========== End jQpanel ========== */
+
+/* =========== Start cluetipClass: 'jtip'========== */
+.cluetip-jtip {
+  background-color: #fff;
+}
+.clue-right-jtip {
+  background-image: url(/Common/images/arrowleft_jtip.gif);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  padding-left: 10px;
+}
+.clue-left-jtip {
+  background-image: url(/Common/images/arrowright_jtip.gif);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  padding-right: 10px;
+}
+.cluetip-jtip #cluetip-outer {
+  border: 2px solid #336699;
+  position: relative;
+  background-color: #fff;
+}
+.cluetip-jtip h3#cluetip-title {
+  margin: 0 0 5px;
+  padding: 2px 5px;
+  font-size: 16px;
+  font-weight: normal;
+  background-color: #336699;
+  color: #fff;
+}
+.cluetip-jtip #cluetip-inner {
+  padding: 0 5px 5px;
+  display: inline-block;
+}
+.cluetip-jtip div#cluetip-close { 
+  text-align: right;
+  margin: 0 5px 5px;
+  color: #900;
+}
+/* =========== End cluetipClass: 'jtip'========== */
+
+/* =========== Start cluetipClass: 'itip'========== */
+.cluetip-itip {
+  background-color: #fff;
+}
+.clue-right-itip {
+  background-image: url(/Common/images/arrowleft_itip.gif);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  padding-left: 10px;
+}
+.clue-left-itip {
+  background-image: url(/Common/images/arrowright_itip.gif);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  padding-right: 10px;
+}
+.cluetip-itip #cluetip-outer {
+  border: 2px solid #5A1911;
+  position: relative;
+  background-color: #fff;
+}
+.cluetip-itip h3#cluetip-title {
+  margin: 0 0 5px;
+  padding: 2px 5px;
+  font-size: 16px;
+  font-weight: normal;
+  background-color: #5A1911;
+  color: #fff;
+}
+.cluetip-itip #cluetip-inner {
+  padding: 0 5px 5px;
+  display: inline-block;
+}
+.cluetip-itip div#cluetip-close { 
+  text-align: right;
+  margin: 0 5px 5px;
+  color: #900;
+}
+/* =========== End cluetipClass: 'itip'========== */
+
+/* =========== Start Greybox ========== */
+/* Last-Modified: 28/06/06 00:08:22 */
+#GB_overlay {
+    background-color: #000;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+#GB_window {
+    left: 0;
+    top: 0;
+    font-size: 1px;
+    position: absolute;
+    overflow: visible;
+    z-index: 150;
+}
+#GB_window .content {
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+#GB_frame {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    white-space: nowrap;
+}
+.GB_Gallery {
+    margin: 0 22px 0 22px;
+}
+.GB_Gallery .content {
+    background-color: #fff;
+    border: 3px solid #ddd;
+}
+.GB_header {
+    top: 10px;
+    left: 0;
+    margin: 0;
+    z-index: 500;
+    position: absolute;
+    border-bottom: 2px solid #555;
+    border-top: 2px solid #555;
+}
+.GB_header .inner {
+    background-color: #333;
+    font-family: Arial, Verdana, sans-serif;
+    padding: 2px 20px 2px 20px;
+}
+.GB_header table {
+    margin: 0;
+    width: 100%;
+    border-collapse: collapse;
+}
+.GB_header .caption {
+    text-align: left;
+    color: #eee;
+    white-space: nowrap;
+    font-size: 20px;
+}
+.GB_header .close {
+    text-align: right;
+}
+.GB_header .close img {
+    z-index: 500;
+    cursor: pointer;
+}
+.GB_header .middle {
+    white-space: nowrap;
+    text-align: center;
+}
+#GB_middle {
+    color: #eee;
+}
+#GB_middle img {
+    cursor: pointer;
+    vertical-align: middle;
+}
+#GB_middle .disabled {
+    cursor: default;
+}
+#GB_middle .left {
+    padding-right: 10px;
+}
+#GB_middle .right {
+    padding-left: 10px;
+}
+.GB_Window .content {
+    background-color: #fff;
+    border: 3px solid #ccc;
+    border-top: none;
+}
+.GB_Window .header {
+    border-bottom: 1px solid #aaa;
+    border-top: 1px solid #999;
+    border-left: 3px solid #ccc;
+    border-right: 3px solid #ccc;
+    margin: 0;
+    height: 22px;
+    font-size: 12px;
+    padding: 3px 0;
+    color: #333;
+}
+.GB_Window .caption {
+    font-size: 12px;
+    text-align: left;
+    font-weight: bold;
+    white-space: nowrap;
+    padding-right: 20px;
+}
+.GB_Window .close { text-align: right; }
+.GB_Window .close span { 
+    font-size: 12px;
+    cursor: pointer; 
+}
+.GB_Window .close img {
+    cursor: pointer;
+    padding: 0 3px 0 0;
+}
+.GB_Window .on { border-bottom: 1px solid #333; }
+.GB_Window .click { border-bottom: 1px solid red; }
+/* =========== End Greybox ========== */
+
+
+/* =========== Start jQuery UI tabs ========== */
+/* Caution! Ensure accessibility in print and other media types... */
+@media projection, screen { /* Use class for showing/hiding tab content, so that visibility can be better controlled in different media types... */
+    .ui-tabs-hide {
+        display: none;
+    }
+}
+/* Hide useless elements in print layouts... */
+@media print {
+    .ui-tabs-nav {
+        display: none;
+    }
+}
+/* Skin */
+.ui-tabs-nav, .ui-tabs-panel {
+    font-family: Arial, Verdana, "Trebuchet MS", Trebuchet, Helvetica, sans-serif;
+    font-size: 12px;
+}
+.ui-tabs-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 4px;
+}
+.ui-tabs-nav:after { /* clearing without presentational markup, IE gets extra treatment */
+    display: block;
+    clear: both;
+    content: " ";
+}
+.ui-tabs-nav li {
+    float: left;
+    margin: 0 0 0 1px;
+    min-width: 84px; /* be nice to Opera */
+}
+.ui-tabs-nav a, .ui-tabs-nav a span {
+    display: block;
+    padding: 0 10px;
+    background: url(/Common/images/tab.png) no-repeat;
+}
+.ui-tabs-nav a {
+    margin: 1px 0 0; /* position: relative makes opacity fail for disabled tab in IE */
+    padding-left: 0;
+    color: #27537a;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap; /* required in IE 6 */    
+    outline: 0; /* prevent dotted border in Firefox */
+}
+.ui-tabs-nav .ui-tabs-selected a {
+    position: relative;
+    top: 1px;
+    z-index: 2;
+    margin-top: 0;
+    color: #000;
+}
+.ui-tabs-nav a span {
+    width: 64px; /* IE 6 treats width as min-width */
+    min-width: 64px;
+    height: 18px; /* IE 6 treats height as min-height */
+    min-height: 18px;
+    padding-top: 6px;
+    padding-right: 0;
+}
+*>.ui-tabs-nav a span { /* hide from IE 6 */
+    width: auto;
+    height: auto;
+}
+.ui-tabs-nav .ui-tabs-selected a span {
+    padding-bottom: 1px;
+}
+.ui-tabs-nav .ui-tabs-selected a, .ui-tabs-nav a:hover, .ui-tabs-nav a:focus, .ui-tabs-nav a:active {
+    background-position: 100% -150px;
+}
+.ui-tabs-nav a, .ui-tabs-nav .ui-tabs-disabled a:hover, .ui-tabs-nav .ui-tabs-disabled a:focus, .ui-tabs-nav .ui-tabs-disabled a:active {
+    background-position: 100% -100px;
+}
+.ui-tabs-nav .ui-tabs-selected a span, .ui-tabs-nav a:hover span, .ui-tabs-nav a:focus span, .ui-tabs-nav a:active span {
+    background-position: 0 -50px;
+}
+.ui-tabs-nav a span, .ui-tabs-nav .ui-tabs-disabled a:hover span, .ui-tabs-nav .ui-tabs-disabled a:focus span, .ui-tabs-nav .ui-tabs-disabled a:active span {
+    background-position: 0 0;
+}
+.ui-tabs-nav .ui-tabs-selected a:link, .ui-tabs-nav .ui-tabs-selected a:visited, .ui-tabs-nav .ui-tabs-disabled a:link, .ui-tabs-nav .ui-tabs-disabled a:visited { /* @ Opera, use pseudo classes otherwise it confuses cursor... */
+    cursor: text;
+}
+.ui-tabs-nav a:hover, .ui-tabs-nav a:focus, .ui-tabs-nav a:active,
+.ui-tabs-nav .ui-tabs-unselect a:hover, .ui-tabs-nav .ui-tabs-unselect a:focus, .ui-tabs-nav .ui-tabs-unselect a:active { /* @ Opera, we need to be explicit again here now... */
+    cursor: pointer;
+}
+.ui-tabs-disabled {
+    opacity: .4;
+    filter: alpha(opacity=40);
+}
+.ui-tabs-panel {
+    border-top: 1px solid #97a5b0;
+    padding: 1em 8px;
+    background: #fff; /* declare background color for container to avoid distorted fonts in IE while fading */
+}
+.ui-tabs-loading em {
+    padding: 0 0 0 20px;
+    background: url(/Common/images/loading.gif) no-repeat 0 50%;
+}
+
+/* Additional IE specific bug fixes... */
+* html .ui-tabs-nav { /* auto clear, @ IE 6 & IE 7 Quirks Mode */
+    display: inline-block;
+}
+*:first-child+html .ui-tabs-nav  { /* @ IE 7 Standards Mode - do not group selectors, otherwise IE 6 will ignore complete rule (because of the unknown + combinator)... */
+    display: inline-block;
+}
+/* =========== Start jQuery UI tabs ========== */
+
+
+/* =========== Start jQuery UI calendar ========== */
+#datepicker_div, .datepicker_inline {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 0;
+	margin: 0;
+	background: #ddd;
+	width: 185px;
+}
+#datepicker_div {
+	display: none;
+	border: 1px solid #777;
+	z-index: 10; /*must have*/
+}
+.datepicker_inline {
+	float: left;
+	display: block;
+	border: 0;
+}
+.datepicker_dialog {
+	padding: 5px !important;
+	border: 4px ridge #ddd !important;
+}
+button.datepicker_trigger {
+	width: 25px;
+}
+img.datepicker_trigger {
+	margin: 2px;
+	vertical-align: middle;
+}
+.datepicker_prompt {
+	float: left;
+	padding: 2px;
+	background: #ddd;
+	color: #000;
+}
+* html .datepicker_prompt {
+	width: 185px;
+}
+.datepicker_control, .datepicker_links, .datepicker_header, .datepicker {
+	clear: both;
+	float: left;
+	width: 100%;
+	color: #fff;
+}
+.datepicker_control {
+	background: #400;
+	padding: 2px 0px;
+}
+.datepicker_links {
+	background: #000;
+	padding: 2px 0px;
+}
+.datepicker_control, .datepicker_links {
+	font-weight: bold;
+	font-size: 80%;
+	letter-spacing: 1px;
+}
+.datepicker_links label { /* disabled links */
+	padding: 2px 5px;
+	color: #888;
+}
+.datepicker_clear, .datepicker_prev {
+	float: left;
+	width: 34%;
+}
+.datepicker_current {
+	float: left;
+	width: 30%;
+	text-align: center;
+}
+.datepicker_close, .datepicker_next {
+	float: right;
+	width: 34%;
+	text-align: right;
+}
+.datepicker_header {
+	padding: 1px 0 3px;
+	background: #333;
+	text-align: center;
+	font-weight: bold;
+	height: 1.3em;
+}
+.datepicker_header select {
+	background: #333;
+	color: #fff;
+	border: 0px;
+	font-weight: bold;
+}
+.datepicker {
+	background: #ccc;
+	text-align: center;
+	font-size: 100%;
+}
+.datepicker a {
+	display: block;
+	width: 100%;
+}
+.datepicker_titleRow {
+	background: #777;
+}
+.datepicker_daysRow {
+	background: #eee;
+	color: #666;
+}
+.datepicker_daysCell {
+	color: #000;
+	border: 1px solid #ddd;
+}
+.datepicker_daysCell a{
+	display: block;
+}
+.datepicker_weekEndCell {
+	background: #ddd;
+}
+.datepicker_daysCellOver {
+	background: #fff;
+	border: 1px solid #777;
+}
+.datepicker_unselectable {
+	color: #888;
+}
+.datepicker_today {
+	background: #fcc !important;
+}
+.datepicker_currentDay {
+	background: #999 !important;
+}
+
+/* ________ Datepicker Links _______
+
+** Reset link properties and then override them with !important */
+#datepicker_div a, .datepicker_inline a {
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	background: none;
+	color: #000;
+}
+.datepicker_inline .datepicker_links a {
+	padding: 0 5px !important;
+}
+.datepicker_control a, .datepicker_links a {
+	padding: 2px 5px !important;
+	color: #eee !important;
+}
+.datepicker_titleRow a {
+	color: #eee !important;
+}
+.datepicker_control a:hover {
+	background: #fdd !important;
+	color: #333 !important;
+}
+.datepicker_links a:hover, .datepicker_titleRow a:hover {
+	background: #ddd !important;
+	color: #333 !important;
+}
+
+/* ___________ MULTIPLE MONTHS _________*/
+
+.datepicker_multi .datepicker {
+	border: 1px solid #777;
+}
+.datepicker_oneMonth {
+	float: left;
+	width: 185px;
+}
+.datepicker_newRow {
+	clear: left;
+}
+
+/* ___________ IE6 IFRAME FIX ________ */
+
+.datepicker_cover {
+    display: none; /*sorry for IE5*/
+    display/**/: block; /*sorry for IE5*/
+    position: absolute; /*must have*/
+    z-index: -1; /*must have*/
+    filter: mask(); /*must have*/
+    top: -4px; /*must have*/
+    left: -4px; /*must have*/
+    width: 200px; /*must have*/
+    height: 200px; /*must have*/
+}
+/* =========== End jQuery UI calendar ========== */
+
+/* =========== Start jQuery UI resizable ========== */
+.ui-resizable { position: relative; }
+
+/* Global handle styles */
+.ui-resizable-handle { position: absolute; display: none; font-size: 0.1px; }
+.ui-resizable .ui-resizable-handle { display: block; }
+body .ui-resizable-disabled .ui-resizable-handle { display: none; } /* use 'body' to make it more specific (css order) */
+body .ui-resizable-autohide .ui-resizable-handle { display: none; } /* use 'body' to make it more specific (css order) */
+
+.ui-resizable-n { cursor: n-resize; height: 6px; width: 100%; top: 0px; left: 0px; background: transparent url(/Common/js/jquery/ui/themes/flora/i/resizable-n.gif) repeat scroll center top; }
+.ui-resizable-s { cursor: s-resize; height: 6px; width: 100%; bottom: 0px; left: 0px; background: transparent url(/Common/js/jquery/ui/themes/flora/i/resizable-s.gif) repeat scroll center top; }
+
+.ui-resizable-e { cursor: e-resize; width: 6px; right: 0px; top: 0px; height: 100%; background: transparent url(/Common/js/jquery/ui/themes/flora/i/resizable-e.gif) repeat scroll right center; }
+.ui-resizable-w { cursor: w-resize; width: 6px; left: 0px; top: 0px; height: 100%; background: transparent url(/Common/js/jquery/ui/themes/flora/i/resizable-w.gif) repeat scroll right center; }
+
+.ui-resizable-se { cursor: se-resize; width: 9px; height: 9px; right: 0px; bottom: 0px; background: transparent url(/Common/js/jquery/ui/themes/flora/i/resizable-se.gif); }
+.ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: 0px; bottom: 0px; background: transparent url(/Common/js/jquery/ui/themes/flora/i/resizable-sw.gif); }
+.ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: 0px; top: 0px; background: transparent url(/Common/js/jquery/ui/themes/flora/i/resizable-nw.gif); }
+.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: 0px; top: 0px; background: transparent url(/Common/js/jquery/ui/themes/flora/i/resizable-ne.gif); }
+/* =========== End jQuery UI resizable ========== */
+.yui-skin-sam .yuimenubar{background:url(/Common/images/sprite.png) repeat-x 0 0 !important;}
+
+#uploadFile, #uploadToggle, #addTracking, #addTrackingToggle, #addComments, #addCommentsToggle {
+	color:#000000;
+	cursor:pointer;
+	font-weight:bold;
+	padding-left:5px;
+	padding-right:5px;
+}

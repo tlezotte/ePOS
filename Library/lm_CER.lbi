@@ -1,0 +1,23 @@
+<table cellspacing="0" cellpadding="0" summary="" border="0">
+	<tr>
+	  <td>&nbsp;
+	  
+	  </td>
+	  <td>
+		<table cellspacing="0" cellpadding="0" summary="" border="0">
+			<tr>
+			  <td nowrap>&nbsp;<a href="../CER/index.php" class="off">NEW</a>&nbsp;</td>
+			  <td width="20" valign="middle" nowrap><div align="center"><img src="../images/dot.gif" width="10" height="10"></div></td>			
+			  <td nowrap>&nbsp;<a href="../CER/list.php?action=my" class="off">My Requests </a>&nbsp;</td>
+			  <td width="20" valign="middle" nowrap><div align="center"><img src="../images/dot.gif" width="10" height="10"></div></td>
+			  <td nowrap>&nbsp;<a href="../CER/list.php" class="off">All Requests</a>&nbsp;</td>
+		  	  <!--<td width="20" valign="middle" nowrap><div align="center"><img src="../images/dot.gif" width="10" height="10"></div></td>
+			  <td nowrap>&nbsp;<a href="../CER/search.php" class="off">Search</a>&nbsp;</td>-->
+			</tr>
+		</table>
+	  </td>
+	  <td>&nbsp;
+	  
+	  </td>
+	</tr>
+</table>

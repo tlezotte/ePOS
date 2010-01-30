@@ -1,0 +1,559 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+	<channel>
+		<title>Purchase Orders</title>
+		<link>http://www.yourdomain.com/go/Request/index.php</link>
+		<description>List of Purchase Orders transactions using the Purchase Request System</description>
+		<pubDate>Thu, 16 Dec 2004 14:15:14 -0500</pubDate>
+		<copyright>2004 Your Comapany</copyright>
+		<webMaster>tlezotte@yourcompany.com</webMaster>
+		<category>Purchase Request System</category>
+		<image>
+			<title>Your Comapany</title>
+			<url>http://intranet.yourcompany.com/Common/images/ventureRSS.gif</url>
+			<width>150</width>
+			<height>50</height>
+			<link>http://intranet.yourcompany.com/</link>
+		</image>
+		<item>
+			<title>test</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2442</link>
+			<author>Thomas Lezotte</author>
+			<description>test</description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-16 00:00:00</pubDate>
+		</item>
+		<item>
+			<title>Maintanance Renewal</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2441</link>
+			<author></author>
+			<description>Maintanance Renewal</description>
+			<category>Submitted</category>
+			<category>Your Company</category>
+			<pubDate>2004-12-15 00:00:00</pubDate>
+		</item>
+		<item>
+			<title>VARIOUS PEOPLE</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2437</link>
+			<author>Scott </author>
+			<description>VARIOUS PEOPLE</description>
+			<category>Submitted</category>
+			<category>Your Company</category>
+			<pubDate>2004-12-14 00:00:00</pubDate>
+		</item>
+		<item>
+			<title>Yearly Catia Maintenance</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2438</link>
+			<author>Brendan </author>
+			<description>Yearly Catia Maintenance</description>
+			<category>Submitted</category>
+			<category>Your Company</category>
+			<pubDate>2004-12-14 00:00:00</pubDate>
+		</item>
+		<item>
+			<title>test</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2439</link>
+			<author>Thomas Lezotte</author>
+			<description>test</description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-14 00:00:00</pubDate>
+		</item>
+		<item>
+			<title>Outsourced Testing</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2440</link>
+			<author>Eric Teed</author>
+			<description>Outsourced Testing</description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-14 00:00:00</pubDate>
+		</item>
+		<item>
+			<title>notes server backup</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2436</link>
+			<author>Scott </author>
+			<description>notes server backup</description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-13 15:15:07</pubDate>
+		</item>
+		<item>
+			<title>Catia Maintenance for all of deluxe</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2435</link>
+			<author>Brendan </author>
+			<description>Catia Maintenance for all of deluxe</description>
+			<category>Submitted</category>
+			<category>Your Company</category>
+			<pubDate>2004-12-13 10:37:44</pubDate>
+		</item>
+		<item>
+			<title>printer repairs</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2434</link>
+			<author>Scott </author>
+			<description>printer repairs</description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-13 09:54:03</pubDate>
+		</item>
+		<item>
+			<title></title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2433</link>
+			<author>Segvon </author>
+			<description></description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-10 15:10:08</pubDate>
+		</item>
+		<item>
+			<title></title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2432</link>
+			<author>Segvon </author>
+			<description></description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-10 15:06:21</pubDate>
+		</item>
+		<item>
+			<title></title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2431</link>
+			<author>Segvon </author>
+			<description></description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-10 15:03:11</pubDate>
+		</item>
+		<item>
+			<title></title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2430</link>
+			<author>Segvon </author>
+			<description></description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-10 15:02:49</pubDate>
+		</item>
+		<item>
+			<title></title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2429</link>
+			<author>Segvon </author>
+			<description></description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-10 15:02:45</pubDate>
+		</item>
+		<item>
+			<title></title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2428</link>
+			<author>Segvon </author>
+			<description></description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-10 14:58:41</pubDate>
+		</item>
+		<item>
+			<title></title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2427</link>
+			<author>Segvon </author>
+			<description></description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-10 14:58:38</pubDate>
+		</item>
+		<item>
+			<title></title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2426</link>
+			<author>Segvon </author>
+			<description></description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-10 14:56:50</pubDate>
+		</item>
+		<item>
+			<title></title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2425</link>
+			<author>Segvon </author>
+			<description></description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-10 14:56:38</pubDate>
+		</item>
+		<item>
+			<title></title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2424</link>
+			<author>Segvon </author>
+			<description></description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-10 14:56:08</pubDate>
+		</item>
+		<item>
+			<title></title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2423</link>
+			<author>Segvon </author>
+			<description></description>
+			<category>Submitted</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-10 14:55:18</pubDate>
+		</item>
+		<item>
+			<title>test</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2442</link>
+			<author>Thomas Lezotte</author>
+			<description>test</description>
+			<category>Approved</category>
+			<category>Your Comapany</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>Yearly Catia Maintenance</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2438</link>
+			<author>Brendan </author>
+			<description>Yearly Catia Maintenance</description>
+			<category>Approved</category>
+			<category>Your Company</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>VARIOUS PEOPLE</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2437</link>
+			<author>Scott </author>
+			<description>VARIOUS PEOPLE</description>
+			<category>Approved</category>
+			<category>Your Company</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>company firewall maintenace renewal</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2404</link>
+			<author>Scott </author>
+			<description>company firewall maintenace renewal</description>
+			<category>Approved</category>
+			<category>Your Company</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>sdrc maintenance</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2415</link>
+			<author>Christopher </author>
+			<description>sdrc maintenance</description>
+			<category>Approved</category>
+			<category>Your Company</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>building supplies</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2419</link>
+			<author>Shirley </author>
+			<description>building supplies</description>
+			<category>Approved</category>
+			<category>Your Company</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>VARIOUS PEOPLE</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2413</link>
+			<author>Scott </author>
+			<description>VARIOUS PEOPLE</description>
+			<category>Approved</category>
+			<category>Your Company</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>masonic wk program</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2396</link>
+			<author>Scott </author>
+			<description>masonic wk program</description>
+			<category>Approved</category>
+			<category>Your Comapany</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>flordia weathering  ppap requirement</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2417</link>
+			<author>Segvon </author>
+			<description>flordia weathering  ppap requirement</description>
+			<category>Approved</category>
+			<category>Your Comapany</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>masonic wk program</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2398</link>
+			<author>Scott </author>
+			<description>masonic wk program</description>
+			<category>Approved</category>
+			<category>Your Comapany</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>Chember repair</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2416</link>
+			<author>Mikhail Noskov</author>
+			<description>Chember repair</description>
+			<category>Approved</category>
+			<category>Your Comapany</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title></title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2410</link>
+			<author>Segvon </author>
+			<description></description>
+			<category>Approved</category>
+			<category>Your Comapany</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>tebis training</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2414</link>
+			<author>Scott </author>
+			<description>tebis training</description>
+			<category>Approved</category>
+			<category>Your Company</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>Russells environmental chamber repair</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2412</link>
+			<author>Eric Teed</author>
+			<description>Russells environmental chamber repair</description>
+			<category>Approved</category>
+			<category>Your Comapany</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>notes server backup</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2399</link>
+			<author>Scott </author>
+			<description>notes server backup</description>
+			<category>Approved</category>
+			<category>Your Comapany</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>payroll server</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2380</link>
+			<author>Scott </author>
+			<description>payroll server</description>
+			<category>Approved</category>
+			<category>Your Company</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>virus protection for venture notes</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2402</link>
+			<author>Scott </author>
+			<description>virus protection for venture notes</description>
+			<category>Approved</category>
+			<category>Your Comapany</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>to replace firewall and internet managment computer.current one broken</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2406</link>
+			<author>Scott </author>
+			<description>to replace firewall and internet managment computer.current one broken</description>
+			<category>Approved</category>
+			<category>Your Company</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>printer repair at stc on 4000 and 4550</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2411</link>
+			<author>Scott </author>
+			<description>printer repair at stc on 4000 and 4550</description>
+			<category>Approved</category>
+			<category>Your Comapany</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>corporate firewall software maintenance</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2377</link>
+			<author>Scott </author>
+			<description>corporate firewall software maintenance</description>
+			<category>Approved</category>
+			<category>Your Comapany</category>
+			<pubDate></pubDate>
+		</item>
+		<item>
+			<title>various people</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2157</link>
+			<author>Scott </author>
+			<description>various people</description>
+			<category>Denied</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-12-03 10:03:13</pubDate>
+		</item>
+		<item>
+			<title></title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2387</link>
+			<author>Eric </author>
+			<description></description>
+			<category>Denied</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-11-02 15:04:07</pubDate>
+		</item>
+		<item>
+			<title>stc file server</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2372</link>
+			<author>Scott </author>
+			<description>stc file server</description>
+			<category>Denied</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-10-26 11:42:11</pubDate>
+		</item>
+		<item>
+			<title>pt continous conformance</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2255</link>
+			<author>Jeff </author>
+			<description>pt continous conformance</description>
+			<category>Denied</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-08-13 16:28:09</pubDate>
+		</item>
+		<item>
+			<title></title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2188</link>
+			<author>Eric Teed</author>
+			<description></description>
+			<category>Denied</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-07-19 09:15:00</pubDate>
+		</item>
+		<item>
+			<title>Calibration of lab equipment</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=2129</link>
+			<author>Chuck Sams</author>
+			<description>Calibration of lab equipment</description>
+			<category>Denied</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-06-24 13:24:47</pubDate>
+		</item>
+		<item>
+			<title>for grand rapids</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=1650</link>
+			<author>Scott </author>
+			<description>for grand rapids</description>
+			<category>Denied</category>
+			<category>Your Comapany</category>
+			<pubDate>2004-01-17 10:40:20</pubDate>
+		</item>
+		<item>
+			<title>hypermesh renewal</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=1736</link>
+			<author>Scott </author>
+			<description>hypermesh renewal</description>
+			<category>Denied</category>
+			<category>Your Company</category>
+			<pubDate>2004-01-07 14:05:02</pubDate>
+		</item>
+		<item>
+			<title>for stock</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=1681</link>
+			<author>Scott </author>
+			<description>for stock</description>
+			<category>Denied</category>
+			<category>Your Company</category>
+			<pubDate>2004-01-06 16:12:03</pubDate>
+		</item>
+		<item>
+			<title>Additional costs for HUmmer Door Assem. Testing</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=1610</link>
+			<author>Mary Rickwald</author>
+			<description>Additional costs for HUmmer Door Assem. Testing</description>
+			<category>Denied</category>
+			<category>Your Comapany</category>
+			<pubDate>2003-10-28 13:02:17</pubDate>
+		</item>
+		<item>
+			<title>for dan josephs group at pdc</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=1568</link>
+			<author>Scott </author>
+			<description>for dan josephs group at pdc</description>
+			<category>Denied</category>
+			<category>Your Company</category>
+			<pubDate>2003-10-18 08:06:21</pubDate>
+		</item>
+		<item>
+			<title>FIREWALL MAINTENANCE RENEWAL</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=1588</link>
+			<author>Scott </author>
+			<description>FIREWALL MAINTENANCE RENEWAL</description>
+			<category>Denied</category>
+			<category>Your Company</category>
+			<pubDate>2003-10-16 14:18:39</pubDate>
+		</item>
+		<item>
+			<title>for diane mason - martin sack--laura smith--and stock</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=1558</link>
+			<author>Scott </author>
+			<description>for diane mason - martin sack--laura smith--and stock</description>
+			<category>Denied</category>
+			<category>Your Company</category>
+			<pubDate>2003-10-03 12:54:14</pubDate>
+		</item>
+		<item>
+			<title>for steve meland and mike froude and stock</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=1556</link>
+			<author>Scott </author>
+			<description>for steve meland and mike froude and stock</description>
+			<category>Denied</category>
+			<category>Your Company</category>
+			<pubDate>2003-10-03 11:06:46</pubDate>
+		</item>
+		<item>
+			<title>Hummer H2 i/p and console humidity testing</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=1357</link>
+			<author>Matt Sayler</author>
+			<description>Hummer H2 i/p and console humidity testing</description>
+			<category>Denied</category>
+			<category>Your Comapany</category>
+			<pubDate>2003-06-30 13:38:29</pubDate>
+		</item>
+		<item>
+			<title>Digital camera for microscope</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=1332</link>
+			<author>Matt Sayler</author>
+			<description>Digital camera for microscope</description>
+			<category>Denied</category>
+			<category>Your Comapany</category>
+			<pubDate>2003-06-16 13:39:00</pubDate>
+		</item>
+		<item>
+			<title>To fill computer tracking request- none on hand</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=1263</link>
+			<author>Shirley </author>
+			<description>To fill computer tracking request- none on hand</description>
+			<category>Denied</category>
+			<category>Your Comapany</category>
+			<pubDate>2003-05-20 12:27:29</pubDate>
+		</item>
+		<item>
+			<title>Terry Archer, Donna Beckeer at Prince</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=1242</link>
+			<author>Shirley </author>
+			<description>Terry Archer, Donna Beckeer at Prince</description>
+			<category>Denied</category>
+			<category>Your Company</category>
+			<pubDate>2003-04-22 14:19:28</pubDate>
+		</item>
+		<item>
+			<title>measure and record temp and humidity for a2la</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=728</link>
+			<author>Michael </author>
+			<description>measure and record temp and humidity for a2la</description>
+			<category>Denied</category>
+			<category>Your Company</category>
+			<pubDate>2002-07-11 05:50:05</pubDate>
+		</item>
+		<item>
+			<title>for satyam group(current licenses are expired)</title>
+			<link>http://www.yourdomain.com/go/Request/PO/detail.php?id=704</link>
+			<author>Scott </author>
+			<description>for satyam group(current licenses are expired)</description>
+			<category>Denied</category>
+			<category>Your Comapany</category>
+			<pubDate>2002-07-01 12:14:48</pubDate>
+		</item>
+	</channel>
+</rss>

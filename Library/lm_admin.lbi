@@ -1,0 +1,26 @@
+<?php if ($_SESSION['request_access'] == 0) { ?>
+<table cellspacing="0" cellpadding="0" summary="" border="0">
+	<tr>
+	  <td><img src="/Common/images/spacer.gif" width="200" height="5" border="0"></td>
+    </tr>
+</table>
+<?php } else { ?>
+<table cellspacing="0" cellpadding="0" summary="" border="0">
+  <tr>
+	<td>&nbsp;</td>
+	<td><table cellspacing="0" cellpadding="0" summary="" border="0">
+		<tr>
+		  <td nowrap><a href="../Administration/users.php" class="off"> Users </a></td>
+		  <td width="20" valign="middle" nowrap><div align="center"><img src="/Common/images/dot.gif" width="10" height="10"></div></td>
+		  <td nowrap><a href="../Administration/settings.php" class="off"> Settings </a></td>			  					  
+		  <td width="20" valign="middle" nowrap><div align="center"><img src="/Common/images/dot.gif" width="10" height="10"></div></td>		  
+		  <td nowrap><a href="../Administration/db/index.php" class="off"> Databases </a></td>			  					  
+		  <td width="20" valign="middle" nowrap><div align="center"><img src="/Common/images/dot.gif" width="10" height="10"></div></td>
+		  <td nowrap><a href="../Administration/utilities.php" class="off"> Utilities </a></td>			  			  
+		  <td nowrap>&nbsp;</td>
+		</tr>
+	</table></td>
+	<td>&nbsp;</td>
+  </tr>
+</table>
+<?php } ?>
