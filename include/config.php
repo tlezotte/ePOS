@@ -68,15 +68,15 @@ $default['smtp_port'] = "25";																		//SMTP port
 $default['signatures'] = "/images/Signatures";
 
 /* Request access variables */
-$request_email = "tjackson@Company.com";
-$request_name = "Tawana Jackson";
+$request_email = "name@Company.com";
+$request_name = "First Last";
 
 /* Turn on or off Page Loading */
 //$default['pageloading'] = "off";
 
 /* Google keys */
-$default['google_api'] = "ABQIAAAAgpDFt5t8rxR6NYa7Bd2toBSeTMhUYkYTlR5c06N4CzKSSYOEJxRy3AuheY0YgAoviJbOxqXDltjqMQ";		// Key for www.yourdomain.com
-$default['google_analytics'] = "UA-2838165-4";														// Google Analytics
+$default['google_api'] = "";		// Key for www.yourdomain.com
+$default['google_analytics'] = "UA-XXXXXXX-X";														// Google Analytics
 
 /* URL to track shipments */
 $default['track_shipment'] = "http://www.packagemapping.com/track/tracking.php?action=track&rss=1&tracknum=";
